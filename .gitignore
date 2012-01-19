@@ -19,7 +19,6 @@
 # non-source files
 *.hi
 *.o
-*.pdf
 *.com
 *.class
 *.dll
