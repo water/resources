@@ -1,0 +1,40 @@
+
+ Student:
+1. Register in the system
+2. Log in or log out the system
+3. Change his/her register information
+4. Create the course/given course
+5. Edit the course/given course
+6. Add the labs
+7. Edit the labs
+8. View the labs
+9. Grade the labs
+10. Respond to the labs
+11. Download all submissions
+12. Edit groups
+13. Get email list
+14. Write course report
+- 11 -
+
+
+Course Responsible:
+1. Register in the system
+2. Log in or log out the system
+3. Change his/her register information
+4. View the labs
+5. Grade the labs
+6. Respond to the labs
+7. Download all submissions
+8. Get email list
+9. Write course report
+
+
+
+
+The system administrator:
+1. Functions are the same as course responsible
+2. Add new administrator
+3. Change system password
+4. Add new course responsible
+5. Add new regular teachers
+6. Take away students
