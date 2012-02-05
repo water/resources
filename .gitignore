@@ -68,3 +68,6 @@ dwsync.xml
 ###################
 *.komodoproject
 .komodotools
+
+# Dia
+*.autosave
