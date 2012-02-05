@@ -71,3 +71,6 @@ dwsync.xml
 
 # Dia
 *.autosave
+
+# Custom
+database/*.png
