@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>LADOK Rättningslista</title>
+        <style type="text/css">
+            body, div.content > table{
+                width: 700px;   /* Bredden måste anpassas efter ett A4 utskrivet via PDFexport-mojängen*/
+            }
+            body{
+                margin: auto ;
+                font-family: monospace;
+                font-size: 12px;
+                line-height: 4px;
+            }
+            div.content > table  tr:first-child > td{
+                line-height: 10px;
+            }
+            div.content > table  tr:nth-child(n+2) > td:nth-child(n+3){
+                font-size: 20px;
+            }
+            div.content > table  tr:nth-child(n+2) > td:nth-child(3){
+                font-weight: 800;
+            }
+            div.content > table  tr > td:nth-child(n+2){
+                text-align: center;
+            }
+            div.content > table  tr:nth-child(1) > td{
+                border-left: 2px solid black;
+            }
+            div.content > table  tr:nth-child(n + 2) > td{ /* PDFexport-mojängen hade problem med den här, kanske fixat */
+                border-top: 2px solid black;
+                border-left: 2px solid black;
+            }
+            div.content > table  tr > td:nth-child(1){
+                border-left: none;
+            }
+            div.content{
+                position: absolute;
+                top: 350px;
+            }
+            div.sub-header{
+                position: relative;
+            }
+            div.sub-header:nth-child(2){
+                top: 60px;
+                border-top: 2px solid black;
+            }
+            div.sub-header:nth-child(3){
+                top: 180px;
+            }
+            div.sub-header:nth-child(4){
+                top: 230px;
+            }
+            div.sub-header:nth-child(5){
+                top: 270px;
+            }
+            div.sub-header > div{
+                position: absolute;
+                top: 0;
+            }
+            div.sub-header > div:first-child{
+                left: 0;
+            }
+            div.sub-header:first-child > div:last-child {
+                right: 0;
+            }
+            div.sub-header:nth-child(2) > div:nth-child(2){
+                left: 150px;
+            }
+            div.sub-header:nth-child(2) > div:nth-child(3),  div.sub-header:nth-child(3) > div:nth-child(2), div.sub-header:nth-child(4) > div:nth-child(2){
+                left: 250px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <div class="sub-header">
+                <div>
+                    <p>Chalmers Tekniska Högskola</p>
+                    <p>&lt;INSTITUTIONSNAMN&gt;</p>
+                    <p>&lt;examinator&gt;@water</p>
+                </div>
+                <div>
+                    <p>RS01 Resultat på prov</p>
+                    <p>Rättningsprotokoll: Inläggning, betyg på prov</p>
+                    <p>&lt;Utskriftsdatum&gt;</p>
+                </div>
+            </div >
+            <div class="sub-header">
+                <div>
+                    <p>&lt;KURSKOD&gt;</p>
+                    <p>&lt;MOMENTKOD&gt;</p><!-- Typ av moment, eg 0109-->
+                    <p>List nr</p>
+                    <p>Provdatum</p>
+                </div>
+                <div>
+                    <p>&lt;KURSPOÄNG&gt;</p>
+                    <p>&lt;MOMENTPOÄNG&gt;</p>
+                    <p>&lt;UTSKRIFTSNR&gt;</p><!-- eg 72590-->
+                    <p>&lt;UTSKRIFTSDATUM&gt;</p>
+                </div>
+                <div>
+                    <p>&lt;KURSNAMN&gt;</p>
+                    <p>&lt;MOMENT&gt;</p><!-- eg Projekt -->
+                </div>
+            </div>
+            <div class="sub-header">
+                <div>
+                    <p>Lärare</p>
+                </div>
+                <div>
+                    <p>...............................................</p>
+                </div>
+            </div>
+            <div class="sub-header">
+                <div>
+                    <p>Assisterande lärare</p>
+                </div>
+                <div>
+                    <p>...............................................</p>
+                </div>
+            </div>
+            <div class="sub-header">
+                <div>
+                    <p>Anm: Ej reg anger att giltig registrering saknas i Water</p>
+                    <p>Anm: Flera reg anger att det finns mer än 1 registrering</p>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <table border="0">
+                <tr><!-- Bredden på cellerna bör sättas här så att varje sida ser likadan ut oberoende på hur långa namn folk har -->
+                    <td>&nbsp;</td>
+                    <td>Anm</td>
+                    <td>Betyg</td>
+                    <td>Lab 1</td>
+                    <td>Lab 2</td>
+                    <td>Lab 3</td>
+                    <td>Lab 4</td>
+                    <td>Lab 5</td>
+                    <td>Lab 6</td>
+                    <td>Lab 7</td>
+                    <td>Lab 8</td>
+                    <td>Lab 9</td>
+                </tr>
+
+
+                <tr>
+                    <td><p>890101-1234</p><p>Hult Nisse</p><p>TDATA&nbsp;HT08</p></td>
+                    <td>&nbsp;</td>
+                    <td>G</td>
+                    <td>G</td>
+                    <td>G</td>
+                    <td>G</td>
+                    <td>G</td>
+                    <td>G</td>
+                    <td>G</td>
+                    <td>G</td>
+                    <td>G</td>
+                    <td>G</td>
+                </tr>
+                <tr>
+                    <td><p>590101-1235</p><p>Karlsson Karl</p><p>TDATA&nbsp;HT03</p></td>
+                    <td>Ej Reg</td>
+                    <td>U</td>
+                    <td>U</td>
+                    <td>G</td>
+                    <td>U</td>
+                    <td>G</td>
+                    <td>U</td>
+                    <td>G</td>
+                    <td>U</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+            </table>
+        </div><!-- Sidnummer behövs här nånstans-->
+
+    </body>
+</html>
+
