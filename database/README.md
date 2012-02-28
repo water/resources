@@ -1,1 +1,1 @@
-## Suggestion master![suggestion](http://i.imgur.com/8DVa0.png)
+## Suggestion master![suggestion](http://i.imgur.com/b6Z8A.png)
