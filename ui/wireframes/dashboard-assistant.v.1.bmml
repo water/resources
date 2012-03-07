@@ -28,6 +28,7 @@
         <override controlID="1" x="63" y="15" w="524" h="25">
           <text>You%20have%20been%20registered%20as%20a%20assistant%20to%20Epic%20programming%20-%20DAT137</text>
         </override>
+        <override controlID="-1"/>
         <src>./assets/symbols.bmml#new_course_notification</src>
       </controlProperties>
     </control>
@@ -40,6 +41,11 @@
       <controlProperties>
         <borderStyle>square</borderStyle>
         <text>Laboration%202%2C%20%23%20Submitted%2C%20Not%20reviewed%2C%20Deadline%0ASubmission%201%2C%204/70%2C%203%2C%202012-03-14%0ASubmission%202%2C%200/70%2C%200%2C%202012-03-21%0ASubmission%203%2C%200/70%2C%200%2C%202012-03-28</text>
+      </controlProperties>
+    </control>
+    <control controlID="56" controlTypeID="com.balsamiq.mockups::Label" x="1166" y="25" w="-1" h="-1" measuredW="76" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Current%20role</text>
       </controlProperties>
     </control>
   </controls>

@@ -16,25 +16,19 @@
             <control controlID="1" controlTypeID="__group__" x="0" y="0" w="1144" h="70" measuredW="1144" measuredH="70" zOrder="1" locked="false" isInGroup="9">
               <groupChildrenDescriptors>
                 <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="0" y="0" w="1144" h="70" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="1"/>
-                <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="603" y="24" w="-1" h="-1" measuredW="136" measuredH="22" zOrder="1" locked="false" isInGroup="1">
-                  <controlProperties>
-                    <size>14</size>
-                    <text>Currently%20logged%20in%20as</text>
-                  </controlProperties>
-                </control>
-                <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="138" y="23" w="-1" h="-1" measuredW="158" measuredH="24" zOrder="2" locked="false" isInGroup="1">
+                <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="138" y="23" w="-1" h="-1" measuredW="156" measuredH="24" zOrder="1" locked="false" isInGroup="1">
                   <controlProperties>
                     <size>16</size>
                     <text>water%20%20%20%20%20%7C%20%20%20%20%20Courses</text>
                   </controlProperties>
                 </control>
-                <control controlID="3" controlTypeID="com.balsamiq.mockups::Label" x="942" y="24" w="-1" h="-1" measuredW="61" measuredH="24" zOrder="3" locked="false" isInGroup="1">
+                <control controlID="3" controlTypeID="com.balsamiq.mockups::Label" x="942" y="24" w="-1" h="-1" measuredW="58" measuredH="24" zOrder="2" locked="false" isInGroup="1">
                   <controlProperties>
                     <size>16</size>
                     <text>Options</text>
                   </controlProperties>
                 </control>
-                <control controlID="4" controlTypeID="com.balsamiq.mockups::Icon" x="906" y="23" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="4" locked="false" isInGroup="1">
+                <control controlID="4" controlTypeID="com.balsamiq.mockups::Icon" x="906" y="23" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="3" locked="false" isInGroup="1">
                   <controlProperties>
                     <icon>DownFillTriangleIcon%7Csmall</icon>
                   </controlProperties>
@@ -78,7 +72,7 @@
             </control>
           </groupChildrenDescriptors>
         </control>
-        <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="35" y="41" w="694" h="36" measuredW="579" measuredH="22" zOrder="1" locked="false" isInGroup="2">
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="35" y="41" w="694" h="36" measuredW="561" measuredH="22" zOrder="1" locked="false" isInGroup="2">
           <controlProperties>
             <align>left</align>
             <size>14</size>
@@ -100,7 +94,7 @@
         <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="0" y="0" w="558" h="55" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="3">
           <controlProperties/>
         </control>
-        <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="63" y="18" w="434" h="19" measuredW="454" measuredH="24" zOrder="1" locked="false" isInGroup="3">
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="63" y="18" w="434" h="19" measuredW="440" measuredH="24" zOrder="1" locked="false" isInGroup="3">
           <controlProperties>
             <size>16</size>
             <text>You%20have%20one%20new%20registered%20course%21%20Please%20join%20a%20lab%20group.%20</text>
