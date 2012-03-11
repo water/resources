@@ -6,6 +6,7 @@
         <style type="text/css">
             body, div.content > table{
                 width: 700px;   /* Bredden måste anpassas efter ett A4 utskrivet via PDFexport-mojängen*/
+                border-collapse: collapse;
             }
             body{
                 margin: auto ;
@@ -25,12 +26,12 @@
             div.content > table  tr > td:nth-child(n+2){
                 text-align: center;
             }
-            div.content > table  tr:nth-child(1) > td{
-                border-left: 2px solid black;
+            div.content > table  tr > td{
+                border-left: 1px solid black;
+                border-bottom: 1px solid black;
             }
-            div.content > table  tr:nth-child(n + 2) > td{ /* PDFexport-mojängen hade problem med den här, kanske fixat */
-                border-top: 2px solid black;
-                border-left: 2px solid black;
+            div.content > table  tr:last-child > td{
+                border-bottom: none;
             }
             div.content > table  tr > td:nth-child(1){
                 border-left: none;
@@ -44,7 +45,7 @@
             }
             div.sub-header:nth-child(2){
                 top: 60px;
-                border-top: 2px solid black;
+                border-top: 1px solid black;
             }
             div.sub-header:nth-child(3){
                 top: 180px;

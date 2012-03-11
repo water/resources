@@ -1,1 +1,1 @@
-## Suggestion master![suggestion](http://i.imgur.com/8DVa0.png)
+## Suggestion master![suggestion](https://github.com/water/resources/raw/master/database/Water.png)
