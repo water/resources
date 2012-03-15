@@ -1,0 +1,71 @@
+<mockup version="1.0" skin="sketch" measuredW="1144" measuredH="595" mockupW="1144" mockupH="595">
+  <controls>
+    <control controlID="59" controlTypeID="com.balsamiq.mockups::ComboBox" x="651" y="24" w="-1" h="-1" measuredW="162" measuredH="23" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Lars-J%F6rgen%20Svensson</text>
+      </controlProperties>
+    </control>
+    <control controlID="60" controlTypeID="com.balsamiq.mockups::Canvas" x="121" y="70" w="903" h="525" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="-1"/>
+    <control controlID="61" controlTypeID="com.balsamiq.mockups::Canvas" x="0" y="0" w="1144" h="70" measuredW="100" measuredH="70" zOrder="3" locked="false" isInGroup="-1"/>
+    <control controlID="62" controlTypeID="com.balsamiq.mockups::Label" x="138" y="23" w="-1" h="-1" measuredW="156" measuredH="24" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>16</size>
+        <text>water%20%20%20%20%20%7C%20%20%20%20%20Courses</text>
+      </controlProperties>
+    </control>
+    <control controlID="63" controlTypeID="com.balsamiq.mockups::Label" x="942" y="24" w="-1" h="-1" measuredW="58" measuredH="24" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>16</size>
+        <text>Options</text>
+      </controlProperties>
+    </control>
+    <control controlID="64" controlTypeID="com.balsamiq.mockups::Icon" x="906" y="23" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>DownFillTriangleIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="72" controlTypeID="com.balsamiq.mockups::Label" x="237" y="172" w="669" h="40" measuredW="859" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>You%20have%20been%20registered%20to%20On%F6diga%20l%E4ra%20B.To%20participate%20in%20the%20laborations%20for%20this%20course%20you%20need%20to%20create%20a%20group%20or%20join%20an%20already%20existing%20one.</text>
+      </controlProperties>
+    </control>
+    <control controlID="73" controlTypeID="com.balsamiq.mockups::Label" x="238" y="123" w="-1" h="-1" measuredW="300" measuredH="33" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>24</size>
+        <text>Welcome%20to%20On%F6diga%20l%E4ra%20B</text>
+      </controlProperties>
+    </control>
+    <control controlID="74" controlTypeID="com.balsamiq.mockups::IconLabel" x="342" y="287" w="-1" h="-1" measuredW="140" measuredH="69" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>AsteriskIcon%7Clarge</icon>
+        <text>Create%20a%20new%20lab%20group</text>
+      </controlProperties>
+    </control>
+    <control controlID="75" controlTypeID="com.balsamiq.mockups::IconLabel" x="659" y="287" w="-1" h="-1" measuredW="147" measuredH="69" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>ContactsIcon%7Clarge</icon>
+        <text>Join%20an%20existing%20lab%20group</text>
+      </controlProperties>
+    </control>
+    <control controlID="76" controlTypeID="com.balsamiq.mockups::TextInput" x="726" y="368" w="147" h="-1" measuredW="79" measuredH="27" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="77" controlTypeID="com.balsamiq.mockups::Label" x="631" y="362" w="80" h="39" measuredW="133" measuredH="21" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>right</align>
+        <text>Enter%20your%20group%20code</text>
+      </controlProperties>
+    </control>
+    <control controlID="78" controlTypeID="com.balsamiq.mockups::Canvas" x="572" y="235" w="325" h="234" measuredW="100" measuredH="70" zOrder="9" locked="false" isInGroup="-1"/>
+    <control controlID="79" controlTypeID="com.balsamiq.mockups::Canvas" x="245" y="233" w="327" h="238" measuredW="100" measuredH="70" zOrder="2" locked="false" isInGroup="-1"/>
+    <control controlID="80" controlTypeID="com.balsamiq.mockups::Label" x="287" y="362" w="251" h="55" measuredW="601" measuredH="21" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <text>When%20created%20you%20will%20be%20able%20to%20share%20your%20group%20code%20with%20the%20classmates%20you%20want%20to%20collaborate%20with.</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

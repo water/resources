@@ -1,0 +1,115 @@
+<mockup version="1.0" skin="sketch" measuredW="1144" measuredH="525" mockupW="1144" mockupH="525">
+  <controls>
+    <control controlID="59" controlTypeID="com.balsamiq.mockups::ComboBox" x="651" y="24" w="-1" h="-1" measuredW="162" measuredH="23" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Lars-J%F6rgen%20Svensson</text>
+      </controlProperties>
+    </control>
+    <control controlID="60" controlTypeID="com.balsamiq.mockups::Canvas" x="124" y="0" w="903" h="525" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="-1"/>
+    <control controlID="61" controlTypeID="com.balsamiq.mockups::Canvas" x="0" y="0" w="1144" h="70" measuredW="100" measuredH="70" zOrder="3" locked="false" isInGroup="-1"/>
+    <control controlID="62" controlTypeID="com.balsamiq.mockups::Label" x="138" y="23" w="-1" h="-1" measuredW="156" measuredH="24" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>16</size>
+        <text>water%20%20%20%20%20%7C%20%20%20%20%20Courses</text>
+      </controlProperties>
+    </control>
+    <control controlID="63" controlTypeID="com.balsamiq.mockups::Label" x="942" y="24" w="-1" h="-1" measuredW="58" measuredH="24" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>16</size>
+        <text>Options</text>
+      </controlProperties>
+    </control>
+    <control controlID="64" controlTypeID="com.balsamiq.mockups::Icon" x="906" y="23" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>DownFillTriangleIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="72" controlTypeID="com.balsamiq.mockups::Label" x="231" y="156" w="689" h="40" measuredW="688" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Welcome%20to%20lab%20group%207%21%20Invite%20your%20lab%20partners%20to%20join%20you%20by%20inviting%20them%20by%20email%20or%20by%20sharing%20them%20your%20group%20code.</text>
+      </controlProperties>
+    </control>
+    <control controlID="73" controlTypeID="com.balsamiq.mockups::Label" x="231" y="111" w="-1" h="-1" measuredW="300" measuredH="33" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>24</size>
+        <text>Welcome%20to%20On%F6diga%20l%E4ra%20B</text>
+      </controlProperties>
+    </control>
+    <control controlID="74" controlTypeID="com.balsamiq.mockups::IconLabel" x="320" y="265" w="-1" h="-1" measuredW="177" measuredH="69" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>SpinningIcon%7Clarge</icon>
+        <text>You%20have%20created%20lab%20group%207</text>
+      </controlProperties>
+    </control>
+    <control controlID="76" controlTypeID="com.balsamiq.mockups::TextInput" x="408" y="354" w="82" h="-1" measuredW="70" measuredH="27" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20XE154C%21</text>
+      </controlProperties>
+    </control>
+    <control controlID="77" controlTypeID="com.balsamiq.mockups::Label" x="320" y="356" w="80" h="23" measuredW="73" measuredH="21" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>right</align>
+        <text>Group%20code</text>
+      </controlProperties>
+    </control>
+    <control controlID="78" controlTypeID="com.balsamiq.mockups::Canvas" x="579" y="221" w="325" h="234" measuredW="100" measuredH="70" zOrder="9" locked="false" isInGroup="-1"/>
+    <control controlID="79" controlTypeID="com.balsamiq.mockups::Canvas" x="245" y="219" w="327" h="238" measuredW="100" measuredH="70" zOrder="2" locked="false" isInGroup="-1"/>
+    <control controlID="81" controlTypeID="com.balsamiq.mockups::Label" x="278" y="389" w="260" h="53" measuredW="506" measuredH="21" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <text>Share%20this%20code%20with%20your%20lab%20partners%2C%20or%20invite%20them%20by%20sending%20them%20an%20email%20invitation.</text>
+      </controlProperties>
+    </control>
+    <control controlID="83" controlTypeID="com.balsamiq.mockups::TextInput" x="621" y="281" w="239" h="-1" measuredW="139" measuredH="23" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.25</backgroundAlpha>
+        <italic>true</italic>
+        <size>10</size>
+        <text>Enter%20friend%27s%20email%20address</text>
+      </controlProperties>
+    </control>
+    <control controlID="84" controlTypeID="com.balsamiq.mockups::TextInput" x="621" y="315" w="238" h="-1" measuredW="139" measuredH="23" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.25</backgroundAlpha>
+        <italic>true</italic>
+        <size>10</size>
+        <text>Enter%20friend%27s%20email%20address</text>
+      </controlProperties>
+    </control>
+    <control controlID="85" controlTypeID="com.balsamiq.mockups::TextInput" x="621" y="348" w="240" h="-1" measuredW="139" measuredH="23" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.25</backgroundAlpha>
+        <italic>true</italic>
+        <size>10</size>
+        <text>Enter%20friend%27s%20email%20address</text>
+      </controlProperties>
+    </control>
+    <control controlID="86" controlTypeID="com.balsamiq.mockups::TextInput" x="621" y="381" w="240" h="-1" measuredW="139" measuredH="23" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.25</backgroundAlpha>
+        <italic>true</italic>
+        <size>10</size>
+        <text>Enter%20friend%27s%20email%20address</text>
+      </controlProperties>
+    </control>
+    <control controlID="87" controlTypeID="com.balsamiq.mockups::Button" x="804" y="415" w="-1" h="-1" measuredW="56" measuredH="27" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <menuIcon>false</menuIcon>
+        <state>disabled</state>
+        <text>Invite</text>
+      </controlProperties>
+    </control>
+    <control controlID="88" controlTypeID="com.balsamiq.mockups::Title" x="635" y="247" w="-1" h="-1" measuredW="249" measuredH="22" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>14</size>
+        <text>Invite%20your%20lab%20partner%20to%20join%20your%20group</text>
+      </controlProperties>
+    </control>
+    <control controlID="89" controlTypeID="com.balsamiq.mockups::Icon" x="603" y="242" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>ContactsIcon%7Cmedium</icon>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
