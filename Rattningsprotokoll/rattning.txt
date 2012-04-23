@@ -1,0 +1,8 @@
+1. Handledaren/examinatorn ser en lista på labbar som ska rättas.
+
+2. Väljer en labb, och ser innehållet i commiten som är flaggad som en inlämning.
+
+3. Ser en URL för att kunna clona ner commiten mha GIT, och även en nedladdning-länk för att kunna ladda hem
+   committen som en tarball/zip. Rättaren kan också titta på filerna online, och skriva kommentarer mha ett formulär. 
+
+4. Labben är rättad, och eleverna kan se rättarens kommentarer på en textruta på online-interfacet, och även genom mail. 
