@@ -1,0 +1,65 @@
+<mockup version="1.0" skin="sketch" measuredW="2017" measuredH="423" mockupW="1767" mockupH="410">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="250" y="13" w="859" h="70" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="-1"/>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::LinkBar" x="277" y="38" w="-1" h="-1" measuredW="224" measuredH="23" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Water%2C%20Labs%2C%20Stuff%2C%20Dragons</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::FieldSet" x="316" y="114" w="714" h="264" measuredW="200" measuredH="170" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Kurs%20Apa</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::DataGrid" x="357" y="146" w="632" h="145" measuredW="370" measuredH="116" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>-1</selectedIndex>
+        <text>Lab%2C%20Submissions%2C%20Download%20all%2C%20Next%20deadline%0A1%2C%20%5B15%20submissions%5D%2C%5BDownload%20all%5D%2C%20Tomorrow%20at%2014%3A49%0A2%2C%20%5B4%20submissions%5D%2C%20%5BDownload%20all%5D%2C%202012-05-05%0A3%2C%20No%20submissions%2C%20%2C%202012-05-30</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Button" x="553" y="169" w="-1" h="-1" measuredW="32" measuredH="28" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>V</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Button" x="553" y="201" w="-1" h="-1" measuredW="32" measuredH="28" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>V</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Canvas" x="1158" y="13" w="859" h="70" measuredW="100" measuredH="70" zOrder="6" locked="false" isInGroup="-1"/>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::LinkBar" x="1185" y="38" w="-1" h="-1" measuredW="224" measuredH="23" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Water%2C%20Labs%2C%20Stuff%2C%20Dragons</text>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::FieldSet" x="1224" y="114" w="714" h="309" measuredW="200" measuredH="170" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Kurs%20Apa</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::DataGrid" x="1265" y="146" w="632" h="251" measuredW="370" measuredH="236" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>-1</selectedIndex>
+        <text>Lab%2C%20Submissions%2C%20Download%20all%2C%20Next%20deadline%0A1%2C%20%5B15%20submissions%5D%2C%5BDownload%20all%5D%2C%20Tomorrow%20at%2014%3A49%0A%20%2C%5BGroup%201%5D%2C%20%2C%20%0A%20%2C%5BGroup%202%5D%2C%20%2C%20%0A%20%2C%5BGroup%203%5D%2C%20%2C%20%0A%20%2C%5BGroup%204%5D%2C%20%2C%20%0A2%2C%20%5B4%20submissions%5D%2C%20%5BDownload%20all%5D%2C%202012-05-05%0A3%2C%20No%20submissions%2C%20%2C%202012-05-30</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Button" x="1461" y="169" w="-1" h="-1" measuredW="32" measuredH="28" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>V</text>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::Button" x="1461" y="320" w="-1" h="-1" measuredW="32" measuredH="28" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>V</text>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::Arrow" x="585" y="183" w="680" h="61" measuredW="150" measuredH="100" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>1</backgroundAlpha>
+        <curvature>1</curvature>
+        <text>Click%21</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
