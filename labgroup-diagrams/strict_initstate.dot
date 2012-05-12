@@ -1,0 +1,10 @@
+graph G {
+  SG1 -- S1
+  SG1 -- R1 [constraint=false]
+  SG2 -- S2
+  SG2 -- R2 [constraint=false]
+  SG3 -- S3
+  SG3 -- R3 [constraint=false]
+}
+
+
