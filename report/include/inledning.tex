@@ -1,0 +1,131 @@
+\chapter{Introduction}
+
+\section{Bakgrund}
+
+\subsection{Inlämningsuppgiftens roll i datavetenskapliga utbildningar}
+
+Inom datavetenskapliga utbildningar är inlämningsuppgifter, ibland kallade
+laborationer, ett vanligt pedagogiskt verktyg. I regel ställs studenterna inför
+någon form av problem som de ska lösa genom att programmera. Genom
+laborationerna får studenterna möjlighet att applicera koncept som tagits upp
+under föreläsningar och de kan ställas inför praktiska problem som inte berörs
+av undervisningen i övrigt. Av gruppens erfarenhet är inlämningsuppgifter ett av
+de viktigaste verktygen för internalisering av kunskap.
+
+Antalet studenter på datavetenskapliga kurser kan vara stort vilket gör att den
+givande institutionen ställs inför ett praktiskt problem – hur hanterar man
+inlämning och rättning av en stor mängd inlämningsuppgifter på ett effektivt
+sätt?
+Svaret är ett specialiserat system.
+
+\subsection{Nuvarande system vid CTH}
+
+På Chalmers tekniska högskola används ofta Fire, ett webbaserat system som
+endast hanterar inlämning samt rättning av inlämningsuppgifter.
+Studenten skapar en användare och ansluter sig sedan till en grupp i Fires
+webbgränssnitt. Därefter väljer studenten en laboration att ladda upp filer
+till. När samtliga filer är uppladdade kan studenten välja att lämna in sina
+filer. 
+
+Handledarna som rättar uppgifterna erbjuds ett gränssnitt för rättning.
+Administratören kan skapa kurser och delegera rättigheter, som att förändra
+deadlines, till handledare. Systemet erbjuder dessutom smidig hantering av
+kurser med studenter från olika universitet
+
+Fire uppfyller grundförutsättningarna för ett fungerande system och har många
+uppskattade egenskaper.
+Däremot finns det ett antal områden med utrymme för förbättring. Bland annat
+startar Fire en separat webbserverinstans för varje kurs. Detta leder till
+vattentäta skott mellan kurser. Studenter är tvungna att registrera sig på nytt
+för varje ny kurs och länken till webbgränssnittet är olika för varje kurs.
+Tidigare har antalet webbserverinstanser dessutom begränsats till 64. I nuläget
+har har denna artificiella gräns höjts, men i längden är det inte praktiskt att
+skapa en serverinstans per kurs.
+
+I Fire utnyttjas inte möjligheten att erbjuda mervärde till användarna.
+Kommunikationen mellan handledare och studenter är rudimentär – handledarens
+svar laddas upp som en textfil och studenterna kan bara svara med en ny
+inlämning. Projektarbeten hämmas av att inlämning av större mängder filer eller
+mappstrukturer endast är möjligt med tar-gz-arkiv.
+
+Orsaken till att många problem kvarstår är att personen som utvecklade Fire inte
+längre har möjlighet att underhålla systemet, och det finns inte heller någon
+dokumentation på varken databasen eller applikationen. Det senare gör det
+väldigt svårt att vidareutveckla Fire.
+Det finns med andra ord mycket som talar för en helt ny lösning för inlämning
+och hantering av laborationer.
+
+\subsection{Versionshantering}
+
+Versionshantering är ett oumbärligt verktyg för programmerare. Grenar gör det
+lätt att utveckla nya funktioner utan att förstöra nuvarande kodbas.
+Versionshantering förenklar även arbetet i grupp genom att  stödja
+sammanslagning - merge - av olika grenar. Backup och historik förflyttas från
+filnivå till funktionsnivå genom att man gör regelbundna commits. Dessa upptar
+dessutom nästan ingen plats eftersom systemen i regel inte sparar hela
+projektets tillstånd i en commit, utan bara skillnaden till föregående commit –
+så kallad $\Delta$-data.
+
+I en commit förväntas programmeraren bifoga ett meddelande som beskriver
+ändringarna som har gjorts. Detta uppmanar fram en form av loggskrivande under
+utvecklingsprocessen.
+
+Versionshantering underlättar även vid bugghantering, eftersom flera kända
+buggfria tillstånd ofta finns att hitta i historiken.
+
+\subsection{Mervärde}
+Genom utformning av ett system för hantering av inlämning kan universitetet
+påverka studenternas arbetsflöden. Om versionshantering inkorporeras i dessa
+arbetsflöden kan man uppmuntra till mer strukturerade arbetsätt och mer
+effektivt samarbete.
+Med detta i åtanke ska ett nytt system utformas inom projektets ramar.
+\subsection{Syfte}
+Huvudsyftet med projektet är att konstruera ett system med webbgränssnitt och
+backend som hanterar inlämning och rättning av inlämningsuppgifter. Systemet ska
+vara baserat på versionshantering.
+
+\subsection{Centrala problemområden och frågeställningar}
+Systemet ska utformas för att uppmuntra studenten att använda sig av metoder som
+används ute i arbetslivet, så som versionshantering och parallellt arbete på
+samma kodbas. Inlämning ska kunna ske direkt från ett system för
+versionshantering. För att fånga upp alla typer av användare ska inlämning även
+kunna ske via andra kanaler, till exempel via webbgränssnittet.
+
+Webbgränssnittet ska presentera filerna och mappstrukturen i en inlämning så att
+det går att få en överblick utan att ladda ner filerna.
+Ett delsyfte är att utforma systemet så att det ger alla kategorier av användare
+en bättre användarupplevelse än tidigare system i kategorin, och då i synnerhet
+i jämförelse med Fire.
+
+Studenter ska ges möjlighet till tät kommunikation med handledaren samt ett
+tydligt gränssnitt som minskar de orosmoment som kan uppstå i samband med
+hantering av inlämningsuppgifterna.
+
+Inom projektets ramar ska möjligheterna till anonym rättning undersökas.
+
+Kursansvariga ska ges möjlighet att flexibelt definiera uppgifter inom en kurs
+samt dess villkor. 
+Inom projektets ramar ska även olika möjligheter till plagiatkontroll utforskas.
+
+Systemet ska erbjuda handledare eller examinator möjlighet att definiera
+tekniska och formella specifikationer för en inlämning som kan kontrolleras
+automatiskt. Om specifikation inte uppfylls kan systemet meddela studenten och
+be om en ny inlämning innan filerna går vidare till rättning. Inom projektets
+ramar ska möjligheten till avancerade automatiserade tester undersökas.
+
+Projektet ska undersöka möjligheterna att effektivisera inrapportering av
+resultat till LADOK och eventuella behov utav inblick i rättningsprocessen Vi
+vill också kunna erbjuda examinatorer tillgång till kraftfull statistik.
+
+Systemet ska för framtida bruk vara enkelt att underhålla och vidareutveckla.
+
+\subsection{Disposition}
+
+Rapporten följer gängse struktur: bakgrund, syfte, problemanalys, metod och
+design, diskussion och slutsats. För att hjälpa läsaren följa med i de många
+beslutsprocesserna – beslut som dessutom i många fall beror på varandra – så har
+vi valt att lägga in korta beslutsavsnitt efter vissa  problembeskrivningar och
+analyser, enligt behov. I avsnitten beskrivs besluten och deras motivering kort.
+För utförligare information om beslut hänvisar författarna till metod- och
+designavsnitten.
+
