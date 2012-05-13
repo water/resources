@@ -1,0 +1,51 @@
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{ae}
+\usepackage{icomma}
+\usepackage{units}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{subfigure}
+\usepackage{bbm}
+\usepackage{caption}
+\usepackage[square, numbers, sort]{natbib}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{fncychap}
+\usepackage[hyphens]{url}
+\usepackage[breaklinks,pdfpagelabels=false]{hyperref}
+\usepackage{lettrine}
+\usepackage{eso-pic}
+
+\newcommand{\rd}{\ensuremath{\mathrm{d}}}
+\newcommand{\id}{\ensuremath{\,\rd}}
+\newcommand{\degC}{\ensuremath{\,\unit{^\circ C}}}
+
+% Fancyheader shortcuts
+\newcommand{\setdefaulthdr}{%
+\fancyhead[L]{\slshape \rightmark}%
+\fancyhead[R]{\slshape \leftmark}%
+\fancyfoot[C]{\thepage}%
+}
+\newcommand{\setspecialhdr}{%
+\fancyhead[L]{ }%
+\fancyhead[R]{\slshape \leftmark}%
+\fancyfoot[C]{\thepage}%
+}
+
+\newcommand{\mail}[1]{\href{mailto:#1}{\nolinkurl{#1}}}
+\newcommand{\backgroundpic}[3]{%
+	\put(#1,#2){
+		\parbox[b][\paperheight]{\paperwidth}{%
+			\centering
+			\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{#3}
+			\vfill
+}}}
+
+
+

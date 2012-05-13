@@ -1,0 +1,60 @@
+%%%%%
+%%
+%% Chalmers University of Technology Master's Thesis Template
+%%
+%% Jonas Einarsson (2010)
+%% Adapted from work by Joel Goop
+%%
+%% Uses references.bib as Bibtex source
+%% Uses elsevier numerical style .bst (change in settings.tex)
+%%
+%% DON'T FORGET: Change PDF metadata in settings.tex !!
+%%
+%%%%%
+\documentclass[11pt,a4paper]{report}
+
+% Packages and commands file
+\input{include/packagescommands}
+
+% Settings (Metadata)
+\input{include/settings}
+
+\begin{document}
+
+% Title page and abstract
+\input{include/titlepageabstract}
+
+% Table of contents
+\newpage
+\pagenumbering{roman}
+\setcounter{page}{1}
+\pagestyle{fancy}
+\setspecialhdr
+\tableofcontents
+
+% Main area
+\newpage
+\setdefaulthdr
+\pagenumbering{arabic}	
+\setcounter{page}{1}
+
+% Content
+\input{include/introduction}
+
+\newpage
+\clearpage
+
+% Nocite references
+\nocite{Brody1996}
+
+\bibliography{references} % references.bib
+\addcontentsline{toc}{chapter}{\numberline{} Bibliography} % For pdf
+\setspecialhdr
+
+\newpage
+
+% Appendices
+\appendix
+\setdefaulthdr
+%\input{include/appendix1}
+\end{document}
