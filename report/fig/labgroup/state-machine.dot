@@ -1,0 +1,21 @@
+digraph G {
+  accepted [shape=doublecircle]
+  node [shape=circle]
+  reviewing
+  pending
+  rejected
+  initialized
+  
+  initialized -> pending
+  rejected -> pending
+  
+  reviewing -> accepted
+
+  reviewing -> rejected
+
+  pending -> reviewing
+}
+
+
+
+
