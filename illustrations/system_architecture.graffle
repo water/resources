@@ -433,7 +433,7 @@ dess riktning}</string>
 				<integer>23</integer>
 			</dict>
 			<key>ID</key>
-			<integer>26</integer>
+			<integer>45</integer>
 			<key>Points</key>
 			<array>
 				<string>{137.96335, 283.5}</string>
@@ -445,37 +445,6 @@ dess riktning}</string>
 				<dict>
 					<key>HeadArrow</key>
 					<string>FilledArrow</string>
-					<key>TailArrow</key>
-					<string>FilledArrow</string>
-				</dict>
-			</dict>
-			<key>Tail</key>
-			<dict>
-				<key>ID</key>
-				<integer>22</integer>
-			</dict>
-		</dict>
-		<dict>
-			<key>Class</key>
-			<string>LineGraphic</string>
-			<key>Head</key>
-			<dict>
-				<key>ID</key>
-				<integer>3</integer>
-			</dict>
-			<key>ID</key>
-			<integer>25</integer>
-			<key>Points</key>
-			<array>
-				<string>{175.52997, 283.30756}</string>
-				<string>{242.70731, 335.71588}</string>
-			</array>
-			<key>Style</key>
-			<dict>
-				<key>stroke</key>
-				<dict>
-					<key>HeadArrow</key>
-					<string>0</string>
 					<key>TailArrow</key>
 					<string>FilledArrow</string>
 				</dict>
@@ -756,7 +725,7 @@ dess riktning}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2012-05-13 15:25:33 +0000</string>
+	<string>2012-05-13 16:38:24 +0000</string>
 	<key>Modifier</key>
 	<string>Linus Oleander</string>
 	<key>NotesVisible</key>
