@@ -64,7 +64,8 @@ För att möjliggöra mer avancerad interaktion används små Javascriptapplikat
 
 Rendering och navigation av filträd sköts av applikationen TreeViewer. TreeViewer består av ett antal modeller och vyer samt en router som reagerar på förändringar i sökväg. 
 
-{\bf Routern} tolkar hash fragments - den del av sökvägen som följer efter ett \#-tecken - och utlöser lämpliga events utan att hela sidan behöver laddas om.
+{\bf Routern} tolkar \emph{hash fragments} - den del av sökvägen som följer efter ett \#-tecken - och utlöser lämpliga events utan att hela sidan behöver laddas om.
+
 
 {\bf TreeFetcher}-modellen gör anrop till webbservern för att hämta fragment av HTML-sidor som representerar sökvägen eller en nod i ett träd och enkapsulerar sedan denna information. För att utföra sina anrop förväntar sig TreeFetcher ett argument som visar vilken sorts nod sökvägen pekar på. Med denna information kan TreeFetcher utföra ansynkrona anrop till lämpliga sökvägar på webbservern för att hämta den renderade resursen.
 
