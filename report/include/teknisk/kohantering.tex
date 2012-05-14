@@ -7,7 +7,7 @@ Water är en komplex applikation med flera processer som kan bli långdragna ell
 \subsubsection{Webbservern}
 
 Ett anrop (HTTP-request) mellan servern och klienten bör inte ta längre tid än 400 ms, allt där över kan stalla webbservern vilket kan leda till att andra webbförfrågningar får vänta. En stallad server kan få webbtjänsten att kännas långsam, vilket kan uppfattas negativt av användaren.
-En lösning på problemet är att göra ett HTTP-anrop som initierar ett asynkront jobb för de tyngre operationerna. Jobbet läggs på kö i stället för att behandlas på plats för att sedan bearbetas av en extern instans som lite längre fram i tiden. När processen är klar så svaras klienten med data, till exempel via Websocket-protokollet (SE BILD X FÖR EXAKT FLÖDE)
+En lösning på problemet är att göra ett HTTP-anrop som initierar ett asynkront jobb för de tyngre operationerna. Jobbet läggs på kö i stället för att behandlas på plats för att sedan bearbetas av en extern instans som lite längre fram i tiden. När processen är klar så svarar klienten med data, till exempel via Websocket-protokollet.
 
 \subsubsection{Tunga, blockerande processer}
 
@@ -27,9 +27,18 @@ De två köhanterarna som analyserats för Waters bruk är:
 
 \subsection{Resque}
 
-Resque är en köhanterare som bygger på key value-databasen Redis. Plattformen är byggd av Github Inc. i språket Ruby och har en medföljande inställningspanel. Administrationspanelen gör det möjligt att starta om fallerade jobb, se statistik och hantera prioriteringar. Redis är ett etablerat verktyg som används av ett flertal stora aktörer (Redis, "Who's using Redis?"), bland annat den sociala utvecklingsplatformen Github.
+Resque är en köhanterare som bygger på key value-databasen Redis. Plattformen
+är byggd av Github Inc. i språket Ruby och har en medföljande
+inställningspanel. Administrationspanelen gör det möjligt att starta om
+fallerade jobb, se statistik och hantera prioriteringar. Redis är ett etablerat
+verktyg som används av ett flertal stora aktörer (Redis, \textquotedblleft Who's using
+Redis? \textquotedblright), bland annat den sociala utvecklingsplatformen Github.
 
-Ett problem med Resque är dock att den använder polling för att hämta data från Redis. Polling-problematiken gör att informationen som hämtas av en \emph{worker} vid en given tidpunk kan vara utdaterad. Då Resque är byggd i Ruby är bryggan mellan mjukvaran och Water väldigt liten. Implementeringen sker enkelt med hjälp av en rad kod:
+Ett problem med Resque är dock att den använder polling för att hämta data från
+Redis. Polling-problematiken gör att informationen som hämtas av en \emph{worker} vid
+en given tidpunk kan vara utdaterad. Då Resque är byggd i Ruby är bryggan
+mellan mjukvaran och Water väldigt liten. Implementeringen sker enkelt med
+hjälp av en rad kod:
 
 \begin{verbatim}
   mount Resque::Server, :at => "/resque"

@@ -1,0 +1,75 @@
+\section{Resultat}
+Resultatet av projektet är en mogen backend med ett vältestat modell-lager. Se kodtäckningsbilaga för mer information. Alla subsystem har implementerats, men med varierande grader av fullständighet.
+
+Inlämning via Git är delvis funktionellt. Inlämning via webbgränssittet är i stort sett klart.
+
+Webbgränssnittet för studenter är i stort sett klart. För handledare finns många viktiga funktioner implementerade.
+
+Kommentarer har blivit implementerade för inlämningar.
+
+Examinatorns och systemadministratörens gränssnitt har inte implementerats än.
+
+\subsection{Implementerad funktionalitet}
+Här presenteras funktionalitet som är implementerad när rapporten skrivs.
+\subsubsection{Funktioner}
+\begin{itemize}
+	\item Webbgränssnitt
+	\begin{itemize}
+		\item Dashboard – visar viktig information om kurser, laborationer och inlämningar, implementerade för:
+		\begin{itemize}
+			\item Studenter
+			\item Handledare
+		\end{itemize}
+		\item Bläddra i filsystem
+		\item Rendering av källkod.
+		\item Inlämningar
+		\begin{itemize}
+			\item Ladda upp en eller flera filer på samma gång
+			\item Radera filer och mappar
+			\item Skapa mappar
+			\item Göra en inlämning, uppdatera en inlämning om rättningsprocessen inte har inleds
+		\end{itemize}
+		\item Grupphantering
+		\begin{itemize}
+			\item Skapa grupp i kurs
+            \item Knyta grupp till laboration
+            \item Knyta student till grupp med hjälp av inbjudningskod
+		\end{itemize}
+		\item Rättning
+		\begin{itemize}
+			\item Översikt över alla kurser med inlämningar som har kopplats till handledaren
+            \item Lägga till handledares anteckning till Submission
+            \item Lägga till inledande kommentar till Submission
+            \item Godkänna eller underkänna en Submission
+            \item Student och Assistent kan lägga till ytterligare kommentarer på en Submission
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Subsystem}
+
+\begin{itemize}
+  \item PostgreSQL-databas
+  \item Ruby on Rails-applikation
+  \item Faye – WebSocket-server
+  \item Javascriptapplikationer
+  \item Köhanterare med workers
+  \item Grack – SmartHTTP-server
+\end{itemize}
+
+Planerad funktionalitet som inte implementerades
+
+\begin{itemize}
+  \item Validering av inlämningsuppgifter
+  \item Noggrannare hantering av deadlines och hur de relaterar till inlämningar.
+  \item Administration  
+  \begin{itemize}
+    \item Skapa och hantera kurser, inlämningsuppgifter och deadlines
+    \item Delegering av rättigheter - implementerad i modellen men ej i gränssnittet
+  \end{itemize}
+  \item Visualisera diffar
+  \item Grupphantering
+  \begin{itemize}
+    \item Hantering av situationer där gruppen vill splittras efter att arbetet har inletts.
+  \end{itemize}
+\end{itemize}
