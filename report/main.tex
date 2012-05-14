@@ -20,18 +20,8 @@
 % Settings (Metadata)
 \input{include/settings}
 
-
-
-%Proof
-\newenvironment{proof}[1][Proof]{\begin{trivlist}
-\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
-
-%qed-sign
-\newcommand{\qed}{\nobreak \ifvmode \relax \else
-      \ifdim\lastskip<1.5em \hskip-\lastskip
-      \hskip1.5em plus0em minus0.5em \fi \nobreak
-      \vrule height0.75em width0.5em depth0.25em\fi}
-
+\usepackage[parfill]{parskip}
+\usepackage{amsthm}
 
 \begin{document}
 
@@ -72,12 +62,15 @@
 \input{include/design.tex}
 \input{include/diskussion.tex}
 \input{include/slutsatser.tex}
-\input{include/referenser.tex}
 
 \newpage
 \clearpage
 
+% Nocite references
+\nocite{Brody1996}
 
+\bibliography{references} % references.bib
+\addcontentsline{toc}{chapter}{\numberline{} Bibliography} % For pdf
 \setspecialhdr
 
 \newpage
@@ -86,7 +79,4 @@
 \appendix
 \setdefaulthdr
 \input{include/appendix1-commitrequest.tex}
-\input{include/appendix2-code-coverage.tex}
-% \input{include/appendix3-e-r-diagram.tex}
->>>>>>> 4047d5758a223af89b3d071a2925802c26ab7c7d
 \end{document}
