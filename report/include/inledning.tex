@@ -10,7 +10,7 @@ Antalet studenter på datavetenskapliga kurser kan vara stort vilket gör att de
 
 Svaret är ett specialiserat system.
 
-\subsection{Nuvarande system vid CTH}
+\subsection{Nuvarande system vid Chalmers tekniska högskola}
 
 På Chalmers tekniska högskola används ofta Fire, ett webbaserat system som endast hanterar inlämning och rättning av inlämningsuppgifter.
 Studenten skapar en användare och ansluter sig sedan till en grupp i Fires webbgränssnitt. Därefter väljer studenten en laboration att ladda upp filer till. När samtliga filer är uppladdade kan studenten välja att lämna in sina filer. 
@@ -20,15 +20,16 @@ Handledarna som rättar uppgifterna erbjuds ett gränssnitt för rättning. Admi
 Fire uppfyller grundförutsättningarna för ett fungerande system och har många uppskattade egenskaper.
 Däremot finns det ett antal områden med utrymme för förbättring. Bland annat startar Fire en separat webbserverinstans för varje kurs. Detta leder till vattentäta skott mellan kurser. Studenter är tvungna att registrera sig på nytt för varje ny kurs och länken till webbgränssnittet är olika för varje kurs. Tidigare har antalet webbserverinstanser dessutom begränsats till 64. I nuläget har har denna artificiella gräns höjts, men i längden är det inte praktiskt att skapa en serverinstans per kurs.
 
+
 Ett annat problem med Fire är att många operationer inte går att ångra eller ändra i ett senare skede. 
-I Fire utnyttjas inte heller möjligheten att erbjuda mervärde till användarna. Kommunikationen mellan handledare och studenter är rudimentär – handledarens svar laddas upp via ett webbformulär och studenterna kan bara svara med en ny inlämning. Projektarbeten hämmas av att inlämning av större mängder filer eller mappstrukturer endast är möjligt med tar.gz-arkiv, (Gedell, T. (2006), Upload File).
+I Fire utnyttjas inte heller möjligheten att erbjuda mervärde till användarna. Kommunikationen mellan handledare och studenter är rudimentär – handledarens svar laddas upp via ett webbformulär och studenterna kan bara svara med en ny inlämning. Projektarbeten hämmas av att inlämning av större mängder filer eller mappstrukturer endast är möjligt med tar.gz-arkiv, (Gedell, T. Upload File. 2006 ).
 
 Orsaken till att många problem kvarstår är att Fire saknar dokumentation på kodbasen och databasen. Detta gör det väldigt svårt att vidareutveckla Fire.
 Det finns med andra ord mycket som talar för en helt ny lösning för inlämning och hantering av laborationer.
 
 \subsection{Versionshantering}
 
-Versionshantering är ett oumbärligt verktyg för programmerare. Konceptet branches gör det lätt att utveckla nya funktioner utan att förstöra nuvarande kodbas. Versionshantering förenklar även arbetet i grupp genom att  stödja sammanslagning - merge - av olika grenar. Detta uppmuntrar till strukturerade arbetssätt, och effektivt samarbete. 
+Versionshantering är ett oumbärligt verktyg för programmerare. Konceptet \emph{branches} gör det lätt att utveckla nya funktioner utan att förstöra nuvarande kodbas. Versionshantering förenklar även arbetet i grupp genom att  stödja sammanslagning - merge - av olika grenar. Detta uppmuntrar till strukturerade arbetssätt, och effektivt samarbete. 
 
 Backup och historik förflyttas från filnivå till funktionsnivå genom att man gör regelbundna commits. Dessa upptar dessutom nästan ingen plats eftersom systemen i regel inte sparar hela projektets tillstånd i en commit, utan bara skillnaden till föregående commit – så kallad $\Delta$-data.
 
@@ -114,6 +115,12 @@ MVC & Model-View-Controller, ett designmönster \\
 Normaliserad databas & En icke redundant databas som följer normaliseringsreglerna \\
 \hline
 Longpolling & En förfrågan till extern server. Har servern ingen data att svara med så "hängs" förfrågan. \\
+\hline
+\end{tabular}
+
+\begin{tabular} { | l | p{10cm} | }
+\hline
+\bf{Ord} & \bf{Betydelse} \\
 \hline
 Polling & Att underrätta sig om förändringar i tillstånd genom att göra upprepade förfrågningar \\
 \hline
