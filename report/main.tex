@@ -20,8 +20,18 @@
 % Settings (Metadata)
 \input{include/settings}
 
-\usepackage[parfill]{parskip}
-\usepackage{amsthm}
+
+
+%Proof
+\newenvironment{proof}[1][Proof]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+%qed-sign
+\newcommand{\qed}{\nobreak \ifvmode \relax \else
+      \ifdim\lastskip<1.5em \hskip-\lastskip
+      \hskip1.5em plus0em minus0.5em \fi \nobreak
+      \vrule height0.75em width0.5em depth0.25em\fi}
+
 
 \begin{document}
 
@@ -76,4 +86,6 @@
 \appendix
 \setdefaulthdr
 \input{include/appendix1-commitrequest.tex}
+\input{include/appendix2-code-coverage.tex}
+\input{include/appendix3-e-r-model.tex}
 \end{document}
