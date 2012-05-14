@@ -1,25 +1,18 @@
 \section{Laborationsgrupper i Water}
-De diskuterade invarianterna för antalet samtida LHGs en student kan ha
-krävde att laborationsgrupper blir frysta såfort en laboration
-registrerats i dem. Analysen visade inga möjligheter att ha invarianter
-på labbantal för muterbara labbgrupper. Det är möjligt att en annan
-analys som undersökt mer komplicerade operationer på laborationsgrupper
-kan visa korrektheten hos ett laborationsgruppsystem med muterbara
-laborationsgrupper. Alltså det immuterbara laborationsgruppsystemet är
-inte bara enklare att implementera såsom analysen har visat, utan även
-det matematikiska ramverket som vi bygger kring det har blivit mycket
-enklare.
 
-Water laborationssystem valdes till att följa invarianten med max en LHG
-per student och laboration. Detta eftersom det var ett måste för att få
-det användarupplevelsen att bli bra, alltså att ingen student
-kan tro att den måste submitta samma laboration via olika LHGs. 
-Vi avstog från den striktare invarianten eftersom det anses lika dåligt
-ur ett användarperspektiv ifall en laborationskamrats laborationskamrat
-kan ta bort en students labb.
+Waters laborationssystem beslutas följa invarianten med maximalt en LHG per student
+och laboration. Detta, eftersom det var ett måste för att få användarupplevelsen
+att bli bra så ingen student blir tvingad att submitta samma laboration via olika
+LHGs. Den striktare invarianten anses dålig av liknande skäl, ifall en 
+laborationskamrats laborationskamrat kan ta bort en students labb.
 
-Valet av att ha den slackare invarianten kräver immuterbara
-laborationsgrupper, dessutom har immuterbara labbgrupper konstaterats
-till enklare att implementera samt ge upphov till enklare matematisk
-grund. Därav kommer en laborationsgrupp i water som påbörjat en
-laboration inte kunna ändra på sina medlemmar.
+Invarianterna kräver immuterbara laborationsgrupper för att invarianterna ska
+hålla. Alltså är immuterbara laborationsgruppsystemet inte bara enklare att
+implementera, såsom dess analys har visat, utan även det matematiska
+resonerandet omkring det är enklare, eftersom analysen av invarianterna beror
+på egenskapen av immuterbarhet.
+
+Valet av att ha den slackare invarianten kräver immuterbara laborationsgrupper,
+dessutom har immuterbara laborationsgrupper konstaterats vara enklare att implementera
+samt ge upphov till enklare matematisk grund. Därav kommer en laborationsgrupp
+i Water, som påbörjat en laboration, inte kunna ändra på sina medlemmar.
