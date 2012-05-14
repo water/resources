@@ -23,7 +23,7 @@ En operationsuppsättning kan vara att en grupp alltid skapas tom utan LHGs, att
 
 
 \begin{proof}[Bevis av korrekthet]
-  Vi har medvetet försökt minimera antalet operationer som påverkar antalet kopplingarern student har till en given laboration. Att skapa en grupp påverkar ej LHG-antalet. Att gå med i en grupp har begränsats till att bara fungera för grupper utan påbörjade laborationer, därav påverkas ej invarianten av påhopp heller. Att ta bort en LHG innebär en minskning vilket aldrig kan bryta mot en “mindre-än”-olikhet. Den enda operationen som ökar antalet LHGs är att “påbörja laborationen”, men den har definierats att bara vara utförbar då invarianten inte bryts. \qed
+  Vi har medvetet försökt minimera antalet operationer som påverkar antalet kopplingarern student har till en given laboration. Att skapa en grupp påverkar ej LHG-antalet. Att gå med i en grupp har begränsats till att bara fungera för grupper utan påbörjade laborationer, därav påverkas ej invarianten av påhopp heller. Att ta bort en LHG innebär en minskning vilket aldrig kan bryta mot en “mindre-än”-olikhet. Den enda operationen som ökar antalet LHGs är att “påbörja laborationen”, men den har definierats att bara vara utförbar då invarianten inte bryts. \qedhere
 \end{proof}
 
 \subsubsection{Användarperspektiv}
@@ -76,7 +76,8 @@ Låt mängden A (se figur \ref{fig:strict-proof}) vara samtliga involverade elev
 
 Låt mängden B vara de elever som är med i laborationsgruppen där LHG:en skapas i steg 2, notera alltså att B$\subseteq$A, notera även att de elever som berörs i steg 3 är A$\setminus$B.
 
-I början antags invarianten vara uppfylld, efter steg 1 så har studenterna i A ingen LHG, efter steg 2 har eleverna i B en ny LHG, endast A$\setminus$B saknar var sin LHG nu, vilket steg 3 åtgärdar. \qed
+I början antags invarianten vara uppfylld, efter steg 1 så har studenterna i A ingen LHG, efter steg 2 har eleverna i B en ny LHG, endast A$\setminus$B saknar var sin LHG nu, vilket steg 3 åtgärdar. \qedhere
+\end{proof}
  
 \begin{figure}
   \centering
