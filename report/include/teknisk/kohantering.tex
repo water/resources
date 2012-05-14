@@ -35,7 +35,7 @@ verktyg som används av ett flertal stora aktörer (Redis, \textquotedblleft Who
 Redis? \textquotedblright), bland annat den sociala utvecklingsplatformen Github.
 
 Ett problem med Resque är dock att den använder polling för att hämta data från
-Redis. Polling-problematiken gör att informationen som hämtas av en worker vid
+Redis. Polling-problematiken gör att informationen som hämtas av en \emph{worker} vid
 en given tidpunk kan vara utdaterad. Då Resque är byggd i Ruby är bryggan
 mellan mjukvaran och Water väldigt liten. Implementeringen sker enkelt med
 hjälp av en rad kod:

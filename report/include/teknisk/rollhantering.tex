@@ -2,16 +2,16 @@
 
 \subsection{Roller i databasen}
 
-En webbapplikation behöver i allmänhet hantera användare. Dessa användare organiseras ofta i en hierarki som specificerar vad varje användare kan och inte kan göra. Detta kan lösas på ett flertal sätt antingen i databas-lagret eller i modell-lagret.
+En webbapplikation behöver i allmänhet hantera användare. Dessa användare organiseras ofta i en hierarki som specificerar vad varje användare kan och inte kan göra. Detta kan lösas på ett flertal sätt antingen i \emph{databas-lagret} eller i \emph{modell-lagret}.
 
-I databas-lagret kan det lösas genom att lägga till en kolumn i användartabellen där bitvis eller 
-operatorn används för att kombinera flera roller, detta är dock inte kongruent med en normaliserad databas som beskrivs i kapitel \ref{sec:databasen}. En annan databas-lösning är att ha en separat tabell med alla tillgängliga roller och en tabell som kopplar ett godtyckligt antal roller på ett godtyckligt antal användare, dvs en n-m relation, detta är kongruent med en normaliserad databas men databasoperationerna för att hämta en användares roller blir mer komplexa.
+I \emph{databas-lagret} kan det lösas genom att lägga till en kolumn i användartabellen där bitvis eller 
+operatorn används för att kombinera flera roller, detta är dock inte kongruent med en \emph{normaliserad databas} som beskrivs i kapitel \ref{sec:databasen}. En annan databas-lösning är att ha en separat tabell med alla tillgängliga roller och en tabell som kopplar ett godtyckligt antal roller på ett godtyckligt antal användare, dvs en n-m relation, detta är kongruent med en \emph{normaliserad databas} men databasoperationerna för att hämta en användares roller blir mer komplexa.
 
-Genom att lägga rollhanteringen i modell-lagret blir applikationen mer databas-agnostisk då den inte kräver avancerade funktioner av databasen. En sådan lösning kan implementeras med en användartabell som håller information alla användare behöver och en separat tabell för varje roll som har en koppling till användartabellen. Att lägga all logik i modell-lagret underlättar för framtida utvecklare då de inte behöver gå igenom hela databas-schemat för att förstå rollhanteringen. Nackdelen med detta är att rollerna inte blir dynamiska, för att lägga till en roll krävs det att en ny tabell läggs till i databasen.
+Genom att lägga rollhanteringen i \emph{modell-lagret} blir applikationen mer \emph{databas-agnostisk} då den inte kräver avancerade funktioner av databasen. En sådan lösning kan implementeras med en användartabell som håller information alla användare behöver och en separat tabell för varje roll som har en koppling till användartabellen. Att lägga all logik i \emph{modell-lagret} underlättar för framtida utvecklare då de inte behöver gå igenom hela \emph{databas-schemat} för att förstå rollhanteringen. Nackdelen med detta är att rollerna inte blir dynamiska, för att lägga till en roll krävs det att en ny tabell läggs till i databasen.
 
 \subsection{Roller i Routes}
 
-För att behålla REST-egenskaperna vid en implementation av roller behövs det ett sätt att skicka med vilken roll en användare har utan att skapa en cookie. Detta kan lösas genom att scopa alla routes under en roll. Då är applikationen fortfarande stateless till den mån att man behöver logga in. 
-Exempel på en scopad route som visar en students kurser är /student/courses där courses är scopad under student.
+För att behålla \emph{REST}-egenskaperna vid en implementation av roller behövs det ett sätt att skicka med vilken roll en användare har utan att skapa en cookie. Detta kan lösas genom att \emph{scopa} alla \emph{routes} under en roll. Då är applikationen fortfarande stateless till den mån att man behöver logga in. 
+Exempel på en \emph{scopad} \emph{route} som visar en students kurser är /student/courses där courses är \emph{scopad} under student.
 
-Då inte alla routes behöver vara scopade måste systemet byggas med specialfall för dessa och det innebär att komplexiteten hos routingen kan öka avsevärt.
+Då inte alla \emph{routes} behöver vara \emph{scopade} måste systemet byggas med specialfall för dessa och det innebär att komplexiteten hos routingen kan öka avsevärt.

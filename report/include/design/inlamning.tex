@@ -49,16 +49,16 @@ Uppladdningsprocessen består av ett antal faser. Först laddas filerna upp. Dä
 \subsubsection{Filerna laddas upp}
 
 Javascriptbiblioteket JQuery-File-Upload används för att stöda uppladdning av flera filer genom ett enda anrop. 
-Callbacks i JQuery-File-Upload används för att skicka med unika identifieringskoder för varje fil som laddas upp. Identifieringskoderna skapas med en enkel hashfunktion som bygger på hashCode()-metoden för en sträng i Java.
+Callbacks i JQuery-File-Upload används för att skicka med unika identifieringskoder för varje fil som laddas upp. Identifieringskoderna skapas med en enkel \emph{hashfunktion} som bygger på hashCode()-metoden för en sträng i Java.
 
-Identifieringskoderna och filernas originalfilnamn lagras i en CommitRequest-modell i klienten när filerna skickas. Servern svarar med en array där varje fil representeras av sin identifieringskod. På detta sätt får CommitRequest-modellen ett kvitto på att uppladdningsprocessen är färdig. CommitRequest-modellen delar upp kvitterade filer i lyckade och misslyckade uppladdningar. 
+Identifieringskoderna och filernas originalfilnamn lagras i en \emph{CommitRequest}-modell i klienten när filerna skickas. Servern svarar med en array där varje fil representeras av sin identifieringskod. På detta sätt får \emph{CommitRequest}-modellen ett kvitto på att uppladdningsprocessen är färdig. \emph{CommitRequest}-modellen delar upp kvitterade filer i lyckade och misslyckade uppladdningar. 
 
-När alla filer är kvitterade tar CommitRequest-modellen de filer vars uppladdning lyckades och konstruerar ett CommitRequest-anrop till servern. Filernas sökvägar i Gitrepositoriet konstrueras med hjälp av trädvyns nuvarande sökväg, som lagras i BreadcrumbSet-modellen, samt originalfilnamnen som lagrades tillsammans med identifieringskoderna.
-När uppladdningssidan hämtas lägger webbservern till Javascript-variabler i sidan. Variablerna innehåller en länk till det  repositorium som ska användas och namnet på den branch som ska användas. CommitRequets-modellen hämtar dessa och kan sedan skicka anropet.
+När alla filer är kvitterade tar \emph{CommitRequest}-modellen de filer vars uppladdning lyckades och konstruerar ett \emph{CommitRequest}-anrop till servern. Filernas sökvägar i Gitrepositoriet konstrueras med hjälp av trädvyns nuvarande sökväg, som lagras i BreadcrumbSet-modellen, samt originalfilnamnen som lagrades tillsammans med identifieringskoderna.
+När uppladdningssidan hämtas lägger webbservern till Javascript-variabler i sidan. Variablerna innehåller en länk till det  repositorium som ska användas och namnet på den \emph{branch} som ska användas. \emph{CommitRequets}-modellen hämtar dessa och kan sedan skicka anropet.
 
 \subsubsection{Filerna läggs till i Git}
 
-Servern validerar CommitRequest-anropet. Om valideringen lyckas skickas anropet vidare till köhanteraren och servern svarar till klienten att behandling av anropet har inletts. När klienten får detta meddelande låses webbgränsnittet.
+Servern validerar \emph{CommitRequest}-anropet. Om valideringen lyckas skickas anropet vidare till köhanteraren och servern svarar till klienten att behandling av anropet har inletts. När klienten får detta meddelande låses webbgränsnittet.
 När köhanteraren har behandlat anropet och lagt till filerna i Gitrepositoriet, skickas ett ansynkront meddelande om detta till klienten via SecureFaye och WebSocket-servern. Klienten kan då låsa upp gränssnittet och ladda om filträdet.
 
 \subsection{Inlämningens livscykel}
