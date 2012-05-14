@@ -66,12 +66,14 @@ Systemet ska vara enkelt att underhålla och vidareutveckla.
 
 Rapporten följer gängse struktur: bakgrund, syfte, problemanalys, metod och design, diskussion och slutsats. För att hjälpa läsaren följa med i de många beslutsprocesserna – beslut som dessutom i många fall beror på varandra – så har vi valt att lägga in korta beslutsavsnitt efter vissa  problembeskrivningar och analyser. I avsnitten beskrivs besluten och deras motivering kort. För utförligare information om beslut hänvisar författarna till metod- och designavsnitten.
 I många sammanhang nämns olika produkter och teknologier som kandidatgruppen har använt under analys eller utveckling av systemet. Dessa samlas tillsammans med sina respektive hemsidor i avsnitt \ref{sec:ordlista}.
-
 \subsection{Ordlista}
 \label{sec:ordlista}
 \small
-\begin{tabular} { l | p{10cm} }
-acceptance test	& Test som kontrollerar om koden uppfyller specifikationerna \\
+\begin{tabular} { | l | p{10cm} | }
+\hline
+\bf{Ord} & \bf{Betydelse} \\
+\hline
+Acceptance test	& Test som kontrollerar om koden uppfyller specifikationerna \\
 \hline
 Bare git-repositorium & En git-repositorium utav ett aktivt träd (working tree) \\
 \hline
@@ -83,9 +85,9 @@ CommitRequest & Ett anrop som används av webbgränssnittet för att manipulera 
 \hline
 Constraint & Begränsning i databasen som bara tillåter data som följer en viss specifikation \\
 \hline
-databas-agnostisk & Databas-agnostisk innebär att den fungerar med alla databaser \\
+Databas-agnostisk & Databas-agnostisk innebär att den fungerar med alla databaser \\
 \hline
-databas-lager & Logik som implementeras i databasen ligger i databas-lagret \\
+Databas-lager & Logik som implementeras i databasen ligger i databas-lagret \\
 \hline
 Databas-schema & Databasstrukturen utan data \\
 \hline
@@ -93,7 +95,7 @@ DBMS & Databashanterare likt MySQL \\
 \hline
 Diff & Skillnaden mellan två kodbasstycken \\
 \hline
-flash-socket & Websocket-lösning för ActionScript \\
+Flash-socket & Websocket-lösning för ActionScript \\
 \hline
 Foreign key & Ett fält i en databastabell som pekar på en annan tabell \\
 \hline
@@ -105,17 +107,17 @@ Hash Fragment & Delen av en URL som kommer efter \# \\
 \hline
 LHG & LabHasGroup. Entitet som används för att koppla laborationsgrupper till laborationer \\
 \hline
-modell-lager & Logik som implementeras i modellerna ligger i modell-lagret \\
+Modell-lager & Logik som implementeras i modellerna ligger i modell-lagret \\
 \hline
 MVC & Model-View-Controller, ett designmönster \\
 \hline
 Normaliserad databas & En icke redundant databas som följer normaliseringsreglerna \\
 \hline
-(long)-polling & En förfrågan till extern server. Har servern ingen data att svara med så "hängs" förfrågan. \\
+Longpolling & En förfrågan till extern server. Har servern ingen data att svara med så "hängs" förfrågan. \\
 \hline
 Polling & Att underrätta sig om förändringar i tillstånd genom att göra upprepade förfrågningar \\
 \hline
-git push & Publicering av lokal git till extern eller lokal server \\
+Git push & Publicering av lokal git till extern eller lokal server \\
 \hline
 Remote url & Git-url till extern eller lokal git-server \\
 \hline
@@ -135,15 +137,19 @@ Trigger & En databasrutin som kan köras före, efter eller istället för en op
 \hline
 Unit test & Test som kollar om en del av koden är redo att användas \\
 \hline
-workers & Trådar som utför jobb i bakgrunden \\
+Workers & Trådar som utför jobb i bakgrunden \\
 \hline
-working tree & Det filträdet man jobbar med \\
+Working tree & Det filträdet man jobbar med \\
+\hline
 \end{tabular}
 \normalsize
 
 \subsection{Länkar till produkter och teknologier}
 \small
-\begin{tabular} { l | p{10cm} }
+\begin{tabular} { | l | l | }
+\hline
+\bf{Produkt/Teknologi} & \bf{Länk} \\
+\hline
 Backbone.js & http://backbonejs.org/ \\
 \hline
 Bazaar & http://bazaar.canonical.com/en/ \\
@@ -205,5 +211,6 @@ SecureFaye & https://github.com/oleander/secure\_faye \\
 Stomp & https://rubygems.org/gems/stomp \\
 \hline
 TestUnit & http://test-unit.rubyforge.org/ \\
+\hline
 \end{tabular}
 \normalsize
