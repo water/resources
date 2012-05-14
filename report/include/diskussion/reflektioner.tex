@@ -1,0 +1,23 @@
+\section{Reflektioner}
+
+\subsection{Tidsramar och arbetsätt}
+Projektets tidsramar överskreds snabbt. I efterhand kan vi konstatera att samtliga estimat som gjordes var fel.
+
+Fokus har skiftat under projektet. I början fanns det en ambition att jobba vertikalt och dela upp systemet i verksamhetsområden som sen kunde implementeras full stack, det vill säga från backend upp till färdigt gränssnitt. Sprintarna planerades runt detta antagande.
+
+Detta visade sig vara svårt sätt att arbeta på. Modellen är komplex och relationerna är så täta att det är omöjligt att separera olika områden av den utan att göra stora avkall på kvalitet och användbarhet. Istället har fokus under resten av projektet legat på att bygga en så stabil och komplett backend som möjligt och att sedan implementera resten av stacken för några valda delar när backenden nått tillräckligt mognad. I detta hänseende har vi lyckats.
+
+\subsection{Användning av befintlig plattform}
+Gitorious-plattformen ger systemet en stabil grund att utgå ifrån. Den innehåller ett flertal delar som vi behöll i Water, bland annat all interaktion med Git och sessionshantering. Det lämnade dock mycket som behövde plockas bort. Att plocka bort allt vi inte skulle använda var ett större projekt än vad vi trodde och vi räknade inte med det när tidsplaneringen gjordes. Eftersom det inte fanns en klar plan över vilken funktionalitet som skulle behållas utfördes en del onödigt arbete med att debugga Gitoriouskomponenter som inte användes i slutprodukten.
+
+Ett problem som uppstod var övergången av Gitorious till Ruby on Rails 3.0. Ett antal Gitorious-utvecklare startade övergången från Rails 2.4 till 3.0 i Maj 2010 (Lilleaas A 2010). Övergången var dock inte färdig vid Waters projektstart, vilket gjorde att mycket tid fick läggas på att migrera över de sista delarna.
+
+I analysen undersöks möjligheten att inte basera Water på ett befintligt system. Vi ser nu både fördelar och nackdelar med den metoden. En fördel hade varit att vi hade haft mer kontroll över projektet eftersom det hade inte funnits någon kod i systemet som vi inte hade full koll på. Under projektstarten lade gruppen ner tid på att sätta sig in Gitorious-specifika detaljer. I ett helt nytt projekt hade vi kunnat lägga den tiden på annat.
+
+Nackdelen med att bygga det från scratch är att det hade tagit mycket längre tid då vi själva hade behövt implementera alla Git-kopplingar och sessionshanteringen. Vi hade inte varit i närheten av en färdig produkt vid deadline.
+
+\subsection{Möjliga avgränsningar}
+Water är ett stort projekt. Att endast utveckla databasen och modellen skulle antagligen kunna utgöra ett helt kandidatprojekt. En viktig anledning till att projektgruppen tog sig an projektet var dock att vi ville förbättra användarupplevelsen i Fire. Detta hade legat utanför en dylik avgränsning.
+
+\subsection{Dokumentation}
+Dokumentation för användaren saknas helt. En README-fil i repositoriet gör det möjligt för en ny utvecklare att starta själva systemet. För att förstå kodbasen finns ingen separat dokumentation, men en utomstående utvecklare kan lära sig nästan allt om modellerna och vissa controllers genom att läsa Rspec-specifikationerna.
