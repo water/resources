@@ -1,0 +1,40 @@
+\chapter{CommitRequest-API}
+\begin{verbatim}
+  {
+    repository: 123,
+    command: "mkdir"
+    branch: "master",
+    commit_message: "A message",
+    path: "path/to/dir"
+  }
+  {
+    repository: 123,
+    command: "add"
+    branch: "master",
+    commit_message: "A message",
+    files: [{
+      from: "path/to/dir/and/file.file",
+      to: "path/to/dir/and/file.file"
+    }]
+  }
+  {
+    repository: 123,
+    command: "move"
+    branch: "master",
+    commit_message: "A message",
+    records: [{
+      from: "path/to/file.txt",
+      to: "path/to/new_file.txt"
+    }]
+  }
+  {
+    repository: 123,
+    command: "remove"
+    branch: "master",
+    commit_message: "A message",
+    records: [
+      "path/to/file1.txt", 
+      "path/to/file2.txt"
+    ]
+  }
+\end{verbatim}
