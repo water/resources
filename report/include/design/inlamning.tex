@@ -36,7 +36,15 @@ För att underlätta för en användare står ovanstånde kommandon uppradade i 
 
 \subsection{Uppladdning och inlämning via webbgränssnittet}
 
-Uppladdningsprocessen består av ett antal faser. Först laddas filerna upp. Därefter skickar klienten ett anrop som begär att filerna ska läggas till i ett repositorium. Servern svarar att processen har inletts och vidarebefordrar anropet till köhanteraren. När processen är klart får klienten ett asynkront meddelande om detta via WebSocket-servern.
+\begin{figure}
+  \includegraphics[width=15.0cm]{fig/misc/uppladdningsprocessen.pdf}             
+  \caption[Uppladdningsprocessen]
+  {Uppladdningsprocessen}
+  \label{fig:uppladdning}
+\end{figure}
+
+
+Uppladdningsprocessen består av ett antal faser. Först laddas filerna upp. Därefter skickar klienten ett anrop som begär att filerna ska läggas till i ett repositorium. Servern svarar att processen har inletts och vidarebefordrar anropet till köhanteraren. När processen är klart får klienten ett asynkront meddelande om detta via WebSocket-servern. Se figur \ref{fig:uppladdning}
 
 \subsubsection{Filerna laddas upp}
 
