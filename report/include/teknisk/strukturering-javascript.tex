@@ -27,14 +27,14 @@ Sprockets är välintegrerat i Ruby on Rails genom ramverkets system för asseth
   
 \end{flushright}
 
-\subsection{Strukturering av avancerade Javascriptapplikationer - MVC-modell i klienten}
+\subsection{Strukturering av avancerade Javascriptapplikationer - \emph{MVC}-modell i klienten}
 I takt med att Javascriptapplikationer i webbklienten blir mera avancerade uppstår problem med struktur och underhållbarhet. En anledning kan vara historisk - Javascript har traditionellt använts i form av små ostrukturerade kodsnuttar på olika ställen i en webbsida. Möjlighet att använda ett tämligen objektorienterat arbetssätt finns i Javascript tack vare prototypsystemet (ECMA-262, sektion 4.2.1, 2011), men detta används sällan. Istället skrivs kod i monolitiska filer i ett i närmast imperativt idiom.
 
-En möjlig lösning är att använda sig av MVC-modellen även i Javascriptkoden i webbklienten. Domänlogik och datahantering enkapsuleras i modeller. Vyer observerar förändringar i modeller och renderar data. I klassisk MVC tar en controller emot anrop från modell och vy och sköter kommunikationen mellan dem. Event-systemet i Javascript gör emellertid att vyer i många fall kan kopplas direkt till modellobjekt, vilket gör att controllerns roll blir snävare i klient-MVC. I klienten används controllern oftast bara för att knyta sökvägar i sökvägens hash fragment till händelser som hanteras av modellerna. Därför brukar den ibland kallas för router i sammanhanget.
+En möjlig lösning är att använda sig av \emph{MVC}-modellen även i Javascriptkoden i webbklienten. Domänlogik och datahantering enkapsuleras i modeller. Vyer observerar förändringar i modeller och renderar data. I klassisk \emph{MVC} tar en controller emot anrop från modell och vy och sköter kommunikationen mellan dem. Event-systemet i Javascript gör emellertid att vyer i många fall kan kopplas direkt till modellobjekt, vilket gör att controllerns roll blir snävare i klient-\emph{MVC}. I klienten används controllern oftast bara för att knyta sökvägar i sökvägens \emph{hash fragment} till händelser som hanteras av modellerna. Därför brukar den ibland kallas för router i sammanhanget.
 
-MVC-stöd i klienten löses enklast genom färdiga bibliotek för ändamålet. Två av de vanligaste alternativen är Spine.js och Backbone.js.
-Båda erbjuder mogen MVC-funktionalitet. De erbjuder prototyper, en form av superklasser, som programmeraren kan använda för att skapa sina vyer, modeller och controllers. Skillnaderna hör till de övriga egenskaperna. 
-Backbone.js är bättre integrerat med jQuery. Exempel på detta är hjälpmetoder i vyer för att hämta vyns HTML-element som ett jQuery-objekt. Backbone.js är skrivet i vanlig Javascript, medan Spine.js är skrivet i och anpassat för CoffeeScript, ett språk som kompileras till Javascript. Backbone kan dock användas med CoffeeScript och Spine kan användas med vanlig Javascript. Backbone erbjuder Collections, som är en samling modeller. Den huvudsakliga fördelen med Collections är att Backbone kan popularisera en Collection och uppdatera enskilda modeller i den med hjälp av en enda sökväg, förutsatt att serverns sökvägar följer REST-standard.
+\emph{MVC}-stöd i klienten löses enklast genom färdiga bibliotek för ändamålet. Två av de vanligaste alternativen är Spine.js och Backbone.js.
+Båda erbjuder mogen \emph{MVC}-funktionalitet. De erbjuder prototyper, en form av superklasser, som programmeraren kan använda för att skapa sina vyer, modeller och controllers. Skillnaderna hör till de övriga egenskaperna. 
+Backbone.js är bättre integrerat med jQuery. Exempel på detta är hjälpmetoder i vyer för att hämta vyns HTML-element som ett jQuery-objekt. Backbone.js är skrivet i vanlig Javascript, medan Spine.js är skrivet i och anpassat för CoffeeScript, ett språk som kompileras till Javascript. Backbone kan dock användas med CoffeeScript och Spine kan användas med vanlig Javascript. Backbone erbjuder Collections, som är en samling modeller. Den huvudsakliga fördelen med Collections är att Backbone kan popularisera en Collection och uppdatera enskilda modeller i den med hjälp av en enda sökväg, förutsatt att serverns sökvägar följer \emph{REST}-standard.
 
 Sammanfattningsvis går det att säga att valet av bibliotek beror på tycke och smak.
 
@@ -42,6 +42,6 @@ Sammanfattningsvis går det att säga att valet av bibliotek beror på tycke och
   
   \textbf{Beslut}
   
-  Backbone.js används som MVC-bibliotek i klienten, på grund av jQuery-integrationen och på grund av att det finns tidigare erfarenhet av biblioteket inom gruppen.
+  Backbone.js används som \emph{MVC}-bibliotek i klienten, på grund av jQuery-integrationen och på grund av att det finns tidigare erfarenhet av biblioteket inom gruppen.
   
 \end{flushright}

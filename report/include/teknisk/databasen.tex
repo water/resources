@@ -2,25 +2,25 @@
 
 Valet av databas står mellan MySQL och PostgreSQL, de största aktörerna på marknaden inom fria relationsdatabaser (Mlodgenski 2009).
 
-I en webbapplikation där databastranskationerna sker slumpmässigt med korta intervall är det en fördel att ha en normaliserad databas (Wang et al 2010). Att en databas är normaliserad innebär att den har minimalt med redundans och bättre dataintegritet.
+I en webbapplikation där databastranskationerna sker slumpmässigt med korta intervall är det en fördel att ha en \emph{normaliserad} databas (Wang et al 2010). Att en databas är \emph{normaliserad} innebär att den har minimalt med redundans och bättre dataintegritet.
 
 En databas kan normaliseras till flera nivåer, i en typisk webapplikation är det vanligt att normalisera till den tredje eller fjärde nivån. Normalisering innebär att den måste följa vissa specifikationer, när databasen följer dessa specifikationer sparas ingen data mer än en gång och restriktionerna minskar risken för att  felaktig data sparas.
 
-En normaliserad databas kan inte garantera att ingen felakig data sparas, modell-lagret måste fortfarande implementeras korrekt. Att implementera ett modell-lager för en normaliserad databas kan leda till mer avancerade SQL-operationer, en implementation för en icke-normaliserad databas kommer ha mindre komplexa operationer men den kommer behöva göra fler operationer för att uppdatera alla referenser.
+En \emph{normaliserad databas} kan inte garantera att ingen felakig data sparas, modell-lagret måste fortfarande implementeras korrekt. Att implementera ett \emph{modell-lager} för en \emph{normaliserad databas} kan leda till mer avancerade SQL-operationer, en implementation för en icke-normaliserad databas kommer ha mindre komplexa operationer men den kommer behöva göra fler operationer för att uppdatera alla referenser.
 
 \subsection{Datavalidering}
-För att behålla dataintegriteten i databasen behöver data valideras innan det sparas, denna validering kan ske antingen i databas- eller modell-lagret.
-Det är inte bättre att implementera det på det en stället än de andra men vanligast är ändå att lägga de enklaste valideringarna i databasen och resten i modell-lagret. För att implementera valideringar i databasen används constraints, triggers och till viss mån foreign keys. Här kommer valet av DBMS in i bilden då alla inte har fullt stöd för constraints.
-Det är svårare att underhålla logik i databas-lagret då en ändring på en tabell kan påverka flera triggers, detta kan leda till en problematisk felsökning.
-När målet är en fullständigt databas-agnostisk applikation måste då alla valideringar ligga i modell-lagret. 
+För att behålla dataintegriteten i databasen behöver data valideras innan det sparas, denna validering kan ske antingen i \emhp{databas-} eller \emph{modell-lagret}.
+Det är inte bättre att implementera det på det en stället än de andra men vanligast är ändå att lägga de enklaste valideringarna i databasen och resten i modell-lagret. För att implementera valideringar i databasen används \emph{constraints}, \emph{triggers} och till viss mån \emph{foreign keys}. Här kommer valet av \emph{DBMS} in i bilden då alla inte har fullt stöd för \emph{constraints}.
+Det är svårare att underhålla logik i \emph{databas-lagret} då en ändring på en tabell kan påverka flera \emph{triggers}, detta kan leda till en problematisk felsökning.
+När målet är en fullständigt \emph{databas-agnostisk} applikation måste då alla valideringar ligga i modell-lagret. 
 
 \subsection{Rekursiv borttagning av poster i databasen}
 
 I modellen är det naturligt att vissa entiter är beroende av andra, det vill säga att de är svaga entiter. Till exempel så bör en laboration inte existera om den inte tillhör någon kurs och därför bör också laborationen tas bort om kursen den tillhör tas bort. 
 
-Det finns olika sätt lösa problemet. Många DBMS har cascade-delete funktionalitet som kan läggas till i entiteterna på databas-lagret, vilket skulle få den önskade effekten. Det finns också en Rails-specifik metod som heter dependent-destroy, som har samma effekt som cascade-delete, men som verkar i modell-lagret.
+Det finns olika sätt lösa problemet. Många \emph{DBMS} har cascade-delete funktionalitet som kan läggas till i entiteterna på \emph{databas-lagret}, vilket skulle få den önskade effekten. Det finns också en Rails-specifik metod som heter dependent-destroy, som har samma effekt som cascade-delete, men som verkar i modell-lagret.
 
-Med cascade-delete används kan det uppstår problem om systemet byter databas, i och med att olika DBMS skiljer sig i funktionalitet.
+Med cascade-delete används kan det uppstår problem om systemet byter databas, i och med att olika \emph{DBMS} skiljer sig i funktionalitet.
 
 En annan orsak till att använda dependent-destroy är att det blir lättare för en Rails-utvecklare att ta över projektet, eftersom att använda metoden är en konvention inom Railskretsar.
 
@@ -30,5 +30,5 @@ Kandidatgruppen anser också att det viktigt att vara konsekvent med på vilken 
   
   \textbf{Beslut}
   
-  Vi valde att implementera rekursiva borttagningar i modell-lagret med hjälp av depentend-destroy.
+  Vi valde att implementera rekursiva borttagningar i \emph{modell-lagret} med hjälp av depentend-destroy.
 \end{flushright}

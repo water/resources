@@ -29,7 +29,7 @@ De två köhanterarna som analyserats för Waters bruk är:
 
 Resque är en köhanterare som bygger på key value-databasen Redis. Plattformen är byggd av Github Inc. i språket Ruby och har en medföljande inställningspanel. Administrationspanelen gör det möjligt att starta om fallerade jobb, se statistik och hantera prioriteringar. Redis är ett etablerat verktyg som används av ett flertal stora aktörer (Redis, "Who's using Redis?"), bland annat den sociala utvecklingsplatformen Github.
 
-Ett problem med Resque är dock att den använder polling för att hämta data från Redis. Polling-problematiken gör att informationen som hämtas av en worker vid en given tidpunk kan vara utdaterad. Då Resque är byggd i Ruby är bryggan mellan mjukvaran och Water väldigt liten. Implementeringen sker enkelt med hjälp av en rad kod:
+Ett problem med Resque är dock att den använder polling för att hämta data från Redis. Polling-problematiken gör att informationen som hämtas av en \emph{worker} vid en given tidpunk kan vara utdaterad. Då Resque är byggd i Ruby är bryggan mellan mjukvaran och Water väldigt liten. Implementeringen sker enkelt med hjälp av en rad kod:
 
 \begin{verbatim}
   mount Resque::Server, :at => "/resque"
