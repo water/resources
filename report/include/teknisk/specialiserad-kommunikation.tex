@@ -39,7 +39,8 @@ WebSocket-protokollet är emellertid ännu bara ett förslag. Någon färdig sta
 
 \subsection{Den optimala lösningen: WebSockets med fallback}
 På grund av att ingen standard är fastställd och det varierande webbläsarstödet är det viktigt ur användarvänlighetssynpunkt att även stöda de äldre teknikerna för tvåvägskommunikation.
-Det finns ett antal lösningar på marknaden som kan anpassa lösningsmetoden till webbläsaren. 
+Socket.IO och Faye är två möjliga lösningar. Båda består av en serverdel och en klientdel. Båda erbjuder en serverdel skriven i Javascript för node.js. Faye erbjuder dock även en server skriven i Ruby.
+Båda använder WebSockets, Adobe Flash Sockets och olika metoder av polling och long polling för att erbjuda stöd för gamla webbläsare samtidigt som moderna webbläsare kan utnyttja de senaste teknikerna.
 
 \subsection{Säkerhet}
 Ett problem som uppstår, oavsett valet av mjukvara, är sändningsrättigheter mellan server och klient. Idén med socket-protokollet, som tidigare nämns är att möjliggöra tvåvägskommunikation mellan klient och server. Servern och klienten kan i princip när som helst sända vilka paket som helst till vilken nod som helst. Det enda klienten och servern behöver veta om är vilken kanal som informationen ska skickas på och vilken socket-server som ska agera nav. Risken finns att en obehörig person väljer att skicka ett meddelande till alla uppkopplade klienter i nätverket.
