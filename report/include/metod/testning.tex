@@ -1,0 +1,82 @@
+\section{Testning}
+En viktig del i utvecklingen av Water har varit verifieringsprocessen i form av tester. Då gruppen består av personer från olika bakgrunder med olika förkunskaper så är det viktigt att koden som skrivs kan verifieras av både skribenten och övriga utvecklare inom gruppen.
+
+\subsection{Testmetoder}
+Tester kan skrivas på lite olika sätt och enligt lite olika konventioner. Några utav dem är TDD (Test Driven Development), RDD (Readme Driven Development), BDD (Behavior Driven Development) och TAF (Test After Programming).
+
+Ett utav de vanligare sättet att skriva tester på, enligt tidigare erfarenhet från gruppen, är TAF. Principen är att testerna skrivs efter de att koden har implementerats.
+
+\subsection{Testramverk}
+Språket Ruby har ett flertal testramverk som är under aktiv utveckling, tre utav de större är MiniTest, RSpec och TestUnit. Valet av ramverk är viktigt, främst då ramverket är svårt, om inte nära inpå omöjligt att byta efter att utvecklingen har påbörjats.
+
+Några utav de faktorer som spelade in vid valet är
+
+    - Dokumentation – hur enkelt är det att läsa sig in på ramverket
+
+    - DSL – hur lättläst är test-koden som skrivs av utvecklaren
+
+    - Förkunskaper inom gruppen
+
+    - Rails-stöd
+    
+    - Exekveringstid
+
+Rubys TestUnit, som till sitt DSL är mest likt Javas JUnit, är flera gånger snabbare än RSpec, men är inte praktiskt att använda då DSL:et är förhållandevis oläsbart. Rubys möjlighet till metaprogrammering gör det möjligt att designa lättlästa DSL:er. Vi kan därför förvänta oss ett bättre designat API, vilket gör att TestUnit fallet bort.
+
+MiniTest, som förövrigt är standardtestramverket i Rails sedan 2008 (Rails Webblog, “MiniTest”, 2008), är likvärdigt med RSpec både när det gäller läsbarhet, DSL-uppbyggnad och körningstid. Det fattas kompetens inom gruppen för biblioteket, vilket tillslut gjorde att valet tillslut föll på RSpec.
+
+RSpec har fullt stöd för Rails, har ett lättläst DSL (se exemplet nedan) och är mycket bra dokumenterat. Ett flertal personer inom gruppen har även kunskap om testramveket.
+
+Nedan följer ett exempel på hur RSpec skulle kunna tänkas användas för att testa en bil-klass.
+
+\begin{lstlisting}[language=Ruby]
+it "should have 3 wheels" do
+  car.should have(3).wheels
+end
+
+it "should not be roadworthy" do
+  car.should_not be_roadworthy
+end
+\end{lstlisting}
+
+\subsection{Vad testas?}
+Det vore optimalt med 100\% test-täckning, i praktiken har inte detta varit möjligt.
+
+Vi påbörjade utvecklingen av Water genom att strukturera upp och implementera en databas, var vid modellagret i MVC-modellen applicerades. Under utveckingen av modellerna så användes BDD-metoden för att bygga och strukturera upp testerna. 
+
+Ett problem vid modelltesting är popularisering av objekten som ska testas. En lösning är att skapa s.k fixtures. Fixtures är färdigpopulariserade och validerade objekt som används vid testing.
+
+User-modellen innehåller ett namn, lösenord och en epost-adress. Problem uppstår när utvecklaren ska testa specifika attribut, till exempel existensen av namn. De vi vill göra är att modifiera specifika attribut, men behålla resterande fält för att se vilken effekt våra ändringar har.
+
+Rubygemen FactoryGirl enkapsulerar factory-konceptet och gör det möjligt att göra just detta. Exemplet nedan illustrerar en user-modell som är färdigpopulariserad och redo att använda.
+
+\begin{lstlisting}[language=Ruby]
+FactoryGirl.define do
+  factory :user do
+    name "Pelle"
+    email "pelle@student.chalmers.se"
+    password "secret"
+  end
+end
+\end{lstlisting}
+
+När factoryn sedan ska användas i testerna så kan vi enkelt välja att plocka bort och ändra attribut utan att behöva modifiera eller ens lägga till övriga attribut. I exemplet nedan är det inte tillåtet för en user att heta Gustav, men andra namn är tillåtna. Om implementationen är rätt så kommer båda testerna passera.
+
+\begin{lstlisting}[language=Ruby]
+build(:user, name: "Gustav").should_not be_valid
+build(:user, name: "Lasse").should be_valid
+\end{lstlisting}
+
+Efter modellen föjer implementeringen av vyn och kontrollern (VC i MVC). VC är svårare att testa, jämfört med M, då VC innehåller två lager. Vyn är som bekant beroende av data från modellen som i sin tur levereras av kontrollern. Ett sätt att testa alla lager är med hjälp av så kallad fullstack-testing. Iden är att simulera flödet från en riktig användare som navigerar sig runt i vyn. En gem som hjälper oss med detta är Capybara.
+
+Exemplet nedan visar ett fullstack-test som med hjälp av Capybara testar ett formulär.
+
+\begin{lstlisting}[language=Ruby]
+visit root_path
+sign_in_as student
+within("li#employee") do
+  fill_in "Name", with: "Jimmy"
+end
+click_on "Submit"
+page.should_redirect_to "root_page"
+\end{lstlisting}

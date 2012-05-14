@@ -2,7 +2,7 @@
 
 Det finns möjlighet att ha en invariant mellan hur många simultana “laboration-till-grupp”-kopplingar det finns per laboration för varje enskild student. Det rör sig mellan alternativen att forcera maximalt en koppling per laboration, att forcera till exakt en koppling per laboration samt att strunta i att ha invarianten. Det leder till mer arbete att uppehålla en striktare invariant, men det har fler fördelar.
 
-För att göra detta avsnitt läsbart inför vi termen LabHasGroup, förkortad LHG. LHG är den entitet i modellen som representerar kopplingen mellan en grupp och en laboration. [HÄNVISA TILL MODELL-KAPITEL]
+För att göra detta avsnitt läsbart inför vi termen LabHasGroup, förkortad LHG. LHG är den entitet i modellen som representerar kopplingen mellan en grupp och en laboration, vilket beskrivs i sektion \ref{sec:modell-labhasgroup}. 
 
 \subsection{Max en LHG per laboration ($\leq 1$)}
 Som en direkt konsekvens av denna invariant kan inte en student lämna in samma laboration genom flera laboration till grupp kopplingar eftersom invarianten direkt stryper kopplingsantalet till maximalt en per laboration. I praktiken jobbar aldrig en student på samma laboration via flera kopplingar samtidigt. Det är troligt att studentanvändare blir förvirrade av att de ser att de jobbar på samma laboration via olika kopplingar. Det bör alltså noteras att fördelarna är främst  ytliga, alltså att produktens webbinterface blir tydligt för studentanvändarna. Vidare ska en handledare inte av misstag behöva rätta två inlämnade laborationer kopplade till samma student.
@@ -29,7 +29,7 @@ En operationsuppsättning kan vara att en grupp alltid skapas tom utan LHGs, att
 \subsubsection{Användarperspektiv}
 Operationerna som krävs för att byta LHG från en grupp till en annan är: skapa den nya gruppen, bjud in dina nya laborationskamrater som måste därefter ta bort samtliga LHG:s hos sina nuvarande grupper för att sedan kunna skapa den nya LHG:en i den nya gruppen, även ens tidigare laborationskamrater måste troligen göra detta. Stegen är förklarade i  figurserie \ref{fig:slack_series}.
 
-\begin{figure}\label{fig:slack_series}
+\begin{figure}
   \includegraphics[width=7.0cm]{fig/labgroup/slack_add_1.pdf}        
   \includegraphics[width=7.0cm]{fig/labgroup/slack_add_2.pdf}        
   \includegraphics[width=7.0cm]{fig/labgroup/slack_add_2-5.pdf}        
@@ -42,6 +42,7 @@ Operationerna som krävs för att byta LHG från en grupp till en annan är: ska
   en LHG. Notera hur student $S2$ måste ta bort sin förra LHG innan någon elev
   kan lägga till en LHG i den nya gruppen. Mellan varje figur krävs att någon
   användare gör en åtgärd i waters system.}
+  \label{fig:slack_series}
   
 \end{figure}
 
