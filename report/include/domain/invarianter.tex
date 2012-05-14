@@ -16,10 +16,10 @@ Flera möjliga sätt finns för att enforcera invarianten, gemensamt för implem
   \item Ta bort,  inaktivera eller frysa en laboration – dessa operationer är ekvivalenta
 \end{itemize} 
 
-Eftersom grupperna är immuterbara finns inte operationerna elevavhopp eller gruppsplittring. Invarianten syftar på antalet aktiva grupper vilket skulle betyda att operationerna: ta bort, inaktivera samt frysa en \emph{LHG} är alla ekvivalenta vad berör denna invariant.  Att starta en laboration behöver inte finnas som operation, exempelvis är det möjligt att definiera att en gruppstart, per automatik, skapar samtliga \emph{LHG}:s. Ovanstående är alltså en minimal grund för att kunna beskriva implementationer av invarianterna.
+Eftersom grupperna är immuterbara finns inte operationerna elevavhopp eller gruppsplittring. Invarianten syftar på antalet aktiva grupper vilket skulle betyda att operationerna: ta bort, inaktivera samt frysa en \emph{LHG} är alla ekvivalenta vad berör denna invariant.  Att starta en laboration behöver inte finnas som operation. Exempelvis är det möjligt att definiera att en gruppstart, per automatik, skapar samtliga \emph{LHG}:s. Ovanstående är alltså en minimal grund för att kunna beskriva implementationer av invarianterna.
 
 \subsubsection{Förslag på implementering}
-En operationsuppsättning kan vara att en grupp alltid skapas tom utan \emph{LHG}s, att en student bara kan gå med i grupper utan \emph{LHG}s samt att operationen “starta laboration” bara är utförbar då samtliga elever i gruppen saknar \emph{LHG}s för den laborationen. En student kan ta bort sin \emph{LHG}, notera att denna operation måste finnas för att samma student ska någonsin kunna starta en ny \emph{LHG} till samma laboration. Denna operationsuppsättning utgör en implementering och ansågs av vår grupp till att vara den enklast genomförbara.
+En operationsuppsättning kan vara att en grupp alltid skapas tom utan \emph{LHG}s, att en student bara kan gå med i grupper utan \emph{LHG}s samt att operationen “starta laboration” bara är utförbar då samtliga elever i gruppen saknar \emph{LHG}s för den laborationen. En student kan ta bort sin \emph{LHG}. Notera att denna operation måste finnas för att samma student någonsin ska kunna starta en ny \emph{LHG} till samma laboration. Denna operationsuppsättning utgör en implementering och ansågs av vår grupp till att vara den enklast genomförbara.
 
 
 \begin{proof}[Bevis av korrekthet]
