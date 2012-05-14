@@ -1,0 +1,2 @@
+\section{Systemarkitektur}
+Systemets kärna är en Ruby on Rails-applikation som bygger på plattformen Gitorious. Som versionhanteringssystem används Git. Inlämningar förvaras i Git-repositorier. Grack fungerar som Git-server. Köhanteringssystemet består av Stomp, Beanstalkd och Poller. Faye fungerar som WebSocketserver. Data lagras i en PostgreSQL-databas.
