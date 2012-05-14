@@ -1,6 +1,9 @@
 ## General .gitignore file by Arash Rouhani (Tarrasch)
 ## Inspired from whitespace bot GunioRobot
 
+main.pdf
+main.toc
+
 # backup files
 *.swp
 *.swo
