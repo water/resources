@@ -27,7 +27,7 @@ En operationsuppsättning kan vara att en grupp alltid skapas tom utan LHGs, att
 \end{proof}
 
 \subsubsection{Användarperspektiv}
-Operationerna som krävs för att byta LHG från en grupp till en annan är: skapa den nya gruppen, bjud in dina nya laborationskamrater som måste därefter ta bort samtliga LHG:s hos sina nuvarande grupper för att sedan kunna skapa den nya LHG:en i den nya gruppen, även ens tidigare laborationskamrater måste troligen göra detta. Stegen är förklarade i följande figurserie:
+Operationerna som krävs för att byta LHG från en grupp till en annan är: skapa den nya gruppen, bjud in dina nya laborationskamrater som måste därefter ta bort samtliga LHG:s hos sina nuvarande grupper för att sedan kunna skapa den nya LHG:en i den nya gruppen, även ens tidigare laborationskamrater måste troligen göra detta. Stegen är förklarade i  figurserie \ref{fig:slack_series}.
 
 \begin{figure}\label{fig:slack_series}
   \includegraphics[width=7.0cm]{fig/labgroup/slack_add_1.pdf}        
@@ -54,7 +54,13 @@ En operationsuppsättning för denna invariant måste även definiera initialtil
 Invarianten kan  framtvingas genom följande initialtillstånd och operationsuppsättning.
 
 \paragraph{Initialtillstånd}
-I början är alla studenter inplacerade i en för varje student unik grupp som kallas “studentens grupp” (förkortat SG i figurerna). Varje student har en sådan grupp som innehåller en LHG till alla laborationer som finns registrerade i kursen. Bild:
+I början är alla studenter inplacerade i en för varje student unik grupp som kallas “studentens grupp” (förkortat SG i figurerna). Varje student har en sådan grupp som innehåller en LHG till alla laborationer som finns registrerade i kursen. Se figur \ref{fig:strict-initstate}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=8.0cm]{fig/labgroup/strict_initstate.pdf}
+  \caption{Illustration av initialtillståndet i en kurs med 3 studenter}\label{fig:strict-initstate}
+\end{figure}
 
 \paragraph{Operationer}
 I detta förslag behandlas operationerna “skapa en grupp” och “lägg till en student i gruppen” på samma sätt som i förslaget för den mindre strika invarianten. Att skapa en ny LHG kommer inte ha kräva några förhandsvilkor, studenten behöver alltså inte längre manuellt se till så att LHG:en sätts in genom att ta bort sina egna kopplingar i sina tidigare grupper, istället tar Water bort alla kopplingar som “är i vägen”. Operationen sker mer specifikt på följande sätt:
