@@ -2,13 +2,13 @@
 \subsection{Webbserver med Ruby on Rails}
 Ruby on Rails levererar vanliga HTML-sidor via en webbserver som svar på synkrona anrop från webbklienten. Systemet fungerar även som en webbtjänst för mer specialiserade anrop från webbklienten. Specialiserade anrop görs till exempel asynkront från webbklienten för att lägga till eller ta bort filer och mappar i Git-repositorier och för att hämta fragment av HTML-sidor för att rendera filträd.
 \subsection{Databas}
-Valet av \emph{DBMS} blev PostgreSQL för att MySQL-kopplingen i Rails inte fungerade felfritt för medlemmarna i gruppen som använde OS X. Eftersom alla relationer och valideringar implementerades i modell-lagret blev applikationen ändå \emph{databas-agnostisk}
+Valet av DBMS blev PostgreSQL för att MySQL-kopplingen i Rails inte fungerade felfritt för medlemmarna i gruppen som använde OS X. Eftersom alla relationer och valideringar implementerades i modell-lagret blev applikationen ändå databas-agnostisk
 \subsection{Rekursiv borttagning av poster i databasen}
-Vi valde att använda Rails metoden dependent-destroy för att göra modellen \emph{databas-agnostisk}.
+Vi valde att använda Rails metoden dependent-destroy för att göra modellen databas-agnostisk.
 \subsection{Git: repositorier}
 För varje laboration har en grupp ett Git-repositorium som innehåller inlämningarna. Webbservern utför endast läsoperationer direkt mot repositoriet. Andra operationer sköts via köhanteringssystemet.
 
-Git-repositorierna sparas som \emph{bare-repositorium}. Detta betyder alla Git-repositorium saknar ett aktivt Git-träd (\emph{working tree}). Detta gör att de tar mindre plats än ett vanligt repositorium.
+Git-repositorierna sparas som bare-repositorium. Detta betyder alla Git-repositorium saknar ett aktivt Git-träd (working tree). Detta gör att de tar mindre plats än ett vanligt repositorium.
 \subsection{Git: server}
 Grack är webbservern som hanterar push- och pull-förfrågningar. Vi har skrivit Water-specifika tillägg som sköter omskrivning av sökvägar samt låter servern auktorisera användaren direkt mot Rails-applikationen. Användaren kan därför använda samma lösenord och användarnamn som i webbklienten.
 
@@ -20,7 +20,7 @@ Beanstalkd
 Köhanteraren som lyssnar på anslutningar från webbserver för att möjliggöra asynkron kommunikation.
 Stomp / Processer
 
-Beanstalkd använder lågnivåprotokollet \emph{telnet} för all inkommande kommunikation. För att enklare kunna interagera med Beanstalkd används biblioteket Stomp. Stomp gör det möjligt att via Ruby lyssna och skriva till Beanstalkd-köer. Bryggan till Ruby gör Stomp till ett modulärt, lätt-implementerat gränssnitt. Se exemplet nedan.
+Beanstalkd använder lågnivåprotokollet telnet för all inkommande kommunikation. För att enklare kunna interagera med Beanstalkd används biblioteket Stomp. Stomp gör det möjligt att via Ruby lyssna och skriva till Beanstalkd-köer. Bryggan till Ruby gör Stomp till ett modulärt, lätt-implementerat gränssnitt. Se exemplet nedan.
 
 \begin{lstlisting}[language=Ruby]
 
@@ -54,8 +54,8 @@ class CommitRequest
 
 Poller är bryggan mellan Beanstalkd(Stomp) och Rails-stacken och körs som en helt fristående process. Processen lyssnar på Beanstalkd och vidarebefordrar inkommande jobb till rätt klass med hjälp av en konfigurationsfil. Se föregående exempel stycke (Stomp) för kodexempel.
 
-\subsection{\emph{MVC}-bibliotek i webbklienten}
-Backbone.js används som \emph{MVC}-bibliotek i webbklienten.
+\subsection{MVC-bibliotek i webbklienten}
+Backbone.js används som MVC-bibliotek i webbklienten.
 
 Spine.js verkade vara ett mer lovande alternativ tidigt under utvecklingen, eftersom mycket av Javascript-kodandet ändå skulle ske i CoffeeScript som är bättre integrerat i Spine.js. Med tiden visade det sig dock att Spines syntax och arbetsflöden var svårare att lära sig än de i Backbone, som gruppen dessutom hade erfarenhet av sen tidigare. Det sista frågetecknet gällde Backbones kompatibilitet med CoffeeScripts klass-strukturer, som är en av de viktigaste anledningarna till att gruppen valde CoffeeScript över vanlig Javascript. Det visade sig fungera bra, vilket ledde till att Backbone valdes.
 
@@ -64,7 +64,7 @@ För att möjliggöra mer avancerad interaktion används små Javascriptapplikat
 
 Rendering och navigation av filträd sköts av applikationen TreeViewer. TreeViewer består av ett antal modeller och vyer samt en router som reagerar på förändringar i sökväg. 
 
-\bf{Routern} tolkar \emph{hash fragments} - den del av sökvägen som följer efter ett \#-tecken - och utlöser lämpliga events utan att hela sidan behöver laddas om.
+{\bf Routern} tolkar hash fragments - den del av sökvägen som följer efter ett \#-tecken - och utlöser lämpliga events utan att hela sidan behöver laddas om.
 
 {\bf TreeFetcher}-modellen gör anrop till webbservern för att hämta fragment av HTML-sidor som representerar sökvägen eller en nod i ett träd och enkapsulerar sedan denna information. För att utföra sina anrop förväntar sig TreeFetcher ett argument som visar vilken sorts nod sökvägen pekar på. Med denna information kan TreeFetcher utföra ansynkrona anrop till lämpliga sökvägar på webbservern för att hämta den renderade resursen.
 
@@ -74,14 +74,14 @@ Rendering och navigation av filträd sköts av applikationen TreeViewer. TreeVie
 
 {\bf BreadCrumbView}-vyn lyssnar på förändringar i sökvägen i BreadCrumbSet och renderar dem. BreadCrumbView använder en CSS-selector för att rendera sig själv. Om vi väljer en klass som CSS-selector kan en BreadCrumbView sköta renderingen av ett obegränsat antal HTML-element.
 
-\emph{CommitRequest}-modellen används för att skicka anrop till webbservern i syfte att förändra Git-repositorier. Modellen används även i uppladdningsprocessen för att kvittera att alla filer har laddats upp till webbservern innan filerna läggs till Git-repositoriet genom ytterligare ett anrop.
+{\bf CommitRequest}-modellen används för att skicka anrop till webbservern i syfte att förändra Git-repositorier. Modellen används även i uppladdningsprocessen för att kvittera att alla filer har laddats upp till webbservern innan filerna läggs till Git-repositoriet genom ytterligare ett anrop.
 
 \subsection{Websocketserver}
 Websocket-servern Faye står för all asynkron kommunikation mellan klient och server. Faye består av en websocketserver och en klientdel skriven i Javascript.
 
 Faye-servern lyssnar på anslutningar från webbservern men tar endast emot inkommande meddelanden som valideras enligt SecureFayes protokoll.
 
-I normala fall kan även klienten skicka data till server via Faye.js, detta är dock ej möjligt med den nuvarande säkerhetsupplägget då en \emph{symmetrisk SHA1-signering} används på server-sidan.
+I normala fall kan även klienten skicka data till server via Faye.js, detta är dock ej möjligt med den nuvarande säkerhetsupplägget då en symmetrisk SHA1-signering används på server-sidan.
 
-I nuläget används Faye bara för att meddela klienten att en \emph{CommitRequest} har behandlats.
+I nuläget används Faye bara för att meddela klienten att en CommitRequest har behandlats.
 
