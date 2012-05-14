@@ -1,0 +1,79 @@
+\section{Modell}
+\subsection{Modellförteckning}
+\subsubsection{Department}
+Representerar en institution.
+
+\subsubsection{Course}
+Ska representera en kurs, som tillhör en institution. Exempelvis så skulle en matematik kurs tillhöra matematik-institutionen.
+
+\subsubsection{CourseCode}
+Representerar kurskoderna för en kurs. Orsaken till att kurskoderna har en egen tabell är att en och samma kurs ska kunna ges av två olika universitet, eller högskolor.
+
+\subsubsection{GivenCourse}
+Representerar en kurs som ges under en viss läsperiod. Varje GivenCourse har en eller flera examinatorer. Examinatorerna registrerar studenter och handledare på kursen. GivenCourse kan ha ingen eller flera laborationer. GivenCourse har en StudyPeriod och genom denna entitet kan en kurs ges under flera tillfällen varje år och kan då också ha olika examinatorer, handledare och laborationer.
+
+\subsubsection{User}
+Modellerar en användare, med login, lösenord, email, och så vidare. En användare kan ha olika roller, administrator, examiner, student, eller assistant (handledare) och de olika rollerna är svaga entiteter till User modellen. En användare kan ha flera roller, vilka bestämmer tillgången till funktionalitet i systemet. Till exempel kan en handledare samtidigt också vara en student. På det här sättet kan en student läsa en kurs, samtidigt som den är handledare på en annan. 
+
+\subsubsection{Administrator}
+Modellerar en administratör och är en svag entitet till User. En administratör kan bland annat skapa och ta bort kurser, lägga till och ta bort studenter, examinatorer och handledare. Har fullständiga privilegier, och fungerar som en administratör för systemet.
+
+\subsubsection{Student}
+Modellerar en student och är en svag entitet till User. En student kan registrera sig på en GivenCourse, gå med och ut ur grupper och göra laborationer på kurser som den är registrerad på. 
+
+\subsubsection{Examiner}
+Modellerar en examinator, och är en svag entitet till User. Examinatorn kan utnämna handledare, betygsätta laborationer på de kurser den är registrerad på. De kan också sätta generella deadlines på laborationer och ge ExtendedDeadlines till laborationsgrupper.  
+
+\subsubsection{Assistant}
+Modellerar en handledare, och är en svag entitet till User. Handledaren kan betygsätta laborationer på kurser där den är registrera. En assistant kan också ge ExtendedDeadlines till LabGroups. 
+
+\subsubsection{Lab}
+En laboration i Water representeras av Lab-modellen. Modellen innehåller information om vilken kurs laborationer tillhör, ett nummer som identifierar den relativt inom kursen och även en koppling till en LabDescription.
+
+I stället för att referera till en unik laboration genom lab\_id så har vi valt att lägga till en kolumn vid namn number. En laboration kan på så vis unikt bestämmas utifrån ett number och en kurs-kod given\_course\_id. På så vis behöver användaren endast komma ihåg vilken kurs de läser och vilken laboration de gör, till exempel 3:e.
+
+\subsubsection{InitialLabCommit}
+I många kurser finns färdigt material för varje laboration. InitialLabCommit-modellen är till för enkapsulera ett preparerat givet tillstånd för en laboration. Examinatorn kan här bestämma vilket material som bör finnas med från början till varje laboration. Personen i fråga kan även välja att återanvända material från år till år genom att referera en InitialLabCommit.
+
+\subsubsection{Submission}
+Så snart en användare lämnat in en inlämning, oavsett om detta görs med hjälp av Git eller via webinterfacet skapas en så kallad Submission. Modellen representerar ett tillstånd i ett repositorium givet en grupp. Tillståndet i ett repositorium representeras med hjälp av en så kallad commit-hash.
+
+\subsubsection{DefaultDeadline}
+Varje laboration startar alltid med en förutbestämd deadline för den första inlämningen och en för den sista inlämingen. Kolumnen at anger förfallotiden för en deadline. Modellen har i sitt implementerade tillstånd lägre prioritet än en så kallad  ExtendedDeadline.
+
+\subsubsection{ExtendedDeadline}
+I de fallen då en grupp har påbörjat en laboration men inte hunnit bli klara i tid, eller har skäliga förhinder skapas det en ExtendedDeadline. Den här modellen har högre prioritet är DefaultDeadline vilket är ett krav då båda kan existera samtidigt. at representerar, precis som för DefaultDeadline, förfallotiden för en deadline.
+
+\subsubsection{LabDescription}
+För att minska risken för duplicering av data och på så vis uppnå en viss nivå av normalisering har vi valt att flytta ut återkommande data för en given laboration till en så kallad LabDescription. Modellen innehåller information om en given laboration som kan tänkas ändras under åren. Iden är att administratör ska kunna återanvända laborationsbeskrivningar från år till år utan att behöver kopiera informationen mellan åren.
+
+\subsubsection{LabGroup}
+Modellen representerar en grupp med studenter för en given kurs. För att göra det enklare att referera till en grupp, till exempel muntligt, har vi precis som för en Lab, valt att numrera grupper relativt inom en GivenCourse, genom en number kolumn. Detta betyder att man unikt kan bestämma en LabGroup genom att ange ett number tillsammans med en given kurs via given\_course\_id.
+
+\subsubsection{LabHasGroup}
+Modellerar en påbörjad Lab av en LabGroup, som nu har tillgång till versionhanterings-funktionalitet och kan göra inlämingar via webgränssnittet och Git.
+
+\subsubsection{Repository}
+En central del av Water är möjligheten att interagera och spara undan information om repositoriet. Själva Git-informationen sparas på disk i form av Git-objekt, medan information om placeringen på filsystemet sparas i databasen. Varje repositorium tillhör en LabHasGroup där gruppen kan spara filer som hör till en laboration, för att till sist göra en submit, varpå repositoriet fryses tills den är färdigrättad.
+
+\subsubsection{Comments}
+Kommentarer kan läggas till valfri modell, utan att det behövs göra stora ändringar i den. 
+
+För att implementera kommentarer användes biblioteket Ancestry som kan ordna godtycklig data i trädstrukturer. I databasen skapades tabellen Comments, som innehåller attribut för texten, typen på modellen den tillhör, den ovanstående kommentarens id, ett Ancestry attribut, och så vidare. 
+
+För att lägga till funktionaliteten till modeller, så kan man lägga till en ‘comment\_id’ till deras tabell, som sedan används som root för kommentar-trädet. Vi valde att ta en NULL-value approach, och sätta attributet null, tills en kommentar blivit kopplad till den.
+    
+\subsubsection{StudentRegisteredForCourse}
+Modellerar en registrering av en Student på en GivenCourse. Studenten kan nu gå med i och skapa  laborationsgrupper inom kursen.
+
+\subsubsection{AssistantRegisteredForCourse}
+Modellerar en registrering av en Assistant på en GivenCourse. Assistenten kan tilldelas LabHasGroups genom AssistantRegisteredForCourseHasLabGroup.
+
+\subsubsection{AssistantRegisteredForCourseHasLabGroup}
+Modellerar kopplingen mellan en assistent och en grupp som har påbörjat en laboration på en GivenCourse, assistenten kan nu betygsätta inlämingar gjorda av den gruppen. 
+
+\subsubsection{ExaminerGivenCourse}
+Modellerar en registrering av en Examiner på en GivenCourse. Examinern kan nu rätta laborationer och lägga till studenter och handledare på kursen.
+
+\subsubsection{StudyPeriod}
+Modellerar en läsperiod, med start och slutdatum.
