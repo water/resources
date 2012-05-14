@@ -1,0 +1,16 @@
+\section{CommitRequest: Ett API för manipulering av repositorier via webbklienten}
+Webbgränssnittet utför operationer på Gitrepositorier genom att göra anrop till webbservern, som i sin tur förmedlar anropen till köhanteraren. Projektgruppen har valt att kalla dessa anrop för CommitRequest.
+För anropen har projektgruppen definierat ett API. Samma dataformat används för att skicka vidare anropen från webbservern till köhanteraren.
+Operationerna som stöds är:
+
+\begin{itemize}
+  
+  \item add – Lägg till filer
+  \item rm – Ta bort filer och mappar
+  \item mkdir – Skapa en mapp
+  \item mv – Flytta filer
+  
+\end{itemize}
+
+Alla operationer kräver ett repositorie-id samt namnet på den branch som ska användas. Alla operationer stöder också att ett commit-meddelande skickas med anropet. Ett tomt commit-meddelande leder till att servern genererar ett automatiskt meddelande. Add och mv kräver en ursprungssökväg och en destinationssökväg. Rm och mkdir kräver bara sökvägar.
+Se bilaga 1 för en exakt specifikation.
