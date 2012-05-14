@@ -51,6 +51,7 @@ class CommitRequest
 \end{lstlisting}
 
 \subsubsection{Poller}
+
 Poller är bryggan mellan Beanstalkd(Stomp) och Rails-stacken och körs som en helt fristående process. Processen lyssnar på Beanstalkd och vidarebefordrar inkommande jobb till rätt klass med hjälp av en konfigurationsfil. Se föregående exempel stycke (Stomp) för kodexempel.
 
 \subsection{MVC-bibliotek i webbklienten}
@@ -63,23 +64,17 @@ För att möjliggöra mer avancerad interaktion används små Javascriptapplikat
 
 Rendering och navigation av filträd sköts av applikationen TreeViewer. TreeViewer består av ett antal modeller och vyer samt en router som reagerar på förändringar i sökväg. 
 
-\subsubsection{Router}
-Routern tolkar hash fragments - den del av sökvägen som följer efter ett \#-tecken - och utlöser lämpliga events utan att hela sidan behöver laddas om.
+{\bf Routern} tolkar hash fragments - den del av sökvägen som följer efter ett \#-tecken - och utlöser lämpliga events utan att hela sidan behöver laddas om.
 
-\subsubsection{TreeFetcher}
-TreeFetcher-modellen gör anrop till webbservern för att hämta fragment av HTML-sidor som representerar sökvägen eller en nod i ett träd och enkapsulerar sedan denna information. För att utföra sina anrop förväntar sig TreeFetcher ett argument som visar vilken sorts nod sökvägen pekar på. Med denna information kan TreeFetcher utföra ansynkrona anrop till lämpliga sökvägar på webbservern för att hämta den renderade resursen.
+{\bf TreeFetcher}-modellen gör anrop till webbservern för att hämta fragment av HTML-sidor som representerar sökvägen eller en nod i ett träd och enkapsulerar sedan denna information. För att utföra sina anrop förväntar sig TreeFetcher ett argument som visar vilken sorts nod sökvägen pekar på. Med denna information kan TreeFetcher utföra ansynkrona anrop till lämpliga sökvägar på webbservern för att hämta den renderade resursen.
 
-\subsubsection{BreadCrumbSet}
-BreadCrumbSet-modellen lagrar den nuvarande sökvägen i filträdet. Noder i sökvägen sparas i en stack med namn och sökväg. Denna information används för att rendera sökvägen för användaren så att varje nod är klickbar. Den fullständiga sökvägen används dessutom för att möjliggöra manipulationer av filträdet på ett givet ställe i trädet.
+{\bf BreadCrumbSet}-modellen lagrar den nuvarande sökvägen i filträdet. Noder i sökvägen sparas i en stack med namn och sökväg. Denna information används för att rendera sökvägen för användaren så att varje nod är klickbar. Den fullständiga sökvägen används dessutom för att möjliggöra manipulationer av filträdet på ett givet ställe i trädet.
 
-\subsubsection{TreeView}
-TreeView-vyn lyssnar på förändringar i TreeFetchern. När anrop inleds renderar den en laddningsindikator. När ny data har tagits emot renderar vyn datat.
+{\bf TreeView}-vyn lyssnar på förändringar i TreeFetchern. När anrop inleds renderar den en laddningsindikator. När ny data har tagits emot renderar vyn datat.
 
-\subsubsection{BreadCrumbView}
-BreadCrumbView-vyn lyssnar på förändringar i sökvägen i BreadCrumbSet och renderar dem. BreadCrumbView använder en CSS-selector för att rendera sig själv. Om vi väljer en klass som CSS-selector kan en BreadCrumbView sköta renderingen av ett obegränsat antal HTML-element.
+{\bf BreadCrumbView}-vyn lyssnar på förändringar i sökvägen i BreadCrumbSet och renderar dem. BreadCrumbView använder en CSS-selector för att rendera sig själv. Om vi väljer en klass som CSS-selector kan en BreadCrumbView sköta renderingen av ett obegränsat antal HTML-element.
 
-\subsubsection{CommitRequest}
-CommitRequest-modellen används för att skicka anrop till webbservern i syfte att förändra Git-repositorier. Modellen används även i uppladdningsprocessen för att kvittera att alla filer har laddats upp till webbservern innan filerna läggs till Git-repositoriet genom ytterligare ett anrop.
+{\bf CommitRequest}-modellen används för att skicka anrop till webbservern i syfte att förändra Git-repositorier. Modellen används även i uppladdningsprocessen för att kvittera att alla filer har laddats upp till webbservern innan filerna läggs till Git-repositoriet genom ytterligare ett anrop.
 
 \subsection{Websocketserver}
 Websocket-servern Faye står för all asynkron kommunikation mellan klient och server. Faye består av en websocketserver och en klientdel skriven i Javascript.
