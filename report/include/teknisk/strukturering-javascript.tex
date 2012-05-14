@@ -1,0 +1,47 @@
+\section{Strukturering av Javascript och CSS}
+
+Water kommer att innehålla stora mängder Javascript och CSS. För att systemet ska vara lätt att vidareutveckla och underhålla behöver strategier tas fram för strukturering av dessa filer.
+
+\subsection{Prestanda kontra läsbarhet och utvecklingsbarhet}
+
+Under utvecklingsfasen, och med tanke på att systemet bör vara lätt att underhålla och vidareutveckla, är det önskvärt att klientkoden struktureras på samma sätt som traditionell kod. Detta innebär i regel att koden delas upp i separata filer och mappar enligt funktion eller några andra lämpliga kriterier.
+
+Språk som CSS och javascript har dock i regel inga include-direktiv eller liknande mekanismer för att inkludera eller referera till kod från andra filer. Samtliga källkodsfiler måste istället länkas in en åt gången i HTML-dokumentet. 
+Webbläsaren hämtar sedan filerna genom att göra ett separat anrop per fil till servern. Anropen går till viss del att göra parallellt, men HTTP 1.1-specifikationen (IETF RFC 2616, 2009) rekommenderar att webbläsare begränsar antalet parallella överföringar till två. Detta beror på att ett stort antal (nästan) samtidiga anrop riskerar att överbelasta webbservern. Resultatet blir att filerna överförs i serie. Av Breit (1998) framgår det att detta är dåligt ur prestandasynpunkt eftersom varje nytt anrop ger upphov till olika handskakningsförfaranden som tar i anspråk bandbredd och processorcykler. 
+
+Det är alltså mer effektivt att överföra en given datamängd som ett enda stort paket än som en större mängd små paket. Det är därför önskvärt att konkatinera ihop CSS- och javascriptfiler till ett litet antal större källkodsfiler. Detta står dock i direkt konflikt med kravet på strukturering och uppdelning av koden.
+
+För att ytterligare snabba upp hämtning av resurser går det att använda olika tekniker för att minska storleken på javascript och CSS. Detta åstadkommes bland annat genom att eliminera alla onödiga whitespaces och genom att göra variabel- och funktionsnamn så korta som möjligt. Processen kallas för minifiering. Den minskar laddningstiderna men gör koden oläsbar av människor. Minifiering sker dock i samband med produktssättning – under utvecklingstiden behandlas icke-minifierad kod.
+
+\subsection{Konkatineringsverktyg - en möjlig lösning}
+Ett sätt att dra nytta av både välstrukturerad källkod och olika prestandaförbättringar är att använda ett verktyg som låter programmeraren dela upp källkodsfilerna under utvecklingsfasen, men som konkatinerar dem på lämpligt sätt då applikationen sätts i produktion. 
+Verktygen är oftast plattformsberoende. Eftersom Water kommer att bygga på Ruby on Rails kommer alternativen för den miljön att utforskas. 
+De mest populära verktygen för Ruby är Sprockets och Jammit. Båda erbjuder konkatinering och komprimering av Javascript och CSS. Båda erbjuder även hjälpmedel för cachning av resurser. Små skillnader finns i syntaxen som används för att styra hur filerna konkatineras.
+Sprockets är välintegrerat i Ruby on Rails genom ramverkets system för assethantering - asset pipeline.
+
+\begin{flushright}
+  
+  \textbf{Beslut}
+  
+  Sprockets väljs som konkatineringsverktyg på grund av den goda integrationen i Ruby on Rails.
+  
+\end{flushright}
+
+\subsection{Strukturering av avancerade Javascriptapplikationer - MVC-modell i klienten}
+I takt med att Javascriptapplikationer i webbklienten blir mera avancerade uppstår problem med struktur och underhållbarhet. En anledning kan vara historisk - Javascript har traditionellt använts i form av små ostrukturerade kodsnuttar på olika ställen i en webbsida. Möjlighet att använda ett tämligen objektorienterat arbetssätt finns i Javascript tack vare prototypsystemet (ECMA-262, sektion 4.2.1, 2011), men detta används sällan. Istället skrivs kod i monolitiska filer i ett i närmast imperativt idiom.
+
+En möjlig lösning är att använda sig av MVC-modellen även i Javascriptkoden i webbklienten. Domänlogik och datahantering enkapsuleras i modeller. Vyer observerar förändringar i modeller och renderar data. I klassisk MVC tar en controller emot anrop från modell och vy och sköter kommunikationen mellan dem. Event-systemet i Javascript gör emellertid att vyer i många fall kan kopplas direkt till modellobjekt, vilket gör att controllerns roll blir snävare i klient-MVC. I klienten används controllern oftast bara för att knyta sökvägar i sökvägens hash fragment till händelser som hanteras av modellerna. Därför brukar den ibland kallas för router i sammanhanget.
+
+MVC-stöd i klienten löses enklast genom färdiga bibliotek för ändamålet. Två av de vanligaste alternativen är Spine.js och Backbone.js.
+Båda erbjuder mogen MVC-funktionalitet. De erbjuder prototyper, en form av superklasser, som programmeraren kan använda för att skapa sina vyer, modeller och controllers. Skillnaderna hör till de övriga egenskaperna. 
+Backbone.js är bättre integrerat med jQuery. Exempel på detta är hjälpmetoder i vyer för att hämta vyns HTML-element som ett jQuery-objekt. Backbone.js är skrivet i vanlig Javascript, medan Spine.js är skrivet i och anpassat för CoffeeScript, ett språk som kompileras till Javascript. Backbone kan dock användas med CoffeeScript och Spine kan användas med vanlig Javascript. Backbone erbjuder Collections, som är en samling modeller. Den huvudsakliga fördelen med Collections är att Backbone kan popularisera en Collection och uppdatera enskilda modeller i den med hjälp av en enda sökväg, förutsatt att serverns sökvägar följer REST-standard.
+
+Sammanfattningsvis går det att säga att valet av bibliotek beror på tycke och smak.
+
+\begin{flushright}
+  
+  \textbf{Beslut}
+  
+  Backbone.js används som MVC-bibliotek i klienten, på grund av jQuery-integrationen och på grund av att det finns tidigare erfarenhet av biblioteket inom gruppen.
+  
+\end{flushright}
