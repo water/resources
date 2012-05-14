@@ -32,10 +32,11 @@
 \newpage
 \pagenumbering{roman}
 \setcounter{page}{1}
-%\pagestyle{fancy}
+\pagestyle{fancy}
 %\fancyhead[LO,RE]{\slshape \leftmark}
 
-%\fancyhead{}
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
 %\fancyfoot{}
 %\fancyhead[CO,CE]{---Draft---}
 
@@ -44,6 +45,8 @@
 %\fancyfoot[C]{Confidential}
 
 %\fancyfoot[RO, LE] {\thepage}
+\fancyfoot[C]{\thepage}
+
 
 \setspecialhdr
 \tableofcontents
