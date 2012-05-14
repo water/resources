@@ -16,7 +16,7 @@ Redundans bör undvikas av de anledningar som diskuteras i kapitel \ref{sec:data
 \subsection{Tillståndshantering i endast en entitet kan leda till oklara tillstånd}
 Om tillståndshanteringen endast placeras i inlämningsentiteten blir det lätt att hämta information om enskilda inlämningar. Däremot måste alla inlämningsentiteter för en grupp och en inlämningsuppigft hämtas och kontrolleras när systemet ska beräkna hela inlämningsuppgiftens tillstånd.
 
-Om tillståndshanteringen placeras i entiteten som kopplar grupper till inlämningsuppgifter är det lätt att hämta information om gruppens tillstånd i förhållande till inlämningsuppgiften. Det kan i gengäld bli svårare att ta reda på tillståndet för en enskild inlämning, beroende på hur modellen är uppbyggd. Problem uppstår om systemet tillåter föräldralösa inlämningar, vilket beskrivs i avsnitt \ref{sec:uppdatering-inlamningar}, och gruppen har gjort två eller flera inlämningar och den sista inlämningen är icke-godkänd. I detta fall är det omöjligt att veta om inlämningarna före den icke-godkända inlämningen är icke-godkända eller föräldralösa. Det går att betrakta alla inlämningar före en icke-godkänd inlämning som icke-godkända, men det leder till att inlämningar som aldrig har behandlats av en handledare ser ut att ha blivit behandlade.
+Om tillståndshanteringen istället placeras i entiteten som kopplar grupper till inlämningsuppgifter är det lätt att hämta information om gruppens tillstånd i förhållande till inlämningsuppgiften. Det kan i gengäld bli svårare att ta reda på tillståndet för en enskild inlämning, beroende på hur modellen är uppbyggd. Problem uppstår om systemet tillåter föräldralösa inlämningar, vilket beskrivs i avsnitt \ref{sec:uppdatering-inlamningar}, och gruppen har gjort två eller flera inlämningar och den sista inlämningen är icke-godkänd. I detta fall är det omöjligt att veta om inlämningarna före den icke-godkända inlämningen är icke-godkända eller föräldralösa. Det går att betrakta alla inlämningar före en icke-godkänd inlämning som icke-godkända, men det leder till att inlämningar som aldrig har behandlats av en handledare ser ut att ha blivit behandlade.
 
 Om systemet inte tillåter föräldralösa inlämningar går det att entydigt bestämma enskilda inlämningars tillstånd utifrån gruppens tillstånd i relation till inlämningsuppgiften.
 
@@ -24,5 +24,5 @@ Om systemet inte tillåter föräldralösa inlämningar går det att entydigt be
 
   \textbf{Beslut}
 
-  Tillstånd hanteras i entiteten LabHasGroup, som beskrivs i modellavsnittet \ref{sec:modell-labhasgroup} som representerar grupper i relation till inlämningsuppgifter. Enligt tidigare beslut tillåts inte föräldralösa inlämningar, vilket gör att enskilda inlämningars tillstånd kan entydigt bestämmas.
+  Tillstånd hanteras i entiteten LabHasGroup, som beskrivs i modellavsnittet \ref{sec:modell-labhasgroup}. Entiteten representerar grupper i relation till inlämningsuppgifter. Enligt tidigare beslut tillåts inte föräldralösa inlämningar, vilket gör att enskilda inlämningars tillstånd kan entydigt bestämmas.
 \end{flushright}
