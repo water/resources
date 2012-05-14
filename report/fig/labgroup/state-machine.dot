@@ -1,19 +1,20 @@
 digraph G {
-  accepted [shape=doublecircle]
   node [shape=circle]
-  reviewing
+  initialized 
   pending
+  reviewing
+  accepted [shape=doublecircle]
   rejected
-  initialized
   
-  initialized -> pending
-  rejected -> pending
+  initialized -> pending [ label = "Första inlämning" ][constraint=false]
+  rejected -> pending [ label = "Första inlämning efter retur" ]
   
-  reviewing -> accepted
+  reviewing -> accepted [ label = "Handledare godkänner" ]
+  reviewing -> rejected [ label = "Handledare avslår" ]
 
-  reviewing -> rejected
+  pending -> reviewing [ label = "Handledare börjar granska inlämning" ]
 
-  pending -> reviewing
+  pending -> pending     [ label = "Återinlämning" ]
 }
 
 
