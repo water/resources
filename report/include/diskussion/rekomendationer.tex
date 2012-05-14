@@ -1,0 +1,34 @@
+\section{Rekommendationer}
+
+Implementationen är inte klar. Nästa steg för systemet är därför att all kvarvarande planerad funktionalitet implementeras.
+
+Ännu saknas implementation av valideringar, deadlines och administration - där deadlines och administration är kritiska funktionaliteter för att systemet skall kunna användas. 
+
+\subsection{Administration}
+Administration innefattar all form av hantering utav kurser och användare. Kurser behöver kunna skapas och rättigheter delegeras av någon administratör. Kursen i sin tur måste administreras av någon, förslagsvis examinatorn, som i sin tur måste kunna skapa, ta bort och redigera laborationer. Examinatorn borde även kunna registrera studenter på kursen och tillsätta handledare med speciella rättigheter. Slutligen är generering av korrekt formaterade LADOK-listor en viktig funktionalitet som behöver implementeras. 
+
+\subsection{Deadlines}
+Idag har varje laboration en deadline. Funktionaliteten för deadlines är dock inte implementerad. Det behövs restriktioner som stänger inlämningskanalerna efter att en deadline passerar. Därtill måste även logik för flera deadlines, samt hur man ska hantera utökade deadlines, implementeras. 
+
+\subsection{Valideringar}
+Enkla automatiska valideringar av formalia filnamn, filändelser och liknande är inte en nödvändig del av ett fungerande system, men är en potentiellt populär funktion som borde vara lätt att implementera.
+
+\subsection{Diffar}
+
+Möjligheten att snabbt se skillnader mellan två tillstånd i en inlämningsuppgift var en funktion som projektgruppen gärna hade implementerat.
+
+\subsection{Testning}
+
+Det är att föredra om ett testdrivet-utvecklingsätt används vid vidareutveckling då utvecklingssättet ger en mer verifierbar kodbas som enklare kan vidareutvecklas av andra utvecklare.
+
+Testverktyget RSpec ger lättlästa tester, är lätt att lära sig och bör därför vara bland alternativen för test-ramverk inom framtida utveckling. För View-Controller tester rekommenderas Capybara.
+
+
+
+\subsection{Kommentarer}
+Förmågan att kommentera andra modeller utöver Submission har inte blivit implementerat. Det kan, till exempel, vara av intresse för studenter att kunna ställa frågor om en laboration via kommentarer. 
+
+\subsection{Dokumentation}
+För att göra systemet användbart för slutanvändarna måste en användarhandbok skrivas. 
+
+För det möjligt för andra utvecklare att vidareutveckla systemet måste en mer gedigen dokumentation av kodbasen tas fram.
