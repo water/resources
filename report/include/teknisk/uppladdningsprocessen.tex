@@ -9,15 +9,15 @@ För att möjliggöra uppladdning på lika positioner i filträdet måste det va
 \subsection{Uppladdningsprocessens två skeden}
 Uppladdningsprocessen består av två faser. Först laddas filerna upp till servern. Därefter läggs de till i ett lämpligt repositorium. Dessa steg går i princip att utföra i ett enda anrop. Detta gör det dock mycket komplicerat att ladda upp filer till olika sökvägar i filsystemet, eftersom gränssnittet  måste ge användaren möjlighet att förbereda många uppladdningar på olika noder i filsystemet innan samtliga uppladdningar skickas på samma gång tillsammans med samtliga sökvägar.
 
-Ett alternativ är att filuppladdningen skiljs från repositorieoperationerna. Klienten laddar upp filer till servern som returnerar någon form av pekare till filerna i ett temporärt förvar. Klienten kan ladda upp grupper av filer som hör till en viss sökväg, navigera till nästa position i filträdet och ladda upp filer där. Till sist läggs samtliga filer till i repositoriet med ett separat anrop som innehåller pekare och sökvägar. Den sista operationen har projektgruppen valt att kalla en CommitRequest.
+Ett alternativ är att filuppladdningen skiljs från repositorieoperationerna. Klienten laddar upp filer till servern som returnerar någon form av pekare till filerna i ett temporärt förvar. Klienten kan ladda upp grupper av filer som hör till en viss sökväg, navigera till nästa position i filträdet och ladda upp filer där. Till sist läggs samtliga filer till i repositoriet med ett separat anrop som innehåller pekare och sökvägar. Den sista operationen har projektgruppen valt att kalla en \emph{CommitRequest}.
 
 \subsection{Kvittering av uppladdade filer}
 
-Det som komplicerar ett system med separat filuppladdning och CommitRequest är att klienten måste hålla reda på de filer som har laddats upp. Den naiva lösningen är att lagra filnamnen i klienten och returnera dem från servern för kvittering av uppladdningen. Problem uppstår dock om klientens webbläsare och webbservern använder inkompatibla teckenkodningar. Kvittensen matchar i det fallet inte det filnamn som lagras i klienten. 
-Detta kan lösas med hjälp av att klienten kör filnamnen genom en hashfunktion, och sparar undan dess hashar. När servern sedan rapporterar vilka filer som har blivit uppladdade är det hasharna som jämförs.
+Det som komplicerar ett system med separat filuppladdning och \emph{CommitRequest} är att klienten måste hålla reda på de filer som har laddats upp. Den naiva lösningen är att lagra filnamnen i klienten och returnera dem från servern för kvittering av uppladdningen. Problem uppstår dock om klientens webbläsare och webbservern använder inkompatibla teckenkodningar. Kvittensen matchar i det fallet inte det filnamn som lagras i klienten. 
+Detta kan lösas med hjälp av att klienten kör filnamnen genom en \emph{hashfunktion}, och sparar undan dess \emph{hashar}. När servern sedan rapporterar vilka filer som har blivit uppladdade är det \emph{hasharna} som jämförs.
 
 \subsection{Filnamnskrockar i temporär lagring}
-Risken med den temporärlagring som används i en delad uppladdningsprocess är att filnamnen på uppladdade filer krockar och att filer därför skrivs över. För att undvika detta kan även servern använda en hashfunktion för att ge de temporära filerna ett nytt namn.
+Risken med den temporärlagring som används i en delad uppladdningsprocess är att filnamnen på uppladdade filer krockar och att filer därför skrivs över. För att undvika detta kan även servern använda en \emph{hashfunktion} för att ge de temporära filerna ett nytt namn.
 
 \subsection{CommitRequest-API}
 Ett API bör specificeras för Git-manipulationer via webbgränssnittet. Förutom tillägg av filer ska APIt även stöda skapande av mappar och borttagning av filer och mappar.
