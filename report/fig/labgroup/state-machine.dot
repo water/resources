@@ -14,7 +14,7 @@ digraph G {
 
   pending -> reviewing [ label = "Handledare börjar granska inlämning" ]
 
-  pending -> pending     [ label = "Återinlämning" ]
+  pending -> pending     [ label = "Ny inlämning" ]
 }
 
 
