@@ -13,7 +13,7 @@ Ett realistiskt första steg vore att bara stöda Java. På Chalmers används Ja
 Kompilering är tidskrävande och bör därför hanteras asynkront av någon form av kösystem.
 
 \subsection{Unit/Acceptance tester}
-Ett ytterligare verktyg för handledare samt examinatorer skulle vara att man i systemet kunde definiera unit- och acceptancetester. Detta förutsätter att det går att kompilera kod och lider därför av samma problem som de som beskrivs i avsnitt [HÄNVISNING].
+Ett ytterligare verktyg för handledare samt examinatorer skulle vara att man i systemet kunde definiera \emph{unit- och acceptancetester}. Detta förutsätter att det går att kompilera kod och lider därför av samma problem som de som beskrivs i avsnitt [HÄNVISNING].
 Exekvering av studenters kod
 Att exekvera studenters kod på servern är också förenat med säkerhetsrisker.
 För att säkert köra extern kod så skulle systemet behöva upprätta sandboxade miljöer. Helst bör även all beräkningstung validering hanteras asynkront av en köhanterare och ett antal worksers. Ett sådant system är komplicerat och endast färdiga lösningar såsom Jenkins (Jenkins, Meet Jenkins, 2012) eller Bamboo (Atlassian, Bamboo, 2012) är tänkbara.

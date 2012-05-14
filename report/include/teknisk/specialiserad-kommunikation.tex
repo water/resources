@@ -23,24 +23,24 @@ Om klienten däremot kunde göra ett första anrop till servern för att inleda 
 
 \subsection{Möjliga lösningar}
 
-\subsubsection{Polling} är en den mest naiva lösningen och går ut på att klienten gör anrop med jämna mellanrum till servern för att ta reda på om arbetet är utfört. Polling är lätt att implementera med grundläggande teknologier som HTTP, HTML och Javascript. Nackdelen är att servern riskerar att överbelastas av en stor mängd onödiga anrop. För att minska belastningen kan intervallet mellan varje anrop förlängas. Detta leder dock till att användaren upplever att systemet är långsammare, eftersom arbetet kan ha slutförst alldeles i början på ett vänteintervall.
+\subsubsection{Polling} är en den mest naiva lösningen och går ut på att klienten gör anrop med jämna mellanrum till servern för att ta reda på om arbetet är utfört. \emph{Polling} är lätt att implementera med grundläggande teknologier som HTTP, HTML och Javascript. Nackdelen är att servern riskerar att överbelastas av en stor mängd onödiga anrop. För att minska belastningen kan intervallet mellan varje anrop förlängas. Detta leder dock till att användaren upplever att systemet är långsammare, eftersom arbetet kan ha slutförst alldeles i början på ett vänteintervall.
 
-\subsubsection{Long polling} är en vidareutveckling av polling. Servern tar emot klientens anrop och kontrollerar om arbetet är klart. Om inte så lagrar servern anropet under ett kortare tidsintervall. Om arbetet slutförs under detta intervall så svarar servern direkt till klienten. Om arbetet inte slutförs under intervallet svarar servern med en instruktion till klienten att skicka ett nytt anrop. Detta enligt beskrivning av Mesbah och van Deursen (2008). 
+\subsubsection{Long polling} är en vidareutveckling av \emph{polling}. Servern tar emot klientens anrop och kontrollerar om arbetet är klart. Om inte så lagrar servern anropet under ett kortare tidsintervall. Om arbetet slutförs under detta intervall så svarar servern direkt till klienten. Om arbetet inte slutförs under intervallet svarar servern med en instruktion till klienten att skicka ett nytt anrop. Detta enligt beskrivning av Mesbah och van Deursen (2008). 
 
-Jämfört med polling undviker klienten risken att behöva vänta ett helt uppdateringsintervall innan den får meddelande om slutfört arbete. Servern behöver i sin tur ta emot färre anrop. Servern blockeras dock under long polling-intervallet.
+Jämfört med \emph{polling} undviker klienten risken att behöva vänta ett helt uppdateringsintervall innan den får meddelande om slutfört arbete. Servern behöver i sin tur ta emot färre anrop. Servern blockeras dock under \emph{long polling}-intervallet.
 
-Polling och long polling är bygger alltså på befintlig HTTP-teknologi och utgör egentligen inte en ren tvåvägskommunikation. För att uppnå detta krävs nya teknologier.
+Polling och \emph{long polling} är bygger alltså på befintlig HTTP-teknologi och utgör egentligen inte en ren tvåvägskommunikation. För att uppnå detta krävs nya teknologier.
 
 \subsubsection{Websockets}
 IETF RFC 6544 (2011) beskriver WebSocket-protokollet:
-The goal of this technology is to provide a mechanism for browser-based applications that need two-way communication with servers that does not rely on opening multiple HTTP connections (e.g., using XMLHttpRequest or <iframe>s and long polling)
+The goal of this technology is to provide a mechanism for browser-based applications that need two-way communication with servers that does not rely on opening multiple HTTP connections (e.g., using XMLHttpRequest or <iframe>s and \emph{long polling})
 WebSocket-protokollet möjliggör tvåvägskommunikation mellan server och klient genom en enda TCP-uppkoppling. Handskakning sker dock via modifierade HTTP-anrop för att bibehålla en viss bakåtkompatibilitet.
 WebSocket-protokollet är emellertid ännu bara ett förslag. Någon färdig standard finns inte och webbläsarstöd finns i regel bara i tämligen nya versioner.
 
 \subsection{Den optimala lösningen: WebSockets med fallback}
 På grund av att ingen standard är fastställd och det varierande webbläsarstödet är det viktigt ur användarvänlighetssynpunkt att även stöda de äldre teknikerna för tvåvägskommunikation.
 Socket.IO och Faye är två möjliga lösningar. Båda består av en serverdel och en klientdel. Båda erbjuder en serverdel skriven i Javascript för node.js. Faye erbjuder dock även en server skriven i Ruby.
-Båda använder WebSockets, Adobe Flash Sockets och olika metoder av polling och long polling för att erbjuda stöd för gamla webbläsare samtidigt som moderna webbläsare kan utnyttja de senaste teknikerna.
+Båda använder WebSockets, Adobe Flash Sockets och olika metoder av \emph{polling} och \emph{long polling} för att erbjuda stöd för gamla webbläsare samtidigt som moderna webbläsare kan utnyttja de senaste teknikerna.
 
 \subsection{Säkerhet}
 Ett problem som uppstår, oavsett valet av mjukvara, är sändningsrättigheter mellan server och klient. Idén med socket-protokollet, som tidigare nämns är att möjliggöra tvåvägskommunikation mellan klient och server. Servern och klienten kan i princip när som helst sända vilka paket som helst till vilken nod som helst. Det enda klienten och servern behöver veta om är vilken kanal som informationen ska skickas på och vilken socket-server som ska agera nav. Risken finns att en obehörig person väljer att skicka ett meddelande till alla uppkopplade klienter i nätverket.
