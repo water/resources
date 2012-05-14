@@ -1,0 +1,27 @@
+\section{Frågor gällande inlämning via versionshantering}
+I systemet behövs lämpliga sätt att relatera koncept inom versionhantering till inlämningsuppgifter. Frågan kan delas upp i två delar: hur inlämningarna ska förvaras och hur inlämningen sker.
+
+\subsection{Förvaring av inlämningsuppgifterna}
+Vad gäller förvaringen ser kandidatgruppen två alternativ:
+
+Antingen skapas ett nytt repositorium för varje grupp och inlämningsuppgift, eller så sparas gruppens samtliga inlämningsuppgifter i ett repositorium, men i olika grenar.
+
+I skarpa projekt har varje delprojekt ett eget repositorium. Särskilt vanligt är detta för distribuerade versionhanteringssystem, eftersom de ofta inte erbjuder clone för bara delar av ett repositorium. Se till exempel Git (git-clone(1) Manual Page, 2012). Kandidatgruppen är av uppfattningen att branches traditionellt uppfattas som olika versioner av samma kodbas. Detta stöder idén om att använda ett repositorium per inlämningsuppgift. Det leder även till separation mellan inlämningsuppgifter – misstag eller tekniska problem inom en inlämningsuppgift inte drabbar andra inlämningsuppgifter. Metoden öppnar även för att Water i framtiden erbjuder studenterna flera branches att arbeta med, till exempel för att definiera delmoment i inlämningsuppgifter eller som ett kollaborationsverktyg.
+
+En nackdel med separata repositorier är att det krävs en remote-url per repositorium, och därmed per inlämningsuppgift. För varje inlämningsuppgift måste studenten hämta en remote-url ifrån webbapplikationen och använda den för att konfigurera sin versionshanterare.
+
+\subsection{Inlämning via versionshantering}
+Vad gäller själva inlämningen finns ett antal tänkbara strategier.
+
+En möjlighet är att låta varje commit utgöra en inlämning. Metoden är lätt att implementera, men tillåter inte att studenterna bygger upp en inlämning med hjälp av ett antal commits och bidrar heller inte till kollaborering.
+
+En annan möjlighet är att använda taggar. Taggar är ett sätt att knyta metadata till ett visst tillstånd i versionshanteringsträdet. Taggar kräver dock ofta att användaren lär sig en speciell syntax. I Git, exempelvis, krävs dessutom att användaren uttryckligen begär att taggar ska skickas med när ändringar överförs via en push till en annan nod.
+
+Ett alternativ till taggar är att definiera speciella strängar som användaren kan skriva in i commit-meddelandet. Versionshanterar-servern analyserar alla inkommande commits för att leta efter dessa. Denna metod används bland annat av code hosting-tjänsten Github för att göra det möjligt att knyta en commit till en issue i deras issuehanteringssystem. Där räcker det med att skriva #1 för att referera till issue nummer 1. Water skulle kunna lyssna efter en lämplig sträng som signalerar att commiten i fråga ska utgöra en inlämning.
+
+\begin{flushright}
+  
+  \textbf{Beslut}
+  
+  För varje inlämningsuppgift har en grupp ett repositorium. I systemet definieras en branch som global inlämningsbranch. I vårt fall är det master som används för inlämningar. Inlämningar kan konstrueras som ett antal commits, själva inlämningen sker genom att commit-meddelanden innehåller strängen #submit.
+\end{flushright}
