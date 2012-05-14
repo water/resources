@@ -38,15 +38,22 @@
 \thispagestyle{empty}
 
 \begin{abstract}
-  Här sammanfattar vi på svenska!
+    Syftet med projektet som rapporten beskriver är att utveckla ett inlämningssystem för laborationer. Systemet byggs på versionshantering och ska hantera inlämning via en terminalklient. Inlämningar skall även gå att lämna in via ett webbgränssnitt.
+
+    Webbapplikationen är baserad på open-source plattformen Gitorious och implementeras i Ruby on Rails. Systemet har en avancerad webbklient vilken omfattande nyttjar MVC-strukturerade Javascript-applikationer. Processintensiva arbeten deligeras till ett system av prioritetsköer och workers. WebSocket protokollet används för asynkronkommunkation mellan webbservern och klienten. 
+
+    Systemet använder sig utav BDD-ramverket Rspec för att enkelet generera dokumentation utifrån koden och upprätthålla hög kvalité.
+
+    Projektets omfattning visade sig vara för stort för tidsrymden av ett kandidatarbete, men resulterade i en mogen backend och välutvecklad frontend som hanterar inlämningar in samt rättning av inlämningar. 
+
 \end{abstract}
 \selectlanguage{english}
   \begin{abstract}
     The purpose of the project described in the report is to develop a system for receiving and processing hand-in assignments. The system should be based on a version control system. The system should be able to receive hand-ins via a version control system command line client. Hand-in should also be possible via a web interface.
 
-    A web application based on the open source platforms Gitorious and Ruby on Rails is used to implement the system. The system features an advanced web client which makes extensive use of Javascript applications structured using the MVC design pattern. Process-intensive jobs are referred to a system of priority queues and workers. The WebSocket protocol is used for asynchronous communication between the web server and the client.
+    A web application based on the open source platform Gitorious and Ruby on Rails is used to implement the system. The system features an advanced web client which makes extensive use of Javascript applications structured using the MVC design pattern. Process-intensive jobs are referred to a system of priority queues and workers. The WebSocket protocol is used for asynchronous communication between the web server and the client.
 
-    The system uses BDD-type test framework Rspec in order to make the code base self-documenting and to ensure high quality code.
+    The system uses the BDD-type test framework Rspec in order to make the code base self-documenting and to ensure high quality code.
 
     The scope of the project was found to be too wide, but the result was a mature backend and a well developed front end for handing in and reviewing assignments.
   \end{abstract}
