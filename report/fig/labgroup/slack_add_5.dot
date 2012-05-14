@@ -4,6 +4,6 @@ graph G {
   S3 -- G2
   S4 -- G2
   S2 -- G2
-  G1 -- R1 [color=white] // For consistency with 5
-  G2 -- R2
+  G1 -- LHG1 [color=white] // For consistency with 5
+  G2 -- LHG2
 }
