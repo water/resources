@@ -4,7 +4,7 @@ graph G {
   S3 -- G2
   S4 -- G2
   S2 -- G2
-  G1 -- R1 [color=white] // To correct level
+  G1 -- LHG1 [color=white] // To correct level
 }
 
 

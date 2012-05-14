@@ -1,7 +1,7 @@
 graph G {
   S1 -- G1
   S2 -- G1
-  G1 -- R1
+  G1 -- LHG1
   S3 -- G2
   S4 -- G2
 }

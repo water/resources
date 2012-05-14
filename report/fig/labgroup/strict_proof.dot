@@ -1,6 +1,6 @@
 graph G {
   /* Startgroups and it's repos */
-  R3  -- SG3
+  LHG3  -- SG3
   SG1 -- S1
   SG2 -- S2
   SG3 -- S3
@@ -36,13 +36,13 @@ graph G {
   }
 
   /* Repos */
-  G1 -- R10
-  G2 -- R20 [style=dashed]
-  G3 -- R30
+  G1 -- LHG10
+  G2 -- LHG20 [style=dashed]
+  G3 -- LHG30
 
   /* Bonus properties */ 
   S3 [shape = doublecircle] 
-  R20 [style=dashed]
+  LHG20 [style=dashed]
 }
 
 
