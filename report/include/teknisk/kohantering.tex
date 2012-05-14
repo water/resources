@@ -7,7 +7,7 @@ Water är en komplex applikation med flera processer som kan bli långdragna ell
 \subsubsection{Webbservern}
 
 Ett anrop (HTTP-request) mellan servern och klienten bör inte ta längre tid än 400 ms, allt där över kan stalla webbservern vilket kan leda till att andra webbförfrågningar får vänta. En stallad server kan få webbtjänsten att kännas långsam, vilket kan uppfattas negativt av användaren.
-En lösning på problemet är att göra ett HTTP-anrop som initierar ett asynkront jobb för de tyngre operationerna. Jobbet läggs på kö i stället för att behandlas på plats för att sedan bearbetas av en extern instans som lite längre fram i tiden. När processen är klar så svaras klienten med data, till exempel via Websocket-protokollet (SE BILD X FÖR EXAKT FLÖDE)
+En lösning på problemet är att göra ett HTTP-anrop som initierar ett asynkront jobb för de tyngre operationerna. Jobbet läggs på kö i stället för att behandlas på plats för att sedan bearbetas av en extern instans som lite längre fram i tiden. När processen är klar så svarar klienten med data, till exempel via Websocket-protokollet.
 
 \subsubsection{Tunga, blockerande processer}
 

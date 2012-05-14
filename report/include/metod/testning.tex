@@ -10,16 +10,13 @@ Ett utav de vanligare sättet att skriva tester på, enligt tidigare erfarenhet 
 Språket Ruby har ett flertal testramverk som är under aktiv utveckling, tre utav de större är MiniTest, RSpec och TestUnit. Valet av ramverk är viktigt, främst då ramverket är svårt, om inte nära inpå omöjligt att byta efter att utvecklingen har påbörjats.
 
 Några utav de faktorer som spelade in vid valet är
-
-    - Dokumentation – hur enkelt är det att läsa sig in på ramverket
-
-    - DSL – hur lättläst är test-koden som skrivs av utvecklaren
-
-    - Förkunskaper inom gruppen
-
-    - Rails-stöd
-    
-    - Exekveringstid
+\begin{itemize}
+    \item Dokumentation – hur enkelt är det att läsa sig in på ramverket
+    \item DSL – hur lättläst är test-koden som skrivs av utvecklaren
+    \item Förkunskaper inom gruppen
+    \item Rails-stöd
+    \item Exekveringstid
+\end{itemize}
 
 Rubys TestUnit, som till sitt DSL är mest likt Javas JUnit, är flera gånger snabbare än RSpec, men är inte praktiskt att använda då DSL:et är förhållandevis oläsbart. Rubys möjlighet till metaprogrammering gör det möjligt att designa lättlästa DSL:er. Vi kan därför förvänta oss ett bättre designat API, vilket gör att TestUnit fallet bort.
 
