@@ -50,7 +50,7 @@ För att minska risken för duplicering av data och på så vis uppnå en viss n
 \subsubsection{LabGroup}
 Modellen representerar en grupp med studenter för en given kurs. För att göra det enklare att referera till en grupp, till exempel muntligt, har vi precis som för en Lab, valt att numrera grupper relativt inom en GivenCourse, genom en number kolumn. Detta betyder att man unikt kan bestämma en LabGroup genom att ange ett number tillsammans med en given kurs via given\_course\_id.
 
-\subsubsection{LabHasGroup}
+\subsubsection{LabHasGroup}\label{sec:modell-labhasgroup}
 Modellerar en påbörjad Lab av en LabGroup, som nu har tillgång till versionhanterings-funktionalitet och kan göra inlämingar via webgränssnittet och Git.
 
 \subsubsection{Repository}
