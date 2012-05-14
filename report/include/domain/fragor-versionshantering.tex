@@ -17,11 +17,11 @@ En möjlighet är att låta varje commit utgöra en inlämning. Metoden är lät
 
 En annan möjlighet är att använda taggar. Taggar är ett sätt att knyta metadata till ett visst tillstånd i versionshanteringsträdet. Taggar kräver dock ofta att användaren lär sig en speciell syntax. I Git, exempelvis, krävs dessutom att användaren uttryckligen begär att taggar ska skickas med när ändringar överförs via en push till en annan nod.
 
-Ett alternativ till taggar är att definiera speciella strängar som användaren kan skriva in i commit-meddelandet. Versionshanterar-servern analyserar alla inkommande commits för att leta efter dessa. Denna metod används bland annat av code hosting-tjänsten Github för att göra det möjligt att knyta en commit till en issue i deras issuehanteringssystem. Där räcker det med att skriva #1 för att referera till issue nummer 1. Water skulle kunna lyssna efter en lämplig sträng som signalerar att commiten i fråga ska utgöra en inlämning.
+Ett alternativ till taggar är att definiera speciella strängar som användaren kan skriva in i commit-meddelandet. Versionshanterar-servern analyserar alla inkommande commits för att leta efter dessa. Denna metod används bland annat av code hosting-tjänsten Github för att göra det möjligt att knyta en commit till en issue i deras issuehanteringssystem. Där räcker det med att skriva \#1 för att referera till issue nummer 1. Water skulle kunna lyssna efter en lämplig sträng som signalerar att commiten i fråga ska utgöra en inlämning.
 
 \begin{flushright}
   
   \textbf{Beslut}
   
-  För varje inlämningsuppgift har en grupp ett repositorium. I systemet definieras en branch som global inlämningsbranch. I vårt fall är det master som används för inlämningar. Inlämningar kan konstrueras som ett antal commits, själva inlämningen sker genom att commit-meddelanden innehåller strängen #submit.
+  För varje inlämningsuppgift har en grupp ett repositorium. I systemet definieras en branch som global inlämningsbranch. I vårt fall är det master som används för inlämningar. Inlämningar kan konstrueras som ett antal commits, själva inlämningen sker genom att commit-meddelanden innehåller strängen \#submit.
 \end{flushright}
