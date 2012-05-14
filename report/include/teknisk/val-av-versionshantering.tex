@@ -1,0 +1,26 @@
+\section{Val av versionshanteringssystem}
+
+Det övergripande valet av versionshanteringssystem stod mellan att använda ett centraliserat alternativt ett distribuerat system.
+
+\subsection{Centraliserade system}
+
+Ett centraliserat versionshanteringssystem, hädanefter kallat CVCS (centralized version control system), är ett centraliserat sätt att hantera ändring av data och dokument. Alla ändringar loggas och globaliseras på samma gång med hjälp av en CVCS-klient. Eftersom ändringar centraliseras i samma stund som en logg skrivs så krävs att konflikter i form av merge-problem löses så snart ändringar görs. Detta medför i sin tur att användaren måste ha tillgång till CVCS-servern, vilket oftast kräver internetanslutning.
+Enligt O’Sullivan (2009) finns det fördelar med CVCS-system om man hanterar stora binärfiler. Detta eftersom det i CVCS-system ofta finns möjlighet att checka ut en enda commit istället för den kompletta historiken.
+
+Projektgruppen ansåg att det förföll orimligt att tvinga studenterna att ständigt vara uppkopplade mot inlämningssystemet under utvecklingsprocessen. Detta talade emot att systemet skulle byggas på en CVCS-lösning.
+
+\subsection{Distribuerade system}
+
+Ett alternativ till den centraliserade varianten är ett såkallat distribuerat versionshanteringssystem – DVCS (distributed version control system). 
+Ett DVCS är ett icke centraliserat system där ändringar kan hållas lokala för att på användarens begäran centraliseras och då även sammanfogas med övriga användares material. Eftersom alla ändringar sker lokalt så ges användaren möjlighet att jobba med experimentell funktionalitet utan att "smutsa ner" den centrala kodbasen. När arbetet sedan är klart kan användaren välja att publicera sitt material. Användaren kan även välja att städa upp sin kodbas genom att  plocka bort eller fixa material innan publicering.
+Enligt O’Sullivan (2009) finns det problem med att hantera stora binärfiler i distribuerade system. Stora binärfiler kan till exempel vara texturer i spelutvecklingsprojekt. 
+
+Inom projektgruppen ansåg vi att filer av detta slag torde vara ovanliga inom laborationerna inom data- och it-utbildningar. Därför såg vi  distribuerade system ändå mer lämpliga för våra ändamål.
+\begin{flushright}
+  
+  \textbf{Beslut}
+  
+  Vi väljer att använde ett distribuerat versionhanteringssystem för att det passar för våra ändamål.
+  
+\end{flushright}
+

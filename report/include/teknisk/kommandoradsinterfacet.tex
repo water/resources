@@ -1,0 +1,31 @@
+\section{Water som Git-server}
+I allmänhet centraliserar programmerare sitt arbete genom att ha ett Git-repositorium på en gemensam server(hädanefter kallad remote) som deras organisation tillhandahåller. Programmerarna synkroniserar sitt arbete via repositorier hos remote genom Git-kommandon. Git loggar do in på remote genom SSH-protokollet och skriver programmerarens lokala ändringar direkt i remotes repositorium. Detta var det vanligaste sättet att centralisera arbete med Git i början av Gits historia (Preston-Werner 2011). Ett nytt sätt att centralisera sitt arbete är att låta någon annan tillhandahålla remoteservern. Detta är huvudtjänsten som erbjuds av sidor likt Gitorious och Github och det ska Water också göra.
+
+Sidor som Github har sökvägar till remote som egentligen inte matchar den fysiska platsen för repositoriet i filsystemet. Istället består sökvägarna  utav repo-identifierande komponenter. På Github har man ett användarnamn och namnen för alla repositorium är unik för den användaren. Då består den sökvägen av användarnamnet och repositorienamnet. Det som gör det enkelt för användaren är att kommunikationen via SSH sker på samma sätt för den lokala Gitklienten, det är istället hos remote sökvägen slås upp. Water använder exakt samma princip, fast det är nu en kurs, grupp samt laboration som tillsammans unikt indentifierar repositorien.
+
+Eftersom sökvägen identifierar gruppen och inlämningsuppgifte, och eftersom användaren samtidigt loggas in, går det att avgöra vilka rättigheter användaren har i sammanhanget. Studenter kan skriva och läsa sin egna kod och handledare kan endast läsa kod som tillhör grupper kopplade till den kurs handledaren är handledare i.
+
+\begin{tabular}{ | l | p{5cm} |}
+  \hline
+    fysisk sökväg med SSH & \url{ssh://user@domain/real/folders/repo-name.git} \\ \hline
+    repoidentifierande sökväg (SSH på Github) & \url{git@github.com:user/project-name.git} \\ \hline
+    SSH på Gitorious & \url{git@gitorious.org:my-organization/my-repo.git} \\ \hline
+    https på Github & \url{https://user@github.com/user/project-name.git} \\ \hline
+    https på Gitorious & \url{https://git.gitorious.org/my-organization/my-repo.git} \\ \hline
+    tänkbar repoidentifierande sökväg för Water & \url{https://repos.water.com/courses/4/lab_groups/1/labs/2.git} \\
+  \hline
+\end{tabular}
+
+
+\subsection{HTTP-protokollet}
+Nämnt är att SSH var det vanligaste protokollet för att kollaborera på samma repositorium, oavsett om man har en egen server eller använder tjänster likt Github. Git har även ett eget protokoll, men det är inte intressant för oss eftersom det är bara för läsning och det inte är möjligt att modifiera fjärrepositorium via det (Chacon 2009). Ett attraktivt alternativ till SSH är HTTP, det är enklare för användare att komma igång via HTTP.  Med SSH så måste användarna sätta upp SSH-nycklar, det försvårar användandet av Waters kommandoradsklient.  Vidare har många brandväggar portarna som HTTP och HTTPS (säker HTTP) öppna (Chacon 2010), så att användaren inte får brandsväggsproblem med Waters konsolklient.
+
+I Gitorious finns redan stöd för SSH och koden är skriven av dem själva, koden måste ändras för att stödja Waters repositoriumidentifierade sökvägar. För smart HTTP finns en mer uppdaterad färdig server, Grack.  Water kan använda Grack utan att ändra den och bara bygga kring den, detta eftersom Grack är Rackbaserat vilket tillåter påhakning av egna komponenter (Rubyforge, klassdokumentation Rack::Builder), i vårt fall de komponenter som skriver om repoidentifierande sökvägar till fysiska sökvägar samt autentiserar och bestämmer rättigheter för användaren.
+
+\begin{flushright}
+  
+  \textbf{Beslut}
+  
+  Vi använder HTTP med grack för att det är modernare och minskar kodmängden vi behöver underhålla.
+  
+\end{flushright}
