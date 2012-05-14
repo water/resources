@@ -1,0 +1,24 @@
+\section{Inlämning}
+\subsection{Inlämning via Git}
+\subsection{Inlämning via webbgränssnittet}
+\subsection{Inlämningens livscykel}
+
+För att implementera inlämningsuppgiftens livscykel har tillståndshantering implementerats i LabHasGroup-entiteten. LabHasGroup representerar kopplingen mellan en laboration och en grupp.
+Tillstånden beskrivs som följer:
+
+\subsubsection{Initialized}
+
+När en LabHasGroup skapas sätts objetet i tillståndet initalized. I detta tillstånd finns inga Submissions kopplade till entiteten.
+
+\subsubsection{Pending}
+
+När gruppen gör en inlämning skapas en Submission och LabHasGroup-entiteten övergår till tillståndet pending. Pending betyder att en inlämning är gjord, men att ingen handledare granskat laborationen.
+Om en LabHasGroup befinner sig i pending kan dess senaste Submission uppdateras så att den pekar på ett nytt tillstånd i repositoriet.
+
+\subsubsection{Reviewing}
+
+Så snart en handledare har påbörjat granskningen en laboration övergår LabHasGroup-entiteten till tillståndet reviewing. I detta tillstånd är det inte möjligt att göra flera inlämningar
+
+\subsubsection{Rejected och Accepted}
+
+Efter granskning kan handledaren godkänna eller förkasta inlämningen. Om inlämningen är godkänd går LabHasGroup-entiteten över i tillståndet accepted. Inga fler inlämningar tas emot. Om inlämningen förkastas går entiteten över i tillståndet rejected. I rejected-tillståndet är det möjligt att göra en ny inlämning, varpå tillståndet övergår i pending.
