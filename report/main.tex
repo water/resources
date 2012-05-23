@@ -20,7 +20,6 @@
 % Settings (Metadata)
 \input{include/settings}
 
-\usepackage[parfill]{parskip}
 \usepackage{amsthm}
 
 \begin{document}
@@ -82,7 +81,27 @@
 % Appendices
 \appendix
 \setdefaulthdr
+\pagestyle{empty}
+
+% Change chapter titles for appendices
+\makeatletter
+\ChNumVar{\Huge\bfseries} % sets the style for digit
+\ChTitleVar{\Large\bfseries\centering} % sets the style for title
+\ChRuleWidth{4pt} % Set RW=4pt
+\ChNameUpperCase % Make name uppercase
+\renewcommand{\DOCH}{
+{\CNoV {\thechapter} }
+}
+\renewcommand{\DOTI}[1]{%
+\CTV\FmTi{#1}\par\nobreak
+\vskip 20\p@}
+\renewcommand{\DOTIS}[1]{%
+\CTV\FmTi{#1}\par\nobreak
+\vskip 20\p@}
+\makeatother
+
 \input{include/appendix1-commitrequest.tex}
 \input{include/appendix2-code-coverage.tex}
 \input{include/appendix3-e-r-model.tex}
+\input{include/appendix4-systemoversikt.tex}
 \end{document}
