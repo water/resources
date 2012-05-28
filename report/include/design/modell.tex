@@ -1,13 +1,20 @@
 \section{Modell}
 
-Modelleringen av domänen har skett på modellnivån i MVC-designmönstret.
+Modelleringen av domänen har skett på modellnivå i MVC-designmönstret. 
+I praktiken innebär detta att varje entitet beskrivs i en Rubyklass enligt Ruby on Rails-standard.
+I dessa klasser finns domänlogik i form av lämpliga metoder, men också beskrivningar av 
+modellens relationer till andra modeller.
+Ruby on Rails-arbetsflödet uppmuntrar programmeraren att i första hand uttrycka sin domän på modellnivå,
+för att sedan skriva eller generera \emph{migrationsfiler} för att implementera relationerna på databasnivå.
+Därför förefaller det också naturligt för kandidatgruppen att beskriva domänmodellen på modellnivå.
+Ett vanligt ER-diagram finns dock att tillgå i bilaga \ref{appendix:er-diagram}.
 
 \subsection{Modellförteckning}
 \subsubsection{Department}
 Representerar en institution. Till exempel ges arkitekturkurser vid Chalmers tekniska högskola av institutionen för arkitektur.
 
 \subsubsection{Course}
-Representerar en kurs. Kurser ges av institutioner. \\
+Representerar en kurs. Kurser ges av institutioner.
 
 \subsubsection{CourseCode}
 Representerar en kurskod för en kurs. Orsaken till att kurskoderna har en egen tabell är att en och samma kurs kan ha flera kurskoder, till exempel om den ges inom ramarna för flera högskolor.
