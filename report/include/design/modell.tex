@@ -1,22 +1,25 @@
 \section{Modell}
+
+Modelleringen av domänen har skett på modellnivån i MVC-designmönstret.
+
 \subsection{Modellförteckning}
 \subsubsection{Department}
-Representerar en institution.
+Representerar en institution. Till exempel ges arkitekturkurser vid Chalmers tekniska högskola av institutionen för arkitektur.
 
 \subsubsection{Course}
-Ska representera en kurs, som tillhör en institution. Exempelvis så skulle en matematik kurs tillhöra matematik-institutionen.
+Representerar en kurs. Kurser ges av institutioner. \\
 
 \subsubsection{CourseCode}
-Representerar kurskoderna för en kurs. Orsaken till att kurskoderna har en egen tabell är att en och samma kurs ska kunna ges av två olika universitet, eller högskolor.
+Representerar en kurskod för en kurs. Orsaken till att kurskoderna har en egen tabell är att en och samma kurs kan ha flera kurskoder, till exempel om den ges inom ramarna för flera högskolor.
 
 \subsubsection{GivenCourse}
 Representerar en kurs som ges under en viss läsperiod. Varje GivenCourse har en eller flera examinatorer. Examinatorerna registrerar studenter och handledare på kursen. GivenCourse kan ha ingen eller flera laborationer. GivenCourse har en StudyPeriod och genom denna entitet kan en kurs ges under flera tillfällen varje år och kan då också ha olika examinatorer, handledare och laborationer.
 
 \subsubsection{User}
-Modellerar en användare, med login, lösenord, email, och så vidare. En användare kan ha olika roller, administrator, examiner, student, eller assistant (handledare) och de olika rollerna är svaga entiteter till User modellen. En användare kan ha flera roller, vilka bestämmer tillgången till funktionalitet i systemet. Till exempel kan en handledare samtidigt också vara en student. På det här sättet kan en student läsa en kurs, samtidigt som den är handledare på en annan. 
+Modellerar en användare, med användarnamn, lösenord, e-post, och dylikt. En användare kan ha olika roller, administrator, examiner, student, eller assistant (handledare) och de olika rollerna är svaga entiteter till User-modellen. Genom rollerna bestäms vilken funktionalitet i systemet som användaren har tillgång till. Användaren kan ha många olika roller på samma gång. Till exempel kan en handledare samtidigt också vara en student. På det här sättet kan en student läsa en kurs, samtidigt som den är handledare på en annan. 
 
 \subsubsection{Administrator}
-Modellerar en administratör och är en svag entitet till User. En administratör kan bland annat skapa och ta bort kurser, lägga till och ta bort studenter, examinatorer och handledare. Har fullständiga privilegier, och fungerar som en administratör för systemet.
+Representerar en administratör och är en svag entitet till User. En administratör kan bland annat skapa och ta bort kurser, lägga till och ta bort studenter, examinatorer och handledare. Har fullständiga privilegier och fungerar som en administratör för systemet.
 
 \subsubsection{Student}
 Modellerar en student och är en svag entitet till User. En student kan registrera sig på en GivenCourse, gå med och ut ur grupper och göra laborationer på kurser som den är registrerad på. 
@@ -51,10 +54,10 @@ För att minska risken för duplicering av data och på så vis uppnå en viss n
 Modellen representerar en grupp med studenter för en given kurs. För att göra det enklare att referera till en grupp, till exempel muntligt, har vi precis som för en Lab, valt att numrera grupper relativt inom en GivenCourse, genom en number kolumn. Detta betyder att man unikt kan bestämma en LabGroup genom att ange ett number tillsammans med en given kurs via given\_course\_id.
 
 \subsubsection{LabHasGroup}\label{sec:modell-labhasgroup}
-Modellerar en påbörjad Lab av en LabGroup, som nu har tillgång till versionhanterings-funktionalitet och kan göra inlämingar via webgränssnittet och Git.
+Representerar kopplingen mellan en Lab och en LabGroup. När en LabHasGroup skapas så skapas även ett Git-repositorium där inlämningarna lagras. Gruppen har nu tillgång till versionhanteringsfunktionalitet och kan göra inlämningar via webbgränssnittet och Git.
 
 \subsubsection{Repository}
-En central del av Water är möjligheten att interagera och spara undan information om repositoriet. Själva Git-informationen sparas på disk i form av Git-objekt, medan information om placeringen på filsystemet sparas i databasen. Varje repositorium tillhör en LabHasGroup där gruppen kan spara filer som hör till en laboration, för att till sist göra en submit, varpå repositoriet fryses tills den är färdigrättad.
+En central del av Water är möjligheten att interagera och spara undan information om repositoriet. Själva Git-informationen sparas på disk i form av Git-objekt, medan information om placeringen på filsystemet sparas i databasen. Varje repositorium tillhör en LabHasGroup där gruppen kan spara filer som hör till en laboration.
 
 \subsubsection{Comments}
 Kommentarer kan läggas till valfri modell, utan att det behövs göra stora ändringar i den. 
@@ -64,7 +67,7 @@ För att implementera kommentarer användes biblioteket Ancestry som kan ordna g
 För att lägga till funktionaliteten till modeller, så kan man lägga till en ‘comment\_id’ till deras tabell, som sedan används som root för kommentar-trädet. Vi valde att ta en NULL-value approach, och sätta attributet null, tills en kommentar blivit kopplad till den.
     
 \subsubsection{StudentRegisteredForCourse}
-Modellerar en registrering av en Student på en GivenCourse. Studenten kan nu gå med i och skapa  laborationsgrupper inom kursen.
+Reprsenterar kopplingen mellan en Student och en GivenCourse. Studenten kan nu gå med i och skapa  laborationsgrupper inom kursen.
 
 \subsubsection{AssistantRegisteredForCourse}
 Modellerar en registrering av en Assistant på en GivenCourse. Assistenten kan tilldelas LabHasGroups genom AssistantRegisteredForCourseHasLabGroup.
