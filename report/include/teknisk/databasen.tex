@@ -2,9 +2,15 @@
 
 Valet av databas står mellan MySQL och PostgreSQL, de största aktörerna på marknaden inom fria relationsdatabaser (Mlodgenski 2009).
 
-I en webbapplikation där databastranskationerna sker slumpmässigt med korta intervall är det en fördel att ha en \emph{normaliserad} databas (Wang et al 2010). Att en databas är \emph{normaliserad} innebär att den har minimalt med redundans och bättre dataintegritet.
+I en webbapplikation där databastranskationerna sker slumpmässigt 
+med korta intervall är det en fördel att ha en \emph{normaliserad} databas (Wang 2010). 
+Att en databas är \emph{normaliserad} innebär att den har minimalt med redundans och bättre dataintegritet.
 
-En databas kan normaliseras till flera nivåer, i en typisk webapplikation är det vanligt att normalisera till den tredje eller fjärde nivån. Normalisering innebär att den måste följa vissa specifikationer, när databasen följer dessa specifikationer sparas ingen data mer än en gång och restriktionerna minskar risken för att  felaktig data sparas.
+En databas kan normaliseras till flera nivåer, i en typisk webapplikation är det vanligt att
+normalisera till den tredje eller fjärde nivån. 
+Normalisering innebär att den måste följa vissa specifikationer, 
+när databasen följer dessa specifikationer sparas ingen data mer än en gång 
+och restriktionerna minskar risken för att  felaktig data sparas.
 
 En \emph{normaliserad databas} kan inte garantera att ingen felakig data sparas, modell-lagret måste fortfarande implementeras korrekt. Att implementera ett \emph{modell-lager} för en \emph{normaliserad databas} kan leda till mer avancerade SQL-operationer, en implementation för en icke-normaliserad databas kommer ha mindre komplexa operationer men den kommer behöva göra fler operationer för att uppdatera alla referenser.
 
