@@ -46,7 +46,7 @@ I stället för att referera till en unik laboration genom lab\_id så har vi va
 I många kurser finns färdigt material för varje laboration. InitialLabCommit-modellen är till för enkapsulera ett preparerat givet tillstånd för en laboration. Examinatorn kan här bestämma vilket material som bör finnas med från början till varje laboration. Personen i fråga kan även välja att återanvända material från år till år genom att referera en InitialLabCommit.
 
 \subsubsection{Submission}
-Så snart en användare lämnat in en inlämning, oavsett om detta görs med hjälp av Git eller via webgränssnittet skapas en så kallad Submission. Modellen representerar ett tillstånd i ett repositorium givet en grupp. Tillståndet i ett repositorium representeras med hjälp av en så kallad commit-hash.
+Så snart en användare lämnat in en inlämning, oavsett om detta görs med hjälp av Git eller via webbgränssnittet skapas en så kallad Submission. Modellen representerar ett tillstånd i ett repositorium givet en grupp. Tillståndet i ett repositorium representeras med hjälp av en så kallad commit-hash.
 
 \subsubsection{DefaultDeadline}
 Varje laboration startar alltid med en förutbestämd deadline för den första inlämningen och en för den sista inlämingen. Kolumnen at anger förfallotiden för en deadline. Modellen har i sitt implementerade tillstånd lägre prioritet än en så kallad ExtendedDeadline.
