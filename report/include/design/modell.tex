@@ -13,20 +13,63 @@ Ett vanligt ER-diagram finns dock att tillgå i bilaga \ref{appendix:er-diagram}
 \subsubsection{Department}
 Representerar en institution. Till exempel ges arkitekturkurser vid Chalmers tekniska högskola av institutionen för arkitektur.
 
+Relationer:
+\begin{itemize}
+	\item Department {\bf 1-n} Course
+\end{itemize}
+
+
 \subsubsection{Course}
 Representerar en kurs. Kurser ges av institutioner.
+
+Relationer:
+\begin{itemize}
+	\item Department {\bf 1-n} Course
+	\item Course {\bf 1-n} CourseCode
+	\item Course {\bf 1-n} GivenCourse
+\end{itemize}
+
 
 \subsubsection{CourseCode}
 Representerar en kurskod för en kurs. Orsaken till att kurskoderna har en egen tabell är att en och samma kurs kan ha flera kurskoder, till exempel om den ges inom ramarna för flera högskolor.
 
+Relationer:
+\begin{itemize}
+  \item CourseCode {\bf 1-n} Course
+\end{itemize}
+
+
 \subsubsection{GivenCourse}
 Representerar en kurs som ges under en viss läsperiod. Varje GivenCourse har en eller flera examinatorer. Examinatorerna registrerar studenter och handledare på kursen. GivenCourse kan ha ingen eller flera laborationer. GivenCourse har en StudyPeriod och genom denna entitet kan en kurs ges under flera tillfällen varje år och kan då också ha olika examinatorer, handledare och laborationer.
+
+Relationer:
+\begin{itemize}
+  \item Course {\bf 1-n} GivenCourse
+  \item StudyPeriod {\bf 1-n} GivenCourse
+  \item GivenCourse {\bf n-m} StudentRegisteredForCourse 
+\end{itemize}
+
 
 \subsubsection{User}
 Modellerar en användare, med användarnamn, lösenord, e-post, och dylikt. En användare kan ha olika roller, administrator, examiner, student, eller assistant (handledare) och de olika rollerna är svaga entiteter till User-modellen. Genom rollerna bestäms vilken funktionalitet i systemet som användaren har tillgång till. Användaren kan ha många olika roller på samma gång. Till exempel kan en handledare samtidigt också vara en student. På det här sättet kan en student läsa en kurs, samtidigt som den är handledare på en annan. 
 
+Relationer:
+\begin{itemize}
+  \item User {\bf 1-1} Student
+  \item User {\bf 1-1} Assistant
+  \item User {\bf 1-1} Examiner
+  \item User {\bf 1-1} Administrator
+\end{itemize}
+
+
 \subsubsection{Administrator}
 Representerar en administratör och är en svag entitet till User. En administratör kan bland annat skapa och ta bort kurser, lägga till och ta bort studenter, examinatorer och handledare. Har fullständiga privilegier och fungerar som en administratör för systemet.
+
+Relationer
+\begin{itemize}
+  \item Administrator {\bf 1-1} User
+\end{itemize}
+
 
 \subsubsection{Student}
 Modellerar en student och är en svag entitet till User. En student kan registrera sig på en GivenCourse, gå med och ut ur grupper och göra laborationer på kurser som den är registrerad på. 
@@ -54,6 +97,12 @@ I många kurser finns färdigt material för varje laboration. InitialLabCommit-
 \subsubsection{Submission}
 Så snart en användare lämnat in en inlämning, oavsett om detta görs med hjälp av Git eller via webbgränssnittet skapas en så kallad Submission. Modellen representerar ett tillstånd i ett repositorium givet en grupp. Tillståndet i ett repositorium representeras med hjälp av en så kallad commit-hash.
 
+Relationer: 
+\begin{itemize}
+  \item Submission {\bf n-1} LabHasGroup 
+  \item Submission {\bf n-1} Comment
+\end{itemize}
+
 \subsubsection{DefaultDeadline}
 
 Varje laboration startar alltid med en förutbestämd deadline för den första inlämningen och en för den sista inlämingen. Kolumnen at anger förfallotiden för en deadline. Modellen har i sitt implementerade tillstånd lägre prioritet än en så kallad ExtendedDeadline.
@@ -75,8 +124,20 @@ Relationer:
 \subsubsection{LabDescription}
 För att minska risken för duplicering av data och på så vis uppnå en viss nivå av normalisering har vi valt att flytta ut återkommande data för en given laboration till en så kallad LabDescription. Modellen innehåller information om en given laboration som kan tänkas ändras under åren. Iden är att en administratör ska kunna återanvända laborationsbeskrivningar från år till år utan att behöver kopiera informationen mellan åren.
 
+Relationer: 
+\begin{itemize}
+  \item LabDescription {\bf n-1} StudyPeriod 
+  \item Lab {\bf n-1} LabDescription
+\end{itemize}
+
 \subsubsection{LabGroup}
 Modellen representerar en grupp med studenter för en given kurs. För att göra det enklare att referera till en grupp, till exempel muntligt, har vi precis som för en Lab, valt att numrera grupper relativt inom en GivenCourse, genom en number kolumn. Detta betyder att man unikt kan bestämma en LabGroup genom att ange ett number tillsammans med en given kurs via given\_course\_id.
+
+Relationer: 
+\begin{itemize}
+  \item LabGroup {\bf n-m} StudentRegisteredForCourse 
+  \item LabHasGroup {\bf n-1} LabGroup
+\end{itemize}
 
 \subsubsection{LabHasGroup}\label{sec:modell-labhasgroup}
 Representerar kopplingen mellan en Lab och en LabGroup. När en LabHasGroup skapas så skapas även ett Git-repositorium där inlämningarna lagras. Gruppen har nu tillgång till versionhanteringsfunktionalitet och kan göra inlämningar via webbgränssnittet och Git.
