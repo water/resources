@@ -8,7 +8,7 @@ Vi valde att använda Rails metoden dependent-destroy för att göra modellen da
 \subsection{Git: repositorier}
 För varje laboration har en grupp ett Git-repositorium som innehåller inlämningarna. Webbservern utför endast läsoperationer direkt mot repositoriet. Andra operationer sköts via köhanteringssystemet.
 
-Git-repositorierna sparas som bare-repositorium. Detta betyder alla Git-repositorium saknar ett aktivt Git-träd (working tree). Detta gör att de tar mindre plats än ett vanligt repositorium.
+Git-repositorierna sparas som \emph{bare-repositorium}. Detta betyder alla Git-repositorium saknar ett aktivt Git-träd (\emph{working tree}). Detta gör att de tar mindre plats än ett vanligt repositorium.
 \subsection{Git: server}
 Grack är webbservern som hanterar push- och pull-förfrågningar. Vi har skrivit Water-specifika tillägg som sköter omskrivning av sökvägar samt låter servern auktorisera användaren direkt mot Rails-applikationen. Användaren kan därför använda samma lösenord och användarnamn som i webbklienten.
 
@@ -69,7 +69,7 @@ Rendering och navigation av filträd sköts av applikationen TreeViewer. TreeVie
 {\bf Routern} tolkar \emph{hash fragments} - den del av sökvägen som följer efter ett \#-tecken - och utlöser lämpliga events utan att hela sidan behöver laddas om.
 
 
-{\bf TreeFetcher}-modellen gör anrop till webbservern för att hämta fragment av HTML-sidor som representerar sökvägen eller en nod i ett träd och enkapsulerar sedan denna information. För att utföra sina anrop förväntar sig TreeFetcher ett argument som visar vilken sorts nod sökvägen pekar på. Med denna information kan TreeFetcher utföra ansynkrona anrop till lämpliga sökvägar på webbservern för att hämta den renderade resursen.
+{\bf TreeFetcher}-modellen gör anrop till webbservern för att hämta fragment av HTML-sidor som representerar sökvägen eller en nod i ett träd och inkapslar sedan denna information. För att utföra sina anrop förväntar sig TreeFetcher ett argument som visar vilken sorts nod sökvägen pekar på. Med denna information kan TreeFetcher utföra ansynkrona anrop till lämpliga sökvägar på webbservern för att hämta den renderade resursen.
 
 {\bf BreadCrumbSet}-modellen lagrar den nuvarande sökvägen i filträdet. Noder i sökvägen sparas i en stack med namn och sökväg. Denna information används för att rendera sökvägen för användaren så att varje nod är klickbar. Den fullständiga sökvägen används dessutom för att möjliggöra manipulationer av filträdet på ett givet ställe i trädet.
 

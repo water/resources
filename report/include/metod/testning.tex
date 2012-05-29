@@ -53,7 +53,7 @@ Ett problem vid modelltesting är popularisering av objekten som ska testas. En 
 
 User-modellen innehåller ett namn, lösenord och en epost-adress. Problem uppstår när utvecklaren ska testa specifika attribut, till exempel existensen av namn. De vi vill göra är att modifiera specifika attribut, men behålla resterande fält för att se vilken effekt våra ändringar har.
 
-Rubygemen FactoryGirl enkapsulerar factory-konceptet och gör det möjligt att göra just detta. Exemplet nedan illustrerar en user-modell som är färdigpopulariserad och redo att använda.
+Rubygemen FactoryGirl inkapslar factory-konceptet och gör det möjligt att göra just detta. Exemplet nedan illustrerar en user-modell som är färdigpopulariserad och redo att använda.
 
 \begin{lstlisting}[language=Ruby]
 FactoryGirl.define do
