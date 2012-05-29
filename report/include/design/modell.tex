@@ -63,8 +63,23 @@ Modellen representerar en grupp med studenter för en given kurs. För att göra
 \subsubsection{LabHasGroup}\label{sec:modell-labhasgroup}
 Representerar kopplingen mellan en Lab och en LabGroup. När en LabHasGroup skapas så skapas även ett Git-repositorium där inlämningarna lagras. Gruppen har nu tillgång till versionhanteringsfunktionalitet och kan göra inlämningar via webbgränssnittet och Git.
 
+Relationer: 
+\begin{itemize}
+  \item LabHasGroup {\bf n-1} Lab 
+  \item LabHasGroup {\bf n-1} LabGroup
+  \item LabHasGroup {\bf 1-1} Repository
+  \item Submission {\bf n-1} LabHasGroup
+  \item LabHasGroup {\bf n-1} AssistantRegisteredToGivenCourse
+  \item ExtendedDeadline {\bf n-1} LabHasGroup 
+\end{itemize}
+
 \subsubsection{Repository}
 En central del av Water är möjligheten att interagera och spara undan information om repositoriet. Själva Git-informationen sparas på disk i form av Git-objekt, medan information om placeringen på filsystemet sparas i databasen. Varje repositorium tillhör en LabHasGroup där gruppen kan spara filer som hör till en laboration.
+
+Relationer: 
+\begin{itemize}
+  \item Repository {\bf 1-1} LabHasGroup 
+\end{itemize}
 
 \subsubsection{Comments}
 Kommentarer kan läggas till valfri modell, utan att det behövs göra stora ändringar i den. 
@@ -72,18 +87,39 @@ Kommentarer kan läggas till valfri modell, utan att det behövs göra stora än
 För att implementera kommentarer användes biblioteket Ancestry som kan ordna godtycklig data i trädstrukturer. I databasen skapades tabellen Comments, som innehåller attribut för texten, typen på modellen den tillhör, den ovanstående kommentarens id, ett Ancestry attribut, och så vidare. 
 
 För att lägga till funktionaliteten till modeller, så kan man lägga till en ‘comment\_id’ till deras tabell, som sedan används som rot för kommentar-trädet. Vi valde att ta en NULL-value approach, och sätta attributet null, tills en kommentar blivit kopplad till den.
+
+Relationer: 
+\begin{itemize}
+  \item Comment {\bf n-1} User 
+\end{itemize}
     
 \subsubsection{StudentRegisteredForCourse}
 Reprsenterar kopplingen mellan en Student och en GivenCourse. Studenten kan nu gå med i och skapa  laborationsgrupper inom kursen.
 
+Relationer: 
+\begin{itemize}
+  \item StudentRegisteredForCourse {\bf n-1} Student 
+  \item GivenCourse {\bf n-1} StudentRegisteredForCourse
+  \item LabGroup {\bf n-m } StudentRegisteredForCourse
+\end{itemize}
+
 \subsubsection{AssistantRegisteredForCourse}
 Modellerar en registrering av en Assistant på en GivenCourse. Assistenten kan tilldelas LabHasGroups genom AssistantRegisteredForCourseHasLabGroup.
+
+Relationer: 
+\begin{itemize}
+  \item AssistantRegisteredForCourse {\bf n-1} GivenCourse 
+  \item AssistantRegisteredForCourse {\bf n-1} Assistant 
+\end{itemize}
 
 \subsubsection{AssistantRegisteredForCourseHasLabGroup}
 Modellerar kopplingen mellan en assistent och en grupp som har påbörjat en laboration på en GivenCourse, assistenten kan nu betygsätta inlämingar gjorda av den gruppen. 
 
-\subsubsection{ExaminerGivenCourse}
-Modellerar en registrering av en Examiner på en GivenCourse. Examinern kan nu rätta laborationer och lägga till studenter och handledare på kursen.
+Relationer: 
+\begin{itemize}
+  \item AssistantRegisteredForCourseHasLabGroup {\bf n-1} LabHasGroup 
+  \item AssistantRegisteredForCourseHasLabGroup {\bf n-1} AssistantRegisteredToGivenCourse 
+\end{itemize}
 
 \subsubsection{StudyPeriod}
 Modellerar en läsperiod, med start och slutdatum.
