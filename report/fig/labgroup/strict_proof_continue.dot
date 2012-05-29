@@ -24,31 +24,10 @@ graph G {
   S6 -- G4
 
   S6 -- G5
-  
-  /* The sets A and B */
-  /* subgraph cluster_A { */
-  /*   S1 */
-  /*   S2 */
-  /*   S3 */
-  /*   S4 */
-  /*   S5 */
-  /*   label = "                A" */
-
-  /*   subgraph cluster_B { */
-  /*     S2 */
-  /*     S3 */
-  /*     S4 */
-  /*     label = "                B" */
-  /*   } */
-  /* } */
 
   /* Repos */
   G2 -- LHG20
   G5 -- LHG50
-
-  /* Bonus properties */ 
-  /* S3 [shape = doublecircle] */ 
-  /* LHG20 [style=dashed] */
 }
 
 
