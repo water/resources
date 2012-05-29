@@ -54,11 +54,24 @@ Varje laboration startar alltid med en förutbestämd deadline för den första 
 \subsubsection{ExtendedDeadline}
 I de fallen då en grupp har påbörjat en laboration men inte hunnit bli klara i tid, eller har skäliga förhinder skapas det en ExtendedDeadline. Den här modellen har högre prioritet är DefaultDeadline vilket är ett krav då båda kan existera samtidigt. at representerar, precis som för DefaultDeadline, förfallotiden för en deadline.
 
+
 \subsubsection{LabDescription}
 För att minska risken för duplicering av data och på så vis uppnå en viss nivå av normalisering har vi valt att flytta ut återkommande data för en given laboration till en så kallad LabDescription. Modellen innehåller information om en given laboration som kan tänkas ändras under åren. Iden är att en administratör ska kunna återanvända laborationsbeskrivningar från år till år utan att behöver kopiera informationen mellan åren.
 
+Relationer: 
+\begin{itemize}
+  \item LabDescription {\bf n-1} StudyPeriod 
+  \item Lab {\bf n-1} LabDescription
+\end{itemize}
+
 \subsubsection{LabGroup}
 Modellen representerar en grupp med studenter för en given kurs. För att göra det enklare att referera till en grupp, till exempel muntligt, har vi precis som för en Lab, valt att numrera grupper relativt inom en GivenCourse, genom en number kolumn. Detta betyder att man unikt kan bestämma en LabGroup genom att ange ett number tillsammans med en given kurs via given\_course\_id.
+
+Relationer: 
+\begin{itemize}
+  \item LabGroup {\bf n-m} StudentRegisteredForCourse 
+  \item LabHasGroup {\bf n-1} LabGroup
+\end{itemize}
 
 \subsubsection{LabHasGroup}\label{sec:modell-labhasgroup}
 Representerar kopplingen mellan en Lab och en LabGroup. När en LabHasGroup skapas så skapas även ett Git-repositorium där inlämningarna lagras. Gruppen har nu tillgång till versionhanteringsfunktionalitet och kan göra inlämningar via webbgränssnittet och Git.
