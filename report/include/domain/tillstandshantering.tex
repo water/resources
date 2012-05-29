@@ -9,7 +9,7 @@ Vid första anblick är det oklart vilken entitet i modellen som ska hantera des
 Det är på samma gång tydligt att det är grupper som får hela inlämningsuppgifter godkända, vilket talar för att tillståndet istället lagras i en entitet som kopplar grupper till uppgifter.
 
 \subsection{Tillståndshantering i flera entiteter leder till redundans}
-Ytterligare en lösning är att placera tillstånden där de tycks passa bäst – både i inlämningentiteten och i entiteten som kopplar grupper till laborationer. Detta skapar dock redundans i modellen eftersom informationen finns tillgänglig även om den bara sparas i den ena entiteten. Till exempel betyder en godkänd inlämning att även laborationen är godkänd. En godkänd laboration betyder att den sista inlämningen är godkänd och de övriga är icke-godkända eller icke rättade, beroende på hur modellen är beskaffad.
+Ytterligare en lösning är att placera tillstånden där de tycks passa bäst – både i inlämningsentiteten och i entiteten som kopplar grupper till laborationer. Detta skapar dock redundans i modellen eftersom informationen finns tillgänglig även om den bara sparas i den ena entiteten. Till exempel betyder en godkänd inlämning att även laborationen är godkänd. En godkänd laboration betyder att den sista inlämningen är godkänd och de övriga är icke-godkända eller icke rättade, beroende på hur modellen är beskaffad.
 
 Redundans bör undvikas av de anledningar som diskuteras i kapitel \ref{sec:databasen}.
 
