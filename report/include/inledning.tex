@@ -15,7 +15,7 @@ Svaret är ett specialiserat system.
 På Chalmers tekniska högskola används ofta Fire, ett webbaserat system som endast hanterar inlämning och rättning av inlämningsuppgifter.
 Studenten skapar en användare och ansluter sig sedan till en grupp i Fires webbgränssnitt. Därefter väljer studenten en laboration att ladda upp filer till. När samtliga filer är uppladdade kan studenten välja att lämna in sina filer. 
 
-Handledarna som rättar uppgifterna erbjuds ett gränssnitt för rättning. Administratören kan skapa kurser och delegera rättigheter, som att förändra deadlines, till handledare. Systemet erbjuder dessutom smidig hantering av kurser med studenter från olika universitet
+Handledarna som rättar uppgifterna erbjuds ett gränssnitt för rättning. Administratören kan skapa kurser och delegera rättigheter, som att förändra deadlines, till handledare. Systemet erbjuder dessutom smidig hantering av kurser med studenter från olika universitet.
 
 Fire uppfyller grundförutsättningarna för ett fungerande system och har många uppskattade egenskaper.
 Däremot finns det ett antal områden med utrymme för förbättring. Bland annat startar Fire en separat webbserverinstans för varje kurs. Detta leder till vattentäta skott mellan kurser. Studenter är tvungna att registrera sig på nytt för varje ny kurs och länken till webbgränssnittet är olika för varje kurs. Tidigare har antalet webbserverinstanser dessutom begränsats till 64. I nuläget har har denna artificiella gräns höjts, men i längden är det inte praktiskt att skapa en serverinstans per kurs.
@@ -29,7 +29,7 @@ Det finns med andra ord mycket som talar för en helt ny lösning för inlämnin
 
 \subsection{Versionshantering}
 
-Versionshantering är ett oumbärligt verktyg för programmerare. Konceptet \emph{branches} gör det lätt att utveckla nya funktioner utan att förstöra nuvarande kodbas. Versionshantering förenklar även arbetet i grupp genom att  stödja sammanslagning - merge - av olika grenar. Detta uppmuntrar till strukturerade arbetssätt, och effektivt samarbete. 
+Versionshantering är ett oumbärligt verktyg för programmerare. Konceptet \emph{branches} gör det lätt att utveckla nya funktioner utan att förstöra nuvarande kodbas. Versionshantering förenklar även arbetet i grupp genom att stödja sammanslagning - merge - av olika grenar. Detta uppmuntrar till strukturerade arbetssätt, och effektivt samarbete. 
 
 Backup och historik förflyttas från filnivå till funktionsnivå genom att man gör regelbundna commits. Dessa upptar dessutom nästan ingen plats eftersom systemen i regel inte sparar hela projektets tillstånd i en commit, utan bara skillnaden till föregående commit – så kallad $\Delta$-data.
 

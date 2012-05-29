@@ -75,12 +75,12 @@ Tillstånden beskrivs som följer, se även illustration \ref{fig:cyk}:
 
 \subsubsection{Initialized}
 
-När en LabHasGroup skapas sätts objetet i tillståndet initalized. I detta tillstånd finns inga Submissions kopplade till entiteten.
+När en LabHasGroup skapas sätts objetet i tillståndet initalized. I detta tillstånd finns inga Submissions kopplade till entiteten och inlämning kan skapas fram tills dess att deadline har passerat.
 
 \subsubsection{Pending}
 
 När gruppen gör en inlämning skapas en Submission och LabHasGroup-entiteten övergår till tillståndet pending. Pending betyder att en inlämning är gjord, men att ingen handledare granskat laborationen.
-Om en LabHasGroup befinner sig i pending kan dess senaste Submission uppdateras så att den pekar på ett nytt tillstånd i repositoriet.
+Om en LabHasGroup befinner sig i pending kan dess senaste Submission uppdateras, fram tills dess att deadline har passerat, så att den pekar på ett nytt tillstånd i repositoriet.
 
 \subsubsection{Reviewing}
 
