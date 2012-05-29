@@ -22,9 +22,9 @@ Relationer:
 \subsubsection{Course}
 Representerar en kurs. Kurser ges av institutioner.
 
-Relaioner:
+Relationer:
 \begin{itemize}
-	\item Course {\bf n-1} Department
+	\item Department {\bf 1-n} Course
 	\item Course {\bf 1-n} CourseCode
 	\item Course {\bf 1-n} GivenCourse
 \end{itemize}
@@ -35,17 +35,41 @@ Representerar en kurskod för en kurs. Orsaken till att kurskoderna har en egen 
 
 Relationer:
 \begin{itemize}
-  \item Course {\bf 1-n} CourseCode
+  \item CourseCode {\bf 1-n} Course
 \end{itemize}
+
 
 \subsubsection{GivenCourse}
 Representerar en kurs som ges under en viss läsperiod. Varje GivenCourse har en eller flera examinatorer. Examinatorerna registrerar studenter och handledare på kursen. GivenCourse kan ha ingen eller flera laborationer. GivenCourse har en StudyPeriod och genom denna entitet kan en kurs ges under flera tillfällen varje år och kan då också ha olika examinatorer, handledare och laborationer.
 
+Relationer:
+\begin{itemize}
+  \item Course {\bf 1-n} GivenCourse
+  \item StudyPeriod {\bf 1-n} GivenCourse
+  \item GivenCourse {\bf n-m} StudentRegisteredForCourse 
+\end{itemize}
+
+
 \subsubsection{User}
 Modellerar en användare, med användarnamn, lösenord, e-post, och dylikt. En användare kan ha olika roller, administrator, examiner, student, eller assistant (handledare) och de olika rollerna är svaga entiteter till User-modellen. Genom rollerna bestäms vilken funktionalitet i systemet som användaren har tillgång till. Användaren kan ha många olika roller på samma gång. Till exempel kan en handledare samtidigt också vara en student. På det här sättet kan en student läsa en kurs, samtidigt som den är handledare på en annan. 
 
+Relationer:
+\begin{itemize}
+  \item User {\bf 1-1} Student
+  \item User {\bf 1-1} Assistant
+  \item User {\bf 1-1} Examiner
+  \item User {\bf 1-1} Administrator
+\end{itemize}
+
+
 \subsubsection{Administrator}
 Representerar en administratör och är en svag entitet till User. En administratör kan bland annat skapa och ta bort kurser, lägga till och ta bort studenter, examinatorer och handledare. Har fullständiga privilegier och fungerar som en administratör för systemet.
+
+Relationer
+\begin{itemize}
+  \item Administrator {\bf 1-1} User
+\end{itemize}
+
 
 \subsubsection{Student}
 Modellerar en student och är en svag entitet till User. En student kan registrera sig på en GivenCourse, gå med och ut ur grupper och göra laborationer på kurser som den är registrerad på. 
