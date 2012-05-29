@@ -38,7 +38,7 @@ Operationerna som krävs för att byta \emph{LHG} från en grupp till en annan �
   \includegraphics[width=7.0cm]{fig/labgroup/slack_add_5.pdf}        
   \caption[Serie tillstånd rörande labgrupper.]
   {Serie tillstånd rörande labgrupper. Studenterna $S2$, $S3$ och $S4$ vill
-  bilda en nya laboraionsgrupp tillsammans (den som blev $G2$) där de ska skapa
+  bilda en ny laborationsgrupp tillsammans (den som blev $G2$) där de ska skapa
   en \emph{LHG}. Notera hur student $S2$ måste ta bort sin förra \emph{LHG} innan någon elev
   kan lägga till en \emph{LHG} i den nya gruppen. Mellan varje figur krävs att någon
   användare gör en åtgärd i waters system.}
@@ -64,7 +64,7 @@ I början är alla studenter inplacerade i en för varje student unik grupp som 
 \end{figure}
 
 \paragraph{Operationer}
-I detta förslag behandlas operationerna “skapa en grupp” och “lägg till en student i gruppen” på samma sätt som i förslaget för den mindre strika invarianten. Att skapa en ny \emph{LHG} kommer inte ha kräva några förhandsvilkor, studenten behöver alltså inte längre manuellt se till så att \emph{LHG}:en sätts in genom att ta bort sina egna kopplingar i sina tidigare grupper, istället tar Water bort alla kopplingar som “är i vägen”. Operationen sker mer specifikt på följande sätt:
+I detta förslag behandlas operationerna “skapa en grupp” och “lägg till en student i gruppen” på samma sätt som i förslaget för den mindre strika invarianten. Att skapa en ny \emph{LHG} kommer inte ha kräva några förhandsvillkor, studenten behöver alltså inte längre manuellt se till så att \emph{LHG}:en sätts in genom att ta bort sina egna kopplingar i sina tidigare grupper, istället tar Water bort alla kopplingar som “är i vägen”. Operationen sker mer specifikt på följande sätt:
 \begin{enumerate}
   \item För alla medlemmar i gruppen där \emph{LHG}:en ska läggas till ska
     deras \emph{LHG} för den laborationen tas bort, notera att de alltid har
@@ -114,12 +114,12 @@ I början antags invarianten vara uppfylld, efter steg 1 så har studenterna i A
 \subsubsection{Användarperspektiv}
 Det ovanstående sättet att skapa en ny \emph{LHG} innebär att även laborationskamraternas laborationskamrater påverkas av den aktiva studentens operation (se figur \ref{fig:strict-proof-continue}). Detta är givetvis inte bra för de utsatta studenterna. Att samtliga studenter har en egen laborationsgrupp kan vara förvirrande för användare som ser att de redan är medlemmar i en laborationsgrupp som är låst och redan har påbörjat sina laborationer. I gengäld kräver operationen färre steg för en student att påbörja en laboration med en annan laborationsgrupp.
 
-\subsection{Ingen invaraint}
+\subsection{Ingen invariant}
 Naturligtvis går det att strunta i att forcera någon invariant. Det blir minimalt med jobb och ingenting behöver bevisas. Nackdelen är att det lätt blir förvirrande för användaren att ha flera aktiva laborationer samtidigt. Vidare krävs fler användaroperationer för att lokalisera sin \emph{LHG} då användaren inte bara behöver specifiera laboration utan även laborationsgrupp.
 
 \begin{flushright}
   
   \textbf{Beslut}
   
-  Vi valde att implementera ($\leq 1$) invarianten. Vi satte hög prestige i ett interface där användare direkt kan klicka på deras laboration utan att först välja laborationsgrupp.
+  Vi valde att implementera ($\leq 1$) invarianten. Vi satte hög prestige i ett användargränssnitt där användare direkt kan klicka på deras laboration utan att först välja laborationsgrupp.
 \end{flushright}
