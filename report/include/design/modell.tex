@@ -89,6 +89,11 @@ I stället för att referera till en unik laboration genom lab\_id så har vi va
 Relationer: 
 \begin{itemize}
   \item DefaultDeadline {\bf n-1} Lab
+  \item Lab {\bf n-1} LabDescription
+  \item Lab {\bf n-1} GivenCourse
+  \item LabHasGroup {\bf n-1} Lab
+  \item DefaultDeadline {\bf n-1} Lab
+  \item InitialLabCommit {\bf 1-1} Lab
 \end{itemize}
 
 \subsubsection{InitialLabCommit}
