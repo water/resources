@@ -66,11 +66,13 @@ I början är alla studenter inplacerade i en för varje student unik grupp som 
 \paragraph{Operationer}
 I detta förslag behandlas operationerna “skapa en grupp” och “lägg till en student i gruppen” på samma sätt som i förslaget för den mindre strika invarianten. Att skapa en ny \emph{LHG} kommer inte ha kräva några förhandsvilkor, studenten behöver alltså inte längre manuellt se till så att \emph{LHG}:en sätts in genom att ta bort sina egna kopplingar i sina tidigare grupper, istället tar Water bort alla kopplingar som “är i vägen”. Operationen sker mer specifikt på följande sätt:
 \begin{enumerate}
-  \item För alla medlemmar i gruppen där \emph{LHG}:en ska läggas till måste deras \emph{LHG} för den labroationen tas bort.  (De har redan exakt en sådan på grund av invarianten.)
+  \item För alla medlemmar i gruppen där \emph{LHG}:en ska läggas till ska
+    deras \emph{LHG} för den laborationen tas bort, notera att de alltid har
+    exakt en sådan på grund av invarianten.
   \item Lägg till \emph{LHG}:en, nu skall invarianten stämma för gruppmedlemmarna.
   \item Borttagningarna i första steget kan ha påverkan på studenter utanför
   den aktiva studentens laborationsgrupp. För de påverkade studenterna lägger
-  vi till en \emph{LHG}i  deras egna laborationsgrupp (studentens laborationsgrupp).
+  vi till en \emph{LHG} i  deras egna laborationsgrupp (studentens laborationsgrupp).
   Dessa påverkade studenter kallas för “laborationskamraternas
   laborationskamrater”.
 
@@ -95,7 +97,7 @@ I början antags invarianten vara uppfylld, efter steg 1 så har studenterna i A
   \begin{subfigure}[b]{0.5\textwidth}
     \centering
     \includegraphics[width=8.0cm]{fig/labgroup/strict_proof.pdf}
-    \caption{Situation när $S3$ ska lägga till $R20$}
+    \caption{Situation när $S2$ ska lägga till $LHG10$}
     \label{fig:strict-proof}
   \end{subfigure}%
         ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
@@ -103,7 +105,7 @@ I början antags invarianten vara uppfylld, efter steg 1 så har studenterna i A
   \begin{subfigure}[b]{0.5\textwidth}
     \centering
     \includegraphics[width=8.0cm]{fig/labgroup/strict_proof_continue.pdf}
-    \caption{Situation efter $R20$ lagts till}
+    \caption{Situation efter $LHG10$ lagts till}
     \label{fig:strict-proof-continue}
   \end{subfigure}
   \caption{Före och efter \emph{LHG}-tillägg (strikt invariant)}\label{fig:animals}

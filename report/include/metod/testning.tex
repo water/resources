@@ -26,12 +26,12 @@ RSpec har fullt stöd för Rails, har ett lättläst DSL (se exemplet nedan) och
 
 Nedan följer ett exempel på hur RSpec skulle kunna tänkas användas för att testa en bil-klass.
 
-\begin{lstlisting}[language=Ruby]
-it "should_have_3_wheels" do
+\begin{lstlisting}[language=Ruby, showstringspaces=false]
+it "should have 3 wheels" do
   car.should have(3).wheels
 end
 
-it "should_not_be_roadworthy" do
+it "should not be roadworthy" do
   car.should_not be_roadworthy
 end
 \end{lstlisting}

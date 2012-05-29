@@ -31,8 +31,7 @@ Resque är en köhanterare som bygger på key value-databasen Redis. Plattformen
 är byggd av Github Inc. i språket Ruby och har en medföljande
 inställningspanel. Administrationspanelen gör det möjligt att starta om
 fallerade jobb, se statistik och hantera prioriteringar. Redis är ett etablerat
-verktyg som används av ett flertal stora aktörer (Redis, \textquotedblleft Who's using
-Redis? \textquotedblright), bland annat den sociala utvecklingsplatformen Github.
+verktyg som används av ett flertal stora aktörer (Redis), bland annat den sociala utvecklingsplatformen Github.
 
 Ett problem med Resque är dock att den använder polling för att hämta data från
 Redis. Polling-problematiken gör att informationen som hämtas av en \emph{worker} vid
@@ -45,5 +44,5 @@ hjälp av en rad kod:
 \end{verbatim}
 
 \subsection{Beanstalkd}
-Beanstalkd är en realtidsköhanterare byggd i språket C skriven för att hantera asynkrona jobb för den sociala plattformen Facebook (Beanstalkd, “Facebook”). Beanstalkd har ett lätt fotavtryck, har möjlighet att beta av jobb i realtid men saknar en administrationspanel.
+Beanstalkd är en realtidsköhanterare byggd i språket C skriven för att hantera asynkrona jobb för den sociala plattformen Facebook (Beanstalk 2007). Beanstalkd har ett lätt fotavtryck, har möjlighet att beta av jobb i realtid men saknar en administrationspanel.
 Beanstalkd har ett flertal bibliotek till Ruby som gör implementeringen enkel. Ett utav dem är Stomp som finns färdigimplementerat i Gitorious.
