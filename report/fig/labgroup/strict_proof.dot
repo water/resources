@@ -6,6 +6,7 @@ graph G {
   SG3 -- S3
   SG4 -- S4
   SG5 -- S5
+  SG6 -- S6
 
   /* Labgroups */
   S1 -- G1
@@ -17,6 +18,11 @@ graph G {
 
   S4 -- G3
   S5 -- G3
+
+  S5 -- G4
+  S6 -- G4
+
+  S6 -- G5
   
   /* The sets A and B */
   subgraph cluster_A {
@@ -39,6 +45,7 @@ graph G {
   G1 -- LHG10
   G2 -- LHG20 [style=dashed]
   G3 -- LHG30
+  G5 -- LHG50
 
   /* Bonus properties */ 
   S3 [shape = doublecircle] 

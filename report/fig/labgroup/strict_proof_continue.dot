@@ -7,6 +7,7 @@ graph G {
   SG4 -- S4
   SG5 -- S5
   LHG5 -- SG5
+  SG6 -- S6
 
   /* Labgroups */
   S1 -- G1
@@ -18,6 +19,11 @@ graph G {
 
   S4 -- G3
   S5 -- G3
+
+  S5 -- G4
+  S6 -- G4
+
+  S6 -- G5
   
   /* The sets A and B */
   /* subgraph cluster_A { */
@@ -38,6 +44,7 @@ graph G {
 
   /* Repos */
   G2 -- LHG20
+  G5 -- LHG50
 
   /* Bonus properties */ 
   /* S3 [shape = doublecircle] */ 
