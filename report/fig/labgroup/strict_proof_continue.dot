@@ -1,7 +1,5 @@
 graph G {
   /* Startgroups and it's repos */
-  LHG1 -- SG1
-  SG1 -- S1
   SG2 -- S2
   SG3 -- S3
   SG4 -- S4
@@ -10,9 +8,6 @@ graph G {
   SG6 -- S6
 
   /* Labgroups */
-  S1 -- G1
-  S2 -- G1
-
   S2 -- G2
   S3 -- G2
   S4 -- G2

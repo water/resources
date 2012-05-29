@@ -1,7 +1,6 @@
 graph G {
   /* Startgroups and it's repos */
   LHG3  -- SG3
-  SG1 -- S1
   SG2 -- S2
   SG3 -- S3
   SG4 -- S4
@@ -9,9 +8,6 @@ graph G {
   SG6 -- S6
 
   /* Labgroups */
-  S1 -- G1
-  S2 -- G1
-
   S2 -- G2
   S3 -- G2
   S4 -- G2
@@ -26,7 +22,6 @@ graph G {
   
   /* The sets A and B */
   subgraph cluster_A {
-    S1
     S2
     S3
     S4
