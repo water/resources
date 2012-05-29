@@ -102,7 +102,7 @@ Relationer:
 
 En laboration i Water representeras av Lab-modellen. Modellen innehåller information om vilken kurs laborationer tillhör, ett nummer som identifierar den relativt inom kursen och även en koppling till en LabDescription.
 
-I stället för att referera till en unik laboration genom lab\_id så har vi valt att lägga till en kolumn vid namn number. En laboration kan på så vis unikt bestämmas utifrån ett number och en kurs-kod given\_course\_id. På så vis behöver användaren endast komma ihåg vilken kurs de läser och vilken laboration de gör, till exempel 3:e.
+I stället för att referera till en unik laboration genom lab\_id så har vi valt att lägga till en kolumn vid namn number. Laborationerna inom en kurs numreras i serie enligt den ordning som de skapas i. En laboration kan identifieras unikt utifrån ett number och en given\_course\_id. Number kan användas för att referera till laborationer på ett naturligt sätt, såvida uttryckliga namn inte finns. Eftersom number används i den repositorieidentifierande URL:en är det teoretiskt möjligt för mer erfarna studenter att räkna ut URL:en utan att gå in i webbgränssnittet.
 
 Relationer: 
 \begin{itemize}
