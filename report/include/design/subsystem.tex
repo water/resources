@@ -18,7 +18,9 @@ Köhanteringssystemet består av ett antal komponenter.
 Beanstalkd
 
 Köhanteraren som lyssnar på anslutningar från webbserver för att möjliggöra asynkron kommunikation.
-Stomp / Processer
+
+
+\subsubsection{Stomp / Processer}
 
 Beanstalkd använder lågnivåprotokollet telnet för all inkommande kommunikation. För att enklare kunna interagera med Beanstalkd används biblioteket Stomp. Stomp gör det möjligt att via Ruby lyssna och skriva till Beanstalkd-köer. Bryggan till Ruby gör Stomp till ett modulärt, lätt-implementerat gränssnitt. Se exemplet nedan.
 
