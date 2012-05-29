@@ -59,7 +59,7 @@ När uppladdningssidan hämtas lägger webbservern till Javascript-variabler i s
 \subsubsection{Filerna läggs till i Git}
 
 Servern validerar \emph{CommitRequest}-anropet. Om valideringen lyckas skickas anropet vidare till köhanteraren och servern svarar till klienten att behandling av anropet har inletts. När klienten får detta meddelande låses webbgränsnittet.
-När köhanteraren har behandlat anropet och lagt till filerna i Gitrepositoriet, skickas ett ansynkront meddelande om detta till klienten via SecureFaye och WebSocket-servern. Klienten kan då låsa upp gränssnittet och ladda om filträdet.
+När köhanteraren har behandlat anropet och lagt till filerna i Gitrepositoriet, skickas ett asynkront meddelande om detta till klienten via SecureFaye och WebSocket-servern. Klienten kan då låsa upp gränssnittet och ladda om filträdet.
 
 \subsection{Inlämningens livscykel}
 
