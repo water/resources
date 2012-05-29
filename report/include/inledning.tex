@@ -71,7 +71,7 @@ Systemet ska vara enkelt att underhålla och vidareutveckla.
 
 Inom projektets ramar ska frågor kring anonym rättning, statistik och plagiatkontroll undersökas.
 
-Projektet ska undersöka möjligheterna att effektivisera inrapportering av resultat till LADOK.
+En önskan av handledaren var tydliga resultatlistor som är kompatibla med LADOK\footnote{Samtal med Sven-Arne Andreasson den 24 Januari 2012}.
 
 \section{Disposition}
 
@@ -81,6 +81,43 @@ problembeskrivningar och analyser. I avsnitten beskrivs besluten och deras motiv
 författarna till metod- och designavsnitten. I många sammanhang nämns olika produkter och teknologier som kandidatgruppen har använt under analys
 eller utveckling av systemet. Dessa samlas tillsammans med sina respektive hemsidor i avsnitt \ref{sec:ordlista}.
 
+\section{Git}
+I denna rapport behandlas många frågor som relaterar till versionhanteringssystemet Git. 
+För läsare som inte är bekanta med Git erbjuds därför en kort introduktion.
+
+\subsection{Allmänt}
+Git är ett distribuerat versionshanteringssystem. Detta innebär att alla användare arbetar med lokala, fullfjädrade \emph{repositorier}. I repositoriet sparas projektets historik som en trädstruktur. Detta kan ses i kontrast mot till exempel SVN, där användaren oftast bara hämtar med en ögonblicksbild – en snapshot – av projektet från en central server.
+
+\subsection{Att inleda arbetet: clone eller init}
+För att inleda arbetet med ett projekt kan användaren använda ett av två kommandon: \emph{clone} eller \emph{init}. Med init skapas ett nytt repositorium. Clone kopierar ett befintligt repositorium, inklusive dess kompletta historik.
+
+\begin{Verbatim}
+> git init
+> git clone git@github.com:user/repository.git
+\end{Verbatim}
+
+\subsection{Commit}
+När användaren har utfört en arbetsuppgift och vill spara det nuvarande tillståndet i projektet gör han eller hon en \emph{commit}. En commit kan innehålla ett meddelande som beskriver förändringarna som har utförts:
+
+\begin{Verbatim}
+> git commit -m "Changed class name"
+\end{Verbatim}
+
+\subsection{Push}
+När användaren vill dela med sig av sitt arbete kan han eller hon utföra en \emph{push} för att föra över sina ändringar till en annan Git-nod. Eftersom Git är distribuerat kan en Git-nod vara allt från en gemensam server till en kollega som också använder Git. Ett vanligt arbetsflöde är dock att en arbetsgrupp har ett gemensamt huvudrepositorium på en server. Det finns code hosting-företag som erbjuder repositorier som en tjänst.
+\begin{Verbatim}
+> git push
+\end{Verbatim}
+
+\subsection{Pull}
+Kommandon \emph{pull} används för att hämta förändringar från ett annat repositorium och sammanfläta dem med det lokala repositoriet. Om användarna har utfört förändringar på samma ställe i datat kan konflikter uppstå. I de flesta fall kan Git lösa eventuella konflikter på egen hand. Ibland är dock förändringarna så inkompatibla att användaren själv måste lösa dem.
+
+\begin{Verbatim}
+> git pull
+\end{Verbatim}
+
+\subsection{Grenar: branches}
+Grenar, eller \emph{branches}, representerar olika versioner av samma kodbas. Grenar kan användas för att isolera experiment eller nya funktioner från en stabil version av kodbasen. När arbetet är moget nog för att införlivas i huvudgrenen används kommandot \emph{merge} för att sammanfläta grenar.
 
 \section{Ordlista}
 \label{sec:ordlista}
@@ -155,6 +192,8 @@ REST & Representational State Transfer \\
 Route & Sökväg eller URL till en viss del av en webbapplikation \\
 \hline
 Scopa & En namnrymd som kan kapsla in saker inuti sig \\
+\hline
+Source code hosting & Webbtjänst för förvaring av kod \\
 \hline
 Symmetrisk SHA1-signering & Signering av data m.h.a SHA1-algoritmen och ett konstant salt \\
 \hline
