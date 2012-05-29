@@ -13,8 +13,21 @@ Ett vanligt ER-diagram finns dock att tillgå i bilaga \ref{appendix:er-diagram}
 \subsubsection{Department}
 Representerar en institution. Till exempel ges arkitekturkurser vid Chalmers tekniska högskola av institutionen för arkitektur.
 
+Relationer:
+\begin{itemize}
+	\item Department {\bf 1-n} Course
+\end{itemize}
+
+
 \subsubsection{Course}
 Representerar en kurs. Kurser ges av institutioner.
+
+\begin{itemize}
+	\item Course {\bf n-1} Department
+	\item Course {\bf 1-n} CourseCode
+	\item Course {\bf 1-n} GivenCourse
+\end{itemize}
+
 
 \subsubsection{CourseCode}
 Representerar en kurskod för en kurs. Orsaken till att kurskoderna har en egen tabell är att en och samma kurs kan ha flera kurskoder, till exempel om den ges inom ramarna för flera högskolor.
