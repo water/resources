@@ -3,6 +3,6 @@
 Rollerna är implementerade för att tillhandage olika användare den förväntade funktionaliteten. I de fall då en användare har flera roller, ska funktionaliteten vara instansberoende.  
 
 \subsection{Rollernas påverkan på routes}
-Användarfunktionaliteten befinner sig inom en \emph{scope} med roller. Detta ger upphov till estetiska, och intuitivt förstådda URL:er. Till exempel kan kurser visas upp för en student genom: /student/courses. Om studenten också är en Assistant, används en annan route för att visa relevant information för det sammahanget.
+Användarfunktionaliteten befinner sig inom en \emph{scope} med roller. Detta ger upphov till estetiska, och intuitivt förstådda URL:er. Till exempel kan kurser visas upp för en student genom: |/student/courses|. Om studenten också är en Assistant, används en annan route för att visa relevant information för det sammahanget.
 
-Sidor som, till exempel,  visar en mall för redigering av User-information ska inte vara \emph{scopade}, eftersom de inte tillhör någon specifik roll-kontext.
+Sidor som till exempel visar en mall för redigering av User-information ska inte vara \emph{scopade}, eftersom de inte tillhör någon specifik roll-kontext.

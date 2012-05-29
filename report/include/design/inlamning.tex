@@ -28,21 +28,14 @@ Kursen identifieras alltså av sitt databas-id, medan vi använder relativa numm
 
 För att underlätta för en användare står ovanstånde kommandon uppradade i webbinterfacet. När en handledare eller laborationskamrater skall granska laborationen kan de också använda Git-interfacet för att hämta det senaste arbetet.
 
-\begin{verbatim}
+\begin{BVerbatim}
   git clone https://water.se/courses/1/lab_groups/1/labs/1
   Username: my_cid
   Password: my_password
-\end{verbatim}
+\end{BVerbatim}
+\nopagebreak
 
 \subsection{Uppladdning och inlämning via webbgränssnittet}
-
-\begin{figure}
-  \includegraphics[width=15.0cm]{fig/misc/uppladdningsprocessen.pdf}             
-  \caption[Uppladdningsprocessen]
-  {Uppladdningsprocessen}
-  \label{fig:uppladdning}
-\end{figure}
-
 
 Uppladdningsprocessen består av ett antal faser. Först laddas filerna upp. Därefter skickar klienten ett anrop som begär att filerna ska läggas till i ett repositorium. Servern svarar att processen har inletts och vidarebefordrar anropet till köhanteraren. När processen är klart får klienten ett asynkront meddelande om detta via WebSocket-servern. Se figur \ref{fig:uppladdning}
 
@@ -60,6 +53,13 @@ När uppladdningssidan hämtas lägger webbservern till Javascript-variabler i s
 
 Servern validerar \emph{CommitRequest}-anropet. Om valideringen lyckas skickas anropet vidare till köhanteraren och servern svarar till klienten att behandling av anropet har inletts. När klienten får detta meddelande låses webbgränsnittet.
 När köhanteraren har behandlat anropet och lagt till filerna i Gitrepositoriet, skickas ett asynkront meddelande om detta till klienten via SecureFaye och WebSocket-servern. Klienten kan då låsa upp gränssnittet och ladda om filträdet.
+
+\begin{figure}
+  \includegraphics[width=15.0cm]{fig/misc/uppladdningsprocessen.pdf}             
+  \caption[Uppladdningsprocessen]
+  {Uppladdningsprocessen}
+  \label{fig:uppladdning}
+\end{figure}
 
 \subsection{Inlämningens livscykel}
 

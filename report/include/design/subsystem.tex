@@ -15,15 +15,16 @@ Grack är webbservern som hanterar push- och pull-förfrågningar. Vi har skrivi
 Ingående data från användaren skickas vidare till en git-binär som i sin tur skriver informationen till disk. Skulle användaren push upp en *submission-commit så skapas även en inlämning utifrån en Submission-entitet.
 \subsection{Köhantering}
 Köhanteringssystemet består av ett antal komponenter.
-Beanstalkd
+
+\subsubsection{Beanstalkd}
 
 Köhanteraren som lyssnar på anslutningar från webbserver för att möjliggöra asynkron kommunikation.
-Stomp / Processer
+\subsubsection{Stomp / Processer}
+\label{subsub:stomp}
 
 Beanstalkd använder lågnivåprotokollet telnet för all inkommande kommunikation. För att enklare kunna interagera med Beanstalkd används biblioteket Stomp. Stomp gör det möjligt att via Ruby lyssna och skriva till Beanstalkd-köer. Bryggan till Ruby gör Stomp till ett modulärt, lätt-implementerat gränssnitt. Se exemplet nedan.
 
 \begin{lstlisting}[language=Ruby]
-
 
 class CommitRequest
  include ActiveMessaging::MessageSender
@@ -52,7 +53,7 @@ class CommitRequest
 
 \subsubsection{Poller}
 
-Poller är bryggan mellan Beanstalkd(Stomp) och Rails-stacken och körs som en helt fristående process. Processen lyssnar på Beanstalkd och vidarebefordrar inkommande jobb till rätt klass med hjälp av en konfigurationsfil. Se föregående exempel stycke (Stomp) för kodexempel.
+Poller är bryggan mellan Beanstalkd (Stomp) och Rails-stacken och körs som en helt fristående process. Processen lyssnar på Beanstalkd och vidarebefordrar inkommande jobb till rätt klass med hjälp av en konfigurationsfil. Se avsnitt \ref{subsub:stomp} för kodexempel.
 
 \subsection{MVC-bibliotek i webbklienten}
 Backbone.js används som MVC-bibliotek i webbklienten.
