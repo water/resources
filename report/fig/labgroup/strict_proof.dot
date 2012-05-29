@@ -42,7 +42,7 @@ graph G {
   G4 -- LHG40
 
   /* Bonus properties */ 
-  S2 [shape = doublecircle] 
+  S2 [style = bold] 
   LHG10 [style=dashed]
 }
 
