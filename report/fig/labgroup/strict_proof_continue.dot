@@ -1,47 +1,28 @@
 graph G {
   /* Startgroups and it's repos */
-  LHG1 -- SG1
   SG1 -- S1
   SG2 -- S2
   SG3 -- S3
   SG4 -- S4
+  LHG4 -- SG4
   SG5 -- S5
-  LHG5 -- SG5
 
   /* Labgroups */
   S1 -- G1
   S2 -- G1
+  S3 -- G1
 
-  S2 -- G2
   S3 -- G2
   S4 -- G2
 
   S4 -- G3
   S5 -- G3
-  
-  /* The sets A and B */
-  /* subgraph cluster_A { */
-  /*   S1 */
-  /*   S2 */
-  /*   S3 */
-  /*   S4 */
-  /*   S5 */
-  /*   label = "                A" */
 
-  /*   subgraph cluster_B { */
-  /*     S2 */
-  /*     S3 */
-  /*     S4 */
-  /*     label = "                B" */
-  /*   } */
-  /* } */
+  S5 -- G4
 
   /* Repos */
-  G2 -- LHG20
-
-  /* Bonus properties */ 
-  /* S3 [shape = doublecircle] */ 
-  /* LHG20 [style=dashed] */
+  G1 -- LHG10
+  G4 -- LHG40
 }
 
 
