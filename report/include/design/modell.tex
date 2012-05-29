@@ -22,6 +22,7 @@ Relationer:
 \subsubsection{Course}
 Representerar en kurs. Kurser ges av institutioner.
 
+Relaioner:
 \begin{itemize}
 	\item Course {\bf n-1} Department
 	\item Course {\bf 1-n} CourseCode
@@ -31,6 +32,11 @@ Representerar en kurs. Kurser ges av institutioner.
 
 \subsubsection{CourseCode}
 Representerar en kurskod för en kurs. Orsaken till att kurskoderna har en egen tabell är att en och samma kurs kan ha flera kurskoder, till exempel om den ges inom ramarna för flera högskolor.
+
+Relationer:
+\begin{itemize}
+  \item Course {\bf 1-n} CourseCode
+\end{itemize}
 
 \subsubsection{GivenCourse}
 Representerar en kurs som ges under en viss läsperiod. Varje GivenCourse har en eller flera examinatorer. Examinatorerna registrerar studenter och handledare på kursen. GivenCourse kan ha ingen eller flera laborationer. GivenCourse har en StudyPeriod och genom denna entitet kan en kurs ges under flera tillfällen varje år och kan då också ha olika examinatorer, handledare och laborationer.
