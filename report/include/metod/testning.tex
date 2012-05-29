@@ -19,10 +19,7 @@ Några utav de faktorer som spelade in vid valet är
 \end{itemize}
 
 Rubys TestUnit, som till sitt DSL är mest likt Javas JUnit, är flera gånger snabbare än RSpec, men är inte praktiskt att använda då DSL:et är förhållandevis oläsbart. Rubys möjlighet till metaprogrammering gör det möjligt att designa lättlästa DSL:er. Vi kan därför förvänta oss ett bättre designat API, vilket gör att TestUnit fallet bort.
-
-MiniTest, som förövrigt är standardtestramverket i Rails sedan 2008 (Rails Webblog, “MiniTest”, 2008), är likvärdigt med RSpec både när det gäller läsbarhet, DSL-uppbyggnad och körningstid. Det fattas kompetens inom gruppen för biblioteket, vilket tillslut gjorde att valet tillslut föll på RSpec.
-
-RSpec har fullt stöd för Rails, har ett lättläst DSL (se exemplet nedan) och är mycket bra dokumenterat. Ett flertal personer inom gruppen har även kunskap om testramveket.
+MiniTest, som förövrigt är standardtestramverket i Rails sedan 2008 (Rails Webblog, “MiniTest”, 2008), är likvärdigt med RSpec både när det gäller läsbarhet, DSL-uppbyggnad och körningstid.
 
 Nedan följer ett exempel på hur RSpec skulle kunna tänkas användas för att testa en bil-klass.
 
@@ -36,12 +33,13 @@ it "should not be roadworthy" do
 end
 \end{lstlisting}
 
-
 \begin{flushright}
   
   \textbf{Beslut}
+  
+    Valet föll tillslut på RSpec.
 
-  Vi väljer att använda RSpec eftersom den är lättläst, bra dokumenterat och för att det finns kunskap om testramverket inom gruppen sen tidigare.
+    RSpec har fullt stöd för Rails, har ett lättläst DSL (se exemplet ovan) och är mycket bra dokumenterat. Ett flertal personer inom gruppen har även tidigare kunskap om testramveket.
 \end{flushright}
 
 \subsection{Vad testas?}
