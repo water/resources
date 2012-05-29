@@ -46,16 +46,16 @@ I stället för att referera till en unik laboration genom lab\_id så har vi va
 I många kurser finns färdigt material för varje laboration. InitialLabCommit-modellen är till för enkapsulera ett preparerat givet tillstånd för en laboration. Examinatorn kan här bestämma vilket material som bör finnas med från början till varje laboration. Personen i fråga kan även välja att återanvända material från år till år genom att referera en InitialLabCommit.
 
 \subsubsection{Submission}
-Så snart en användare lämnat in en inlämning, oavsett om detta görs med hjälp av Git eller via webinterfacet skapas en så kallad Submission. Modellen representerar ett tillstånd i ett repositorium givet en grupp. Tillståndet i ett repositorium representeras med hjälp av en så kallad commit-hash.
+Så snart en användare lämnat in en inlämning, oavsett om detta görs med hjälp av Git eller via webgränssnittet skapas en så kallad Submission. Modellen representerar ett tillstånd i ett repositorium givet en grupp. Tillståndet i ett repositorium representeras med hjälp av en så kallad commit-hash.
 
 \subsubsection{DefaultDeadline}
-Varje laboration startar alltid med en förutbestämd deadline för den första inlämningen och en för den sista inlämingen. Kolumnen at anger förfallotiden för en deadline. Modellen har i sitt implementerade tillstånd lägre prioritet än en så kallad  ExtendedDeadline.
+Varje laboration startar alltid med en förutbestämd deadline för den första inlämningen och en för den sista inlämingen. Kolumnen at anger förfallotiden för en deadline. Modellen har i sitt implementerade tillstånd lägre prioritet än en så kallad ExtendedDeadline.
 
 \subsubsection{ExtendedDeadline}
 I de fallen då en grupp har påbörjat en laboration men inte hunnit bli klara i tid, eller har skäliga förhinder skapas det en ExtendedDeadline. Den här modellen har högre prioritet är DefaultDeadline vilket är ett krav då båda kan existera samtidigt. at representerar, precis som för DefaultDeadline, förfallotiden för en deadline.
 
 \subsubsection{LabDescription}
-För att minska risken för duplicering av data och på så vis uppnå en viss nivå av normalisering har vi valt att flytta ut återkommande data för en given laboration till en så kallad LabDescription. Modellen innehåller information om en given laboration som kan tänkas ändras under åren. Iden är att administratör ska kunna återanvända laborationsbeskrivningar från år till år utan att behöver kopiera informationen mellan åren.
+För att minska risken för duplicering av data och på så vis uppnå en viss nivå av normalisering har vi valt att flytta ut återkommande data för en given laboration till en så kallad LabDescription. Modellen innehåller information om en given laboration som kan tänkas ändras under åren. Iden är att en administratör ska kunna återanvända laborationsbeskrivningar från år till år utan att behöver kopiera informationen mellan åren.
 
 \subsubsection{LabGroup}
 Modellen representerar en grupp med studenter för en given kurs. För att göra det enklare att referera till en grupp, till exempel muntligt, har vi precis som för en Lab, valt att numrera grupper relativt inom en GivenCourse, genom en number kolumn. Detta betyder att man unikt kan bestämma en LabGroup genom att ange ett number tillsammans med en given kurs via given\_course\_id.
@@ -71,7 +71,7 @@ Kommentarer kan läggas till valfri modell, utan att det behövs göra stora än
 
 För att implementera kommentarer användes biblioteket Ancestry som kan ordna godtycklig data i trädstrukturer. I databasen skapades tabellen Comments, som innehåller attribut för texten, typen på modellen den tillhör, den ovanstående kommentarens id, ett Ancestry attribut, och så vidare. 
 
-För att lägga till funktionaliteten till modeller, så kan man lägga till en ‘comment\_id’ till deras tabell, som sedan används som root för kommentar-trädet. Vi valde att ta en NULL-value approach, och sätta attributet null, tills en kommentar blivit kopplad till den.
+För att lägga till funktionaliteten till modeller, så kan man lägga till en ‘comment\_id’ till deras tabell, som sedan används som rot för kommentar-trädet. Vi valde att ta en NULL-value approach, och sätta attributet null, tills en kommentar blivit kopplad till den.
     
 \subsubsection{StudentRegisteredForCourse}
 Reprsenterar kopplingen mellan en Student och en GivenCourse. Studenten kan nu gå med i och skapa  laborationsgrupper inom kursen.

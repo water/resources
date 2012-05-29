@@ -53,13 +53,13 @@ Callbacks i JQuery-File-Upload används för att skicka med unika identifierings
 
 Identifieringskoderna och filernas originalfilnamn lagras i en \emph{CommitRequest}-modell i klienten när filerna skickas. Servern svarar med en array där varje fil representeras av sin identifieringskod. På detta sätt får \emph{CommitRequest}-modellen ett kvitto på att uppladdningsprocessen är färdig. \emph{CommitRequest}-modellen delar upp kvitterade filer i lyckade och misslyckade uppladdningar. 
 
-När alla filer är kvitterade tar \emph{CommitRequest}-modellen de filer vars uppladdning lyckades och konstruerar ett \emph{CommitRequest}-anrop till servern. Filernas sökvägar i Gitrepositoriet konstrueras med hjälp av trädvyns nuvarande sökväg, som lagras i BreadcrumbSet-modellen, samt originalfilnamnen som lagrades tillsammans med identifieringskoderna.
+När alla filer är kvitterade tar \emph{CommitRequest}-modellen de filer vars uppladdning lyckades och konstruerar ett \emph{CommitRequest}-anrop till servern. Filernas sökvägar i Git-repositoriet konstrueras med hjälp av trädvyns nuvarande sökväg, som lagras i BreadcrumbSet-modellen, samt originalfilnamnen som lagrades tillsammans med identifieringskoderna.
 När uppladdningssidan hämtas lägger webbservern till Javascript-variabler i sidan. Variablerna innehåller en länk till det  repositorium som ska användas och namnet på den \emph{branch} som ska användas. \emph{CommitRequets}-modellen hämtar dessa och kan sedan skicka anropet.
 
 \subsubsection{Filerna läggs till i Git}
 
 Servern validerar \emph{CommitRequest}-anropet. Om valideringen lyckas skickas anropet vidare till köhanteraren och servern svarar till klienten att behandling av anropet har inletts. När klienten får detta meddelande låses webbgränsnittet.
-När köhanteraren har behandlat anropet och lagt till filerna i Gitrepositoriet, skickas ett ansynkront meddelande om detta till klienten via SecureFaye och WebSocket-servern. Klienten kan då låsa upp gränssnittet och ladda om filträdet.
+När köhanteraren har behandlat anropet och lagt till filerna i Gitrepositoriet, skickas ett asynkront meddelande om detta till klienten via SecureFaye och WebSocket-servern. Klienten kan då låsa upp gränssnittet och ladda om filträdet.
 
 \subsection{Inlämningens livscykel}
 
@@ -84,7 +84,7 @@ Om en LabHasGroup befinner sig i pending kan dess senaste Submission uppdateras 
 
 \subsubsection{Reviewing}
 
-Så snart en handledare har påbörjat granskningen en laboration övergår LabHasGroup-entiteten till tillståndet reviewing. I detta tillstånd är det inte möjligt att göra flera inlämningar
+Så snart en handledare har påbörjat granskningen en laboration övergår LabHasGroup-entiteten till tillståndet reviewing. I detta tillstånd är det inte möjligt att göra fler inlämningar
 
 \subsubsection{Rejected och Accepted}
 
