@@ -91,6 +91,12 @@ I många kurser finns färdigt material för varje laboration. InitialLabCommit-
 \subsubsection{Submission}
 Så snart en användare lämnat in en inlämning, oavsett om detta görs med hjälp av Git eller via webbgränssnittet skapas en så kallad Submission. Modellen representerar ett tillstånd i ett repositorium givet en grupp. Tillståndet i ett repositorium representeras med hjälp av en så kallad commit-hash.
 
+Relationer: 
+\begin{itemize}
+  \item Submission {\bf n-1} LabHasGroup 
+  \item Submission {\bf n-1} Comment
+\end{itemize}
+
 \subsubsection{DefaultDeadline}
 Varje laboration startar alltid med en förutbestämd deadline för den första inlämningen och en för den sista inlämingen. Kolumnen at anger förfallotiden för en deadline. Modellen har i sitt implementerade tillstånd lägre prioritet än en så kallad ExtendedDeadline.
 
