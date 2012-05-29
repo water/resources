@@ -12,7 +12,7 @@ Git-repositorierna sparas som \emph{bare-repositorium}. Detta betyder alla Git-r
 \subsection{Git: server}
 Grack är webbservern som hanterar push- och pull-förfrågningar. Vi har skrivit Water-specifika tillägg som sköter omskrivning av sökvägar samt låter servern auktorisera användaren direkt mot Rails-applikationen. Användaren kan därför använda samma lösenord och användarnamn som i webbklienten.
 
-Ingående data från användaren skickas vidare till en Git-binär som i sin tur skriver informationen till disk. Skulle användaren pusha upp en submission-commit så skapas även en inlämning utifrån en Submission-entitet.
+Ingående data från användaren skickas vidare till en Git-binär som i sin tur skriver informationen till disk. Skulle användaren pusha upp en commit med en \#submit tagg i meddelande fältet så skapas även en inlämning utifrån en Submission-entitet.
 \subsection{Köhantering}
 Köhanteringssystemet består av ett antal komponenter.
 
