@@ -74,11 +74,29 @@ Relationer
 \subsubsection{Student}
 Modellerar en student och är en svag entitet till User. En student kan registrera sig på en GivenCourse, gå med och ut ur grupper och göra laborationer på kurser som den är registrerad på. 
 
+Relationer: 
+\begin{itemize}
+  \item User {\bf 1-1} Student 
+  \item StudentRegisteredForCourse {\bf n-1} Student 
+\end{itemize}
+
 \subsubsection{Examiner}
 Modellerar en examinator, och är en svag entitet till User. Examinatorn kan utnämna handledare, betygsätta laborationer på de kurser den är registrerad på. De kan också sätta generella deadlines på laborationer och ge ExtendedDeadlines till laborationsgrupper.  
 
+Relationer: 
+\begin{itemize}
+  \item User {\bf 1-1} Examiner 
+  \item GivenCourse {\bf n-1} Examiner 
+\end{itemize}
+
 \subsubsection{Assistant}
 Modellerar en handledare, och är en svag entitet till User. Handledaren kan betygsätta laborationer på kurser där den är registrera. En assistant kan också ge ExtendedDeadlines till LabGroups. 
+
+Relationer: 
+\begin{itemize}
+  \item User {\bf 1-1} Assistant 
+  \item AssistantRegisteredToGivenCourse {\bf n-1} Assistant 
+\end{itemize}
 
 \subsubsection{Lab}
 
@@ -98,6 +116,11 @@ Relationer:
 
 \subsubsection{InitialLabCommit}
 I många kurser finns färdigt material för varje laboration. InitialLabCommit-modellen är till för kapsla in ett preparerat givet tillstånd för en laboration. Examinatorn kan här bestämma vilket material som bör finnas med från början till varje laboration. Personen i fråga kan även välja att återanvända material från år till år genom att referera en InitialLabCommit.
+
+Relationer: 
+\begin{itemize}
+  \item Repository {\bf n-1} InitialLabCommit 
+\end{itemize}
 
 \subsubsection{Submission}
 Så snart en användare lämnat in en inlämning, oavsett om detta görs med hjälp av Git eller via webbgränssnittet skapas en så kallad Submission. Modellen representerar ett tillstånd i ett repositorium givet en grupp. Tillståndet i ett repositorium representeras med hjälp av en så kallad commit-hash.
@@ -208,3 +231,8 @@ Relationer:
 
 \subsubsection{StudyPeriod}
 Modellerar en läsperiod, med start och slutdatum.
+
+Relationer: 
+\begin{itemize}
+  \item LabDescription {\bf n-1} StudyPeriod 
+\end{itemize}
