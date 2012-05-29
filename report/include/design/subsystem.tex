@@ -2,7 +2,7 @@
 \subsection{Webbserver med Ruby on Rails}
 Ruby on Rails levererar vanliga HTML-sidor via en webbserver som svar på synkrona anrop från webbklienten. Systemet fungerar även som en webbtjänst för mer specialiserade anrop från webbklienten. Specialiserade anrop görs till exempel asynkront från webbklienten för att lägga till eller ta bort filer och mappar i Git-repositorier och för att hämta fragment av HTML-sidor för att rendera filträd.
 \subsection{Databas}
-Valet av DBMS blev PostgreSQL för att MySQL-kopplingen i Rails inte fungerade felfritt för medlemmarna i gruppen som använde OS X. Eftersom alla relationer och valideringar implementerades i modell-lagret blev applikationen ändå databas-agnostisk
+Valet av DBMS blev PostgreSQL för att MySQL-kopplingen i Rails inte fungerade felfritt för medlemmarna i gruppen som använde OS X. Eftersom alla relationer och valideringar implementerades i modell-lagret blev applikationen ändå databas-agnostisk.
 \subsubsection{Rekursiv borttagning av poster i databasen}
 Vi valde att använda Rails metoden dependent-destroy för att göra modellen databas-agnostisk.
 \subsection{Git: repositorier}
