@@ -32,8 +32,12 @@ Jämfört med \emph{polling} undviker klienten risken att behöva vänta ett hel
 Polling och \emph{long polling} är bygger alltså på befintlig HTTP-teknologi och utgör egentligen inte en ren tvåvägskommunikation. För att uppnå detta krävs nya teknologier.
 
 \subsubsection{Websockets}
-IETF RFC 6544 (2011) beskriver WebSocket-protokollet:
-The goal of this technology is to provide a mechanism for browser-based applications that need two-way communication with servers that does not rely on opening multiple HTTP connections (e.g., using XMLHttpRequest or <iframe>s and \emph{long polling})
+IETF beskriver WebSocket-protokollet i RFC 6544 (2011):
+
+\begin{quote}
+The goal of this technology is to provide a mechanism for browser-based applications that need two-way communication with servers that does not rely on opening multiple HTTP connections (e.g., using XMLHttpRequest or <iframe>s and \emph{long polling}).
+\end{quote}
+
 WebSocket-protokollet möjliggör tvåvägskommunikation mellan server och klient genom en enda TCP-uppkoppling. Handskakning sker dock via modifierade HTTP-anrop för att bibehålla en viss bakåtkompatibilitet.
 WebSocket-protokollet är emellertid ännu bara ett förslag. Någon färdig standard finns inte och webbläsarstöd finns i regel bara i tämligen nya versioner.
 
