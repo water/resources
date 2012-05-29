@@ -22,7 +22,7 @@ Stomp / Processer
 
 Beanstalkd använder lågnivåprotokollet telnet för all inkommande kommunikation. För att enklare kunna interagera med Beanstalkd används biblioteket Stomp. Stomp gör det möjligt att via Ruby lyssna och skriva till Beanstalkd-köer. Bryggan till Ruby gör Stomp till ett modulärt, lätt-implementerat gränssnitt. Se exemplet nedan.
 
-\begin{lstlisting}[language=Ruby]
+\begin{lstlisting}[language=Ruby, showstringspaces=false]
 
 
 class CommitRequest
@@ -34,7 +34,7 @@ class CommitRequest
    publishes_to :commit
 
    def publish!
-     publish(:commit, "My_data")
+     publish(:commit, "My data")
    end
  end
 
