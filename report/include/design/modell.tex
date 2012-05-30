@@ -15,7 +15,7 @@ Representerar en institution. Till exempel ges arkitekturkurser vid Chalmers tek
 
 Relationer:
 \begin{itemize}
-	\item Department {\bf 1-n} Course
+  \item Course {\bf n-1} Department
 \end{itemize}
 
 
@@ -24,9 +24,9 @@ Representerar en kurs. Kurser ges av institutioner.
 
 Relationer:
 \begin{itemize}
-	\item Department {\bf 1-n} Course
-	\item Course {\bf 1-n} CourseCode
-	\item Course {\bf 1-n} GivenCourse
+	\item Course {\bf n-1} Department
+	\item CourseCode {\bf n-1} Course
+	\item GivenCourse {\bf n-1} Course
 \end{itemize}
 
 
@@ -35,7 +35,7 @@ Representerar en kurskod för en kurs. Orsaken till att kurskoderna har en egen 
 
 Relationer:
 \begin{itemize}
-  \item Course {\bf 1-n} CourseCode
+  \item CourseCode {\bf n-1} Course
 \end{itemize}
 
 
@@ -44,8 +44,8 @@ Representerar en kurs som ges under en viss läsperiod. Varje GivenCourse har en
 
 Relationer:
 \begin{itemize}
-  \item Course {\bf 1-n} GivenCourse
-  \item StudyPeriod {\bf 1-n} GivenCourse
+  \item GivenCourse {\bf n-1} Course
+  \item GivenCourse {\bf n-1} StudyPeriod
   \item GivenCourse {\bf n-m} StudentRegisteredForCourse 
 \end{itemize}
 
@@ -77,7 +77,7 @@ Modellerar en student och är en svag entitet till User. En student kan registre
 Relationer: 
 \begin{itemize}
   \item User {\bf 1-1} Student 
-  \item Student {\bf 1-n} StudentRegisteredForCourse
+  \item StudentRegisteredForCourse {\bf n-1} Student
 \end{itemize}
 
 \subsubsection{Examiner}
