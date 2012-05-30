@@ -22,16 +22,16 @@ Däremot finns det ett antal områden med utrymme för förbättring. Bland anna
 
 
 Ett annat problem med Fire är att många operationer inte går att ångra eller ändra i ett senare skede. 
-I Fire utnyttjas inte heller möjligheten att erbjuda mervärde till användarna. Kommunikationen mellan handledare och studenter är rudimentär – handledarens svar laddas upp via ett webbformulär och studenterna kan bara svara med en ny inlämning. Projektarbeten hämmas av att inlämning av större mängder filer eller mappstrukturer endast är möjligt med tar.gz-arkiv (Gedell 2006a).
+I Fire utnyttjas inte heller möjligheten att erbjuda mervärde till användarna. Kommunikationen mellan handledare och studenter är rudimentär – handledarens svar laddas upp via ett webbformulär och studenterna kan bara svara med en ny inlämning. Projektarbeten hämmas av att inlämning av större mängder filer eller mappstrukturer endast är möjligt med tar.gz-arkiv (Gedell, 2006a).
 
 Orsaken till att många problem kvarstår är att Fire saknar dokumentation på kodbasen och databasen. Detta gör det väldigt svårt att vidareutveckla Fire.
 Det finns med andra ord mycket som talar för en helt ny lösning för inlämning och hantering av laborationer.
 
 \subsection{Versionshantering}
 
-Versionshantering är ett oumbärligt verktyg för programmerare. Konceptet \emph{branches} gör det lätt att utveckla nya funktioner utan att förstöra nuvarande kodbas. Versionshantering förenklar även arbetet i grupp genom att stödja sammanslagning - merge - av olika grenar. Detta uppmuntrar till strukturerade arbetssätt, och effektivt samarbete. 
+Versionshantering är ett oumbärligt verktyg för programmerare. Konceptet \emph{branches} gör det lätt att utveckla nya funktioner utan att förstöra nuvarande kodbas. Versionshantering förenklar även arbetet i grupp genom att stödja sammanslagning - \emph{merge} - av olika grenar. Detta uppmuntrar till strukturerade arbetssätt och effektivt samarbete. 
 
-Backup och historik förflyttas från filnivå till funktionsnivå genom att man gör regelbundna commits. Dessa upptar dessutom nästan ingen plats eftersom systemen i regel inte sparar hela projektets tillstånd i en commit, utan bara skillnaden till föregående commit – så kallad $\Delta$-data.
+Backup och historik förflyttas från filnivå till funktionsnivå genom att man gör regelbundna \emph{commits}. Dessa upptar dessutom nästan ingen plats eftersom systemen i regel inte sparar hela projektets tillstånd i en commit, utan bara skillnaden till föregående commit – så kallad $\Delta$-data.
 
 I en commit förväntas programmeraren bifoga ett meddelande som beskriver ändringarna som har gjorts. Detta uppmanar fram en form av loggskrivande under utvecklingsprocessen.
 
@@ -56,7 +56,6 @@ Kandidatgruppen har även formulerat några viktiga frågeställningar som ska u
 \subsection{Krav}
 
 Inlämning ska kunna ske direkt från ett system för versionshantering. 
-För att fånga upp alla typer av användare ska inlämning även kunna ske via andra kanaler, till exempel via webbgränssnittet.
 
 Systemet ska utformas så att det ger alla kategorier av användare en bättre användarupplevelse än 
 tidigare system i kategorin, och då i synnerhet i jämförelse med Fire.
@@ -71,7 +70,7 @@ Systemet ska vara enkelt att underhålla och vidareutveckla.
 
 Inom projektets ramar ska frågor kring anonym rättning, statistik och plagiatkontroll undersökas.
 
-En önskan av handledaren var tydliga resultatlistor som är kompatibla med LADOK\footnote{Samtal med Sven-Arne Andreasson den 24 Januari 2012}.
+Enligt önskan från projekthandledaren skall tydliga resultatlistor som är kompatibla med LADOK undersökas\footnote{Samtal med Sven-Arne Andreasson den 24 Januari 2012.}.
 
 \section{Disposition}
 
@@ -110,7 +109,7 @@ När användaren vill dela med sig av sitt arbete kan han eller hon utföra en \
 \end{Verbatim}
 
 \subsection{Pull}
-Kommandot \emph{pull} används för att hämta förändringar från ett annat repositorium och sammanfläta dem med det lokala repositoriet. Om användarna har utfört förändringar på samma ställe i datan kan konflikter uppstå. I de flesta fall kan Git lösa eventuella konflikter på egen hand. Ibland är dock förändringarna så inkompatibla att användaren själv måste lösa dem.
+Kommandot \emph{pull} används för att hämta förändringar från ett annat repositorium och sammanfläta dem med det lokala repositoriet. Om användarna har utfört förändringar på samma ställe i projektet kan konflikter uppstå. I de flesta fall kan Git lösa eventuella konflikter på egen hand. Ibland är dock förändringarna så inkompatibla att användaren själv måste lösa dem.
 
 \begin{Verbatim}
 > git pull
