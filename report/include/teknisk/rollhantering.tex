@@ -11,7 +11,7 @@ Genom att lägga rollhanteringen i \emph{modell-lagret} blir applikationen mer \
 
 \subsection{Roller i Routes}
 
-För att behålla \emph{REST}-egenskaperna vid en implementation av roller behövs det ett sätt att avgöra vilken roll som är aktiv utan att skapa en cookie. Detta kan lösas genom att placera alla sökvägar inom en namnrymd – ett \emph{scope} - som indikerar den aktiva rollen. Användaren kan ha flera roller, även inom samma kurs, men webbapplikationen vet alltid vilken den aktuella rollen är eftersom den går att utlösa ur sökvägen. På detta sätt är applikationen fortfarande tillståndslös till den mån att man behöver logga in.
+För att behålla \emph{REST}-egenskaperna vid en implementation av roller behövs det ett sätt att avgöra vilken roll som är aktiv utan att skapa en cookie. Detta kan lösas genom att placera alla sökvägar inom en namnrymd - ett \emph{scope} - som indikerar den aktiva rollen. Användaren kan ha flera roller, även inom samma kurs, men webbapplikationen vet alltid vilken den aktuella rollen är eftersom den går att utlösa ur sökvägen. På detta sätt är applikationen fortfarande tillståndslös till den mån att man behöver logga in.
 Exempel på en \emph{scopad} \emph{route} som visar en students kurser är |/student/courses| där courses är \emph{scopad} under student.
 
 Det finns dock sökvägar som inte bör ligga inom namnrymden för en roll. Exempel på detta är inloggningssidor och allmänna inställningaspaneler. Detta leder till specialfall i routingsystemet. Komplexiteten hos routingen kan öka avsevärt.
