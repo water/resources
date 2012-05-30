@@ -6,18 +6,18 @@ Water är en komplex applikation med flera processer som kan bli långdragna ell
 
 \subsubsection{Webbservern}
 
-Ett anrop (HTTP-request) mellan servern och klienten bör inte ta längre tid än 400 ms, allt där över kan stalla webbservern vilket kan leda till att andra webbförfrågningar får vänta. En stallad server kan få webbtjänsten att kännas långsam, vilket kan uppfattas negativt av användaren.
+Ett HTTP-anrop mellan servern och klienten bör inte ta längre tid än 400 ms, allt där över kan stalla webbservern vilket kan leda till att andra webbförfrågningar får vänta. En stallad server kan få webbtjänsten att kännas långsam, vilket kan uppfattas negativt av användaren.
 En lösning på problemet är att göra ett HTTP-anrop som initierar ett asynkront jobb för de tyngre operationerna. Jobbet läggs på kö i stället för att behandlas på plats för att sedan bearbetas av en extern instans som lite längre fram i tiden. När processen är klar så svarar klienten med data, till exempel via Websocket-protokollet.
 
 \subsubsection{Tunga, blockerande processer}
 
-Läsningar och skrivningar till disk, så kallade I/O-operationer, är blockande. En blockerande operation kan låsa OS-trådar och ta resurser från mer högprioriterade processer såsom webbserver-förfrågningar.
-Vid få I/O-operationer är inverkan på systemet relativt litet, men kan vid ökad mängd ha stor, negativ inverkan.
-Lösningen är att låta systemet jobba av en mängd operationer under en begränsad tid. På så vis kan vi försäkra om oss att de tyngre, blockande operationer inte gå överstyr och på så vis tar ner vårt system.
+Läsningar och skrivningar till disk, så kallade I/O-operationer, är blockerande. En blockerande operation kan låsa OS-trådar och ta resurser från mer högprioriterade processer såsom webbserveranrop.
+Vid få I/O-operationer är deras inverkan på systemet relativt liten, men dessa kan vid ökad mängd ha stor, negativ inverkan.
+Lösningen är att låta systemet jobba av en mängd operationer under en begränsad tid. På så vis kan vi försäkra om oss att de tyngre, blockerande operationer inte går överstyr och på så vis gör systemet otillgängligt.
 
 \subsection{Val av köhanterare}
 
-Det finns en del köhanterare att välja mellan. De skiljer en del mellan dem, men principen är alltid den samma. Gitorious använder sig från start av köhanteraren beanstalkd.
+Det finns en del köhanterare att välja mellan. De skiljer en del mellan dem, men principen är alltid den samma. Gitorious använder sig  av köhanteraren beanstalkd.
 De två köhanterarna som analyserats för Waters bruk är:
 
 \begin{itemize}
@@ -27,7 +27,7 @@ De två köhanterarna som analyserats för Waters bruk är:
 
 \subsection{Resque}
 
-Resque är en köhanterare som bygger på key value-databasen Redis. Plattformen
+Resque är en köhanterare som bygger på key-value-databasen Redis. Plattformen
 är byggd av Github Inc. i språket Ruby och har en medföljande
 inställningspanel. Administrationspanelen gör det möjligt att starta om
 fallerade jobb, se statistik och hantera prioriteringar. Redis är ett etablerat
@@ -35,7 +35,7 @@ verktyg som används av ett flertal stora aktörer (Redis), bland annat den soci
 
 Ett problem med Resque är dock att den använder polling för att hämta data från
 Redis. Polling-problematiken gör att informationen som hämtas av en \emph{worker} vid
-en given tidpunk kan vara utdaterad. Då Resque är byggd i Ruby är bryggan
+en given tidpunk kan vara inaktuell. Då Resque är byggd i Ruby är bryggan
 mellan mjukvaran och Water väldigt liten. Implementeringen sker enkelt med
 hjälp av en rad kod:
 
@@ -44,5 +44,5 @@ hjälp av en rad kod:
 \end{verbatim}
 
 \subsection{Beanstalkd}
-Beanstalkd är en realtidsköhanterare byggd i språket C skriven för att hantera asynkrona jobb för den sociala plattformen Facebook (Beanstalk 2007). Beanstalkd har ett lätt fotavtryck, har möjlighet att beta av jobb i realtid men saknar en administrationspanel.
+Beanstalkd är en realtidsköhanterare byggd i språket C skriven för att hantera asynkrona jobb för den sociala plattformen Facebook (Beanstalk, 2007). Beanstalkd har ett lätt fotavtryck, har möjlighet att beta av jobb i realtid men saknar en administrationspanel.
 Beanstalkd har ett flertal bibliotek till Ruby som gör implementeringen enkel. Ett utav dem är Stomp som finns färdigimplementerat i Gitorious.

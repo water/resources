@@ -6,14 +6,15 @@ Laborationsgrupperna i Water kommer att efterlikna funktionaliteten som finns Fi
 
 \subsection{Avhopp från laborationsgrupper}
 
-Av olika skäl kan det finnas behov av att splittra grupper.  Till exempel kan
-studenterna ha blivit oense eller avregistrerat sig från kursen. Konceptuellt
+Av olika skäl kan det finnas behov av att splittra grupper. Till exempel kan
+studenterna blivit oense eller avregistrerat sig från kursen. Konceptuellt
 måste det vara möjligt att dela upp grupper. Den naiva lösningen är att bara
 radera en grupp och att skapa nya. När en grupp raderas försvinner alla
 inlämningar den gruppen har gjort då det inte får finnas Git-repositorier som
 inte tillhör någon grupp, detta leder också till att informationen som anger
 vilka laborationer gruppen har klarat raderas.
 
+För att avhopp ska kunna ske, måste följande krav uppfyllas:
 \begin{itemize}
   \item En student som avregistrerat sig från en grupp skall ej få godkänt på laborationer som kvarvarande i gruppen lämnar in.
   \item Ingen data skall tas bort vid avhopp, speciellt inte avklarade laborationer.
@@ -22,6 +23,7 @@ vilka laborationer gruppen har klarat raderas.
   \end{itemize}
   \item Som en studentanvändare av Water vill man känna sig trygg med att splittringsoperationen inte tar bort något. Till exempel måste inskickade laborationer förbli inskickade och rättas för alla deltagare i den splittrade gruppen. Den splittrade gruppen bör kunna fortsätta arbeta tillsammans vid retur, även om de börjat arbeta i nya grupper. En student skall alltså kunna förstå med hjälp av gränssnittet att ovanstående situation gäller när de splittrar gruppen.
 \end{itemize}
+
 
 Vi presenterar nedan två lösningsideer som gruppen övervägde mellan. I lösningarna tar vi upp perspektiv både på användargränssnitt och databasmodell.
 

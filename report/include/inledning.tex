@@ -22,16 +22,16 @@ Däremot finns det ett antal områden med utrymme för förbättring. Bland anna
 
 
 Ett annat problem med Fire är att många operationer inte går att ångra eller ändra i ett senare skede. 
-I Fire utnyttjas inte heller möjligheten att erbjuda mervärde till användarna. Kommunikationen mellan handledare och studenter är rudimentär – handledarens svar laddas upp via ett webbformulär och studenterna kan bara svara med en ny inlämning. Projektarbeten hämmas av att inlämning av större mängder filer eller mappstrukturer endast är möjligt med tar.gz-arkiv (Gedell 2006a).
+I Fire utnyttjas inte heller möjligheten att erbjuda mervärde till användarna. Kommunikationen mellan handledare och studenter är rudimentär – handledarens svar laddas upp via ett webbformulär och studenterna kan bara svara med en ny inlämning. Projektarbeten hämmas av att inlämning av större mängder filer eller mappstrukturer endast är möjligt med tar.gz-arkiv (Gedell, 2006a).
 
 Orsaken till att många problem kvarstår är att Fire saknar dokumentation på kodbasen och databasen. Detta gör det väldigt svårt att vidareutveckla Fire.
 Det finns med andra ord mycket som talar för en helt ny lösning för inlämning och hantering av laborationer.
 
 \subsection{Versionshantering}
 
-Versionshantering är ett oumbärligt verktyg för programmerare. Konceptet \emph{branches} gör det lätt att utveckla nya funktioner utan att förstöra nuvarande kodbas. Versionshantering förenklar även arbetet i grupp genom att stödja sammanslagning - merge - av olika grenar. Detta uppmuntrar till strukturerade arbetssätt, och effektivt samarbete. 
+Versionshantering är ett oumbärligt verktyg för programmerare. Konceptet \emph{branches} gör det lätt att utveckla nya funktioner utan att förstöra nuvarande kodbas. Versionshantering förenklar även arbetet i grupp genom att stödja sammanslagning - \emph{merge} - av olika grenar. Detta uppmuntrar till strukturerade arbetssätt och effektivt samarbete. 
 
-Backup och historik förflyttas från filnivå till funktionsnivå genom att man gör regelbundna commits. Dessa upptar dessutom nästan ingen plats eftersom systemen i regel inte sparar hela projektets tillstånd i en commit, utan bara skillnaden till föregående commit – så kallad $\Delta$-data.
+Backup och historik förflyttas från filnivå till funktionsnivå genom att man gör regelbundna \emph{commits}. Dessa upptar dessutom nästan ingen plats eftersom systemen i regel inte sparar hela projektets tillstånd i en commit, utan bara skillnaden till föregående commit – så kallad $\Delta$-data.
 
 I en commit förväntas programmeraren bifoga ett meddelande som beskriver ändringarna som har gjorts. Detta uppmanar fram en form av loggskrivande under utvecklingsprocessen.
 
@@ -56,7 +56,6 @@ Kandidatgruppen har även formulerat några viktiga frågeställningar som ska u
 \subsection{Krav}
 
 Inlämning ska kunna ske direkt från ett system för versionshantering. 
-För att fånga upp alla typer av användare ska inlämning även kunna ske via andra kanaler, till exempel via webbgränssnittet.
 
 Systemet ska utformas så att det ger alla kategorier av användare en bättre användarupplevelse än 
 tidigare system i kategorin, och då i synnerhet i jämförelse med Fire.
@@ -71,7 +70,7 @@ Systemet ska vara enkelt att underhålla och vidareutveckla.
 
 Inom projektets ramar ska frågor kring anonym rättning, statistik och plagiatkontroll undersökas.
 
-En önskan av handledaren var tydliga resultatlistor som är kompatibla med LADOK\footnote{Samtal med Sven-Arne Andreasson den 24 Januari 2012}.
+Enligt önskan från projekthandledaren skall tydliga resultatlistor som är kompatibla med LADOK undersökas\footnote{Samtal med Sven-Arne Andreasson den 24 Januari 2012.}.
 
 \section{Disposition}
 
@@ -110,7 +109,7 @@ När användaren vill dela med sig av sitt arbete kan han eller hon utföra en \
 \end{Verbatim}
 
 \subsection{Pull}
-Kommandot \emph{pull} används för att hämta förändringar från ett annat repositorium och sammanfläta dem med det lokala repositoriet. Om användarna har utfört förändringar på samma ställe i datan kan konflikter uppstå. I de flesta fall kan Git lösa eventuella konflikter på egen hand. Ibland är dock förändringarna så inkompatibla att användaren själv måste lösa dem.
+Kommandot \emph{pull} används för att hämta förändringar från ett annat repositorium och sammanfläta dem med det lokala repositoriet. Om användarna har utfört förändringar på samma ställe i projektet kan konflikter uppstå. I de flesta fall kan Git lösa eventuella konflikter på egen hand. Ibland är dock förändringarna så inkompatibla att användaren själv måste lösa dem.
 
 \begin{Verbatim}
 > git pull
@@ -126,9 +125,11 @@ Grenar, eller \emph{branches}, representerar olika versioner av samma kodbas. Gr
 \hline
 \bf{Ord} & \bf{Betydelse} \\
 \hline
-Acceptance test	& Test som kontrollerar om koden uppfyller specifikationerna \\
+Acceptance test	& Test som kontrollerar om koden uppfyller kravspecifikationerna. \\
 \hline
-Bare git-repositorium & En git-repositorium utav ett aktivt träd (working tree) \\
+Adobe Flash Sockets & Websocket-lösning för ActionScript. \\
+\hline
+Bare git-repositorium & En git-repositorium utav ett aktivt träd (working tree). \\
 \hline
 BDD & Behaviour Driven Development. Utvecklingsmetod som bygger på att kodens
 beteende beskrivs med hjälp av tester. Beskrivningen skrivs före koden. \\
@@ -137,41 +138,41 @@ Blob & Binary large object.\\
 \hline
 Branch & En gren i ett repositorium. \\
 \hline
-CommitRequest & Ett anrop som används av webbgränssnittet för att manipulera Git-repositorier \\
+Code hosting & Webbtjänst för förvaring av kod. \\
 \hline
-Constraint & Begränsning i databasen som bara tillåter data som följer en viss specifikation \\
+CommitRequest & Ett anrop som används av webbgränssnittet för att manipulera Git-repositorier. \\
 \hline
-Databas-agnostisk & Databas-agnostisk innebär att den fungerar med alla databaser \\
+Constraint & Begränsning i databasen som bara tillåter data som följer en viss specifikation. \\
 \hline
-Databas-lager & Logik som implementeras i databasen ligger i databas-lagret \\
+Databas-agnostisk & Innebär att den fungerar med alla databaser. \\
 \hline
-Databas-schema & Databasstrukturen utan data \\
+Databas-lager & Logik som implementeras i databasen ligger i databas-lagret. \\
 \hline
-DBMS & Databashanterare likt MySQL \\
+Databas-schema & Databasstrukturen utan data. \\
 \hline
-Diff & Skillnaden mellan två kodbasstycken \\
+DBMS & Databashanterare likt MySQL. \\
 \hline
-Flash-socket & Websocket-lösning för ActionScript \\
+Diff & Skillnaden mellan två kodbasstycken. \\
 \hline
-Foreign key & Ett fält i en databastabell som pekar på en annan tabell \\
+Foreign key & Ett fält i en databastabell som pekar på en annan tabell. \\
 \hline
-Hash & En heltalsrepresentation av någon sorts data \\
+Hash & En heltalsrepresentation av någon sorts data. \\
 \hline
-Hashfunktion & En algoritm som översätter data till ett heltal \\
+Hashfunktion & En algoritm som översätter data till ett heltal. \\
 \hline
-Hash Fragment & Delen av en URL som kommer efter \# \\
+Hash Fragment & Delen av en URL som kommer efter \#. \\
 \hline
-LHG & LabHasGroup. Entitet som används för att koppla laborationsgrupper till laborationer \\
+LHG & Förkortar "LabHasGroup". Entitet som används i projektet för att koppla laborationsgrupper till laborationer. \\
 \hline
 Migrationsfil & En fil som används av Rails för att utföra förändringar i en databas. \\
 \hline
-Modell-lager & Logik som implementeras i modellerna ligger i modell-lagret \\
+Modell-lager & Logik som implementeras i modellerna ligger i modell-lagret. \\
 \hline
-MVC & Model-View-Controller, ett designmönster \\
+MVC & Model-View-Controller, ett designmönster. \\
 \hline
-Normaliserad databas & En icke redundant databas som följer normaliseringsreglerna \\
+Normaliserad databas & En icke redundant databas som följer normaliseringsreglerna. \\
 \hline
-Longpolling & En förfrågan till extern server. Har servern ingen data att svara med så "hängs" förfrågan. \\
+Long polling & En förfrågan till extern server. Har servern ingen data att svara med så "hängs" förfrågan. \\
 \hline
 \end{tabular}
 
@@ -179,33 +180,31 @@ Longpolling & En förfrågan till extern server. Har servern ingen data att svar
 \hline
 \bf{Ord} & \bf{Betydelse} \\
 \hline
-Polling & Att underrätta sig om förändringar i tillstånd genom att göra upprepade förfrågningar \\
+Polling & Att underrätta sig om förändringar i tillstånd genom att göra upprepade förfrågningar. \\
 \hline
-Git push & Publicering av lokal git till extern eller lokal server \\
+Git push & Publicering av lokal git till extern eller lokal server. \\
 \hline
-Remote url & Git-url till extern eller lokal git-server \\
+Remote url & Git-url till extern eller lokal git-server. \\
 \hline
-Repositorium & Datastruktur som kan innehålla flera versioner av en kodbas sparad på disk \\
+Repositorium & Datastruktur som kan innehålla flera versioner av en kodbas sparad på disk. \\
 \hline
-REST & Representational State Transfer \\
+REST & Representational State Transfer. \\
 \hline
-Route & Sökväg eller URL till en viss del av en webbapplikation \\
+Route & Sökväg eller URL till en viss del av en webbapplikation. \\
 \hline
-Scopa & En namnrymd som kan kapsla in saker inuti sig \\
+Scope & En namnrymd som kan kapsla in saker inuti sig. \\
 \hline
-Source code hosting & Webbtjänst för förvaring av kod \\
+Symmetrisk SHA1-signering & Signering av data m.h.a SHA1-algoritmen och ett konstant salt. \\
 \hline
-Symmetrisk SHA1-signering & Signering av data m.h.a SHA1-algoritmen och ett konstant salt \\
+Telnet & Nätverksprotokoll för textbaserad kommunikation. \\
 \hline
-Telnet & Nätverksprotokoll för textbaserad kommunikation \\
+Trigger & En databasrutin som kan köras före, efter eller istället för en operation på en tabell. \\
 \hline
-Trigger & En databasrutin som kan köras före, efter eller istället för en operation på en tabell  \\
+Unit test & Test som kollar om en del av koden är redo att användas. \\
 \hline
-Unit test & Test som kollar om en del av koden är redo att användas \\
+Workers & Trådar som utför jobb i bakgrunden. \\
 \hline
-Workers & Trådar som utför jobb i bakgrunden \\
-\hline
-Working tree & Det filträdet man jobbar med \\
+Working tree & Filträdet man jobbar med. \\
 \hline
 \end{tabular}
 \normalsize
