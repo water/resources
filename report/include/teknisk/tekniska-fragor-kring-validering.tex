@@ -10,15 +10,15 @@ Att en inlämning inte går att kompilera torde i de flesta fall leda till att d
 För kompilering krävs dock att lämpliga utvecklingsmiljöer finns tillgängliga i systemet. Eventuella externa paket som används måste också läggas till i systemet eller skickas med i inlämningen, om utvecklingsmiljön tillåter det.
 Att stöda en stor mängd språk blir arbetsintensivt, speciellt om det uppstår problem kring olika versioner av språk och paket.
 
-Ett realistiskt första steg vore att bara stöda Java. På Chalmers används Java som programmeringsspråk bland annat i kurser som Objekorienterad Programmering, Parallellprogrammering, Datastrukturer och algoritmer och Webbprogrammering (Chalmers tekniska högskola, 2012). Inom branschen i stort har Java länge varit det ett av de största språken – 2012 ligger det på placering två efter C (TIOBE Software, 2012).
+Ett realistiskt första steg vore att bara stöda Java. På Chalmers används Java som programmeringsspråk bland annat i kurser som Objektorienterad Programmering, Parallellprogrammering, Datastrukturer och algoritmer och Webbprogrammering (Chalmers tekniska högskola, 2012). Inom branschen i stort har Java länge varit det ett av de största språken – 2012 ligger det på placering två efter C (TIOBE Software, 2012).
 
 Kompilering är tidskrävande och bör därför hanteras asynkront av någon form av kösystem.
 
 \subsection{Unit/Acceptance tester}
-Ett ytterligare verktyg för handledare samt examinatorer skulle vara att man i systemet kunde definiera \emph{unit-} och \emph{ acceptancetester}. Detta förutsätter att det går att kompilera kod och lider därför av samma problem som de som beskrivs i avsnitt \ref{section:kompilering}.
+Ett ytterligare verktyg för handledare samt examinatorer skulle vara att man i systemet kunde definiera \emph{unit-} och \emph{acceptancetester}. Detta förutsätter att det går att kompilera kod och lider därför av samma problem som de som beskrivs i avsnitt \ref{section:kompilering}.
 \subsubsection{Exekvering av studenters kod}
 Att exekvera studenters kod på servern är också förenat med säkerhetsrisker.
-För att säkert köra extern kod så skulle systemet behöva upprätta sandboxade miljöer. Helst bör även all beräkningstung validering hanteras asynkront av en köhanterare och ett antal workers. Ett sådant system är komplicerat och endast färdiga lösningar såsom Jenkins (Jenkins, Meet Jenkins, 2012) eller Bamboo (Atlassian, Bamboo, 2012) är tänkbara.
+För att säkert köra extern kod så skulle systemet behöva upprätta sandboxade miljöer. Helst bör även all beräkningstung validering hanteras asynkront av en köhanterare och ett antal workers. Ett sådant system är komplicerat och endast färdiga lösningar såsom Jenkins (Jenkins, 2012) eller Bamboo (Atlassian, 2012) är tänkbara.
 
 \subsection{Asynkron validering och deadlines}
 
