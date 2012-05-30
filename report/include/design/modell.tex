@@ -123,7 +123,7 @@ Relationer:
 \end{itemize}
 
 \subsubsection{Submission}
-Så snart en användare lämnat in en inlämning, oavsett om detta görs med hjälp av Git eller via webbgränssnittet skapas en så kallad Submission. En Submission representerar ett tillstånd i ett repositorium genom att lagra en unik identifierare för en commit - en såkallad commit-hash.
+Så snart en användare lämnat in en inlämning, oavsett om detta görs med hjälp av Git eller via webbgränssnittet, skapas en Submission. En Submission representerar ett tillstånd i ett repositorium genom att lagra en unik identifierare för en commit - en såkallad commit-hash.
 
 Relationer: 
 \begin{itemize}
@@ -133,7 +133,7 @@ Relationer:
 
 \subsubsection{DefaultDeadline}
 
-Varje laboration startar alltid med en förutbestämd deadline för den första inlämningen och en för den sista inlämingen. Kolumnen at anger förfallotiden för en deadline. Modellen har i sitt implementerade tillstånd lägre prioritet än en så kallad ExtendedDeadline.
+Varje laboration startar alltid med en förutbestämd deadline för den första inlämningen och en för den sista inlämningen. Kolumnen at anger förfallotiden för en deadline. Modellen har i sitt implementerade tillstånd lägre prioritet än en så kallad ExtendedDeadline.
 
 Relationer: 
 \begin{itemize}
@@ -142,7 +142,7 @@ Relationer:
 
 \subsubsection{ExtendedDeadline}
 
-I de fallen då en grupp har påbörjat en laboration men inte hunnit bli klara i tid, eller har skäliga förhinder skapas det en ExtendedDeadline. Den här modellen har högre prioritet är DefaultDeadline vilket är ett krav då båda kan existera samtidigt. at representerar, precis som för DefaultDeadline, förfallotiden för en deadline.
+I de fall då en grupp har påbörjat en laboration men inte hunnit bli klar i tid, eller har skäliga förhinder skapas en ExtendedDeadline. Den här modellen har högre prioritet är DefaultDeadline vilket är ett krav då båda kan existera samtidigt.
 
 Relationer: 
 \begin{itemize}
@@ -192,7 +192,7 @@ Relationer:
 \subsubsection{Comments}
 Kommentarer kan läggas till valfri modell, utan att det behövs göra stora ändringar i den. 
 
-För att implementera kommentarer användes biblioteket Ancestry som kan ordna godtycklig data i trädstrukturer. I databasen skapades tabellen Comments, som innehåller attribut för texten, typen på modellen den tillhör, den ovanstående kommentarens id, ett Ancestry attribut, och så vidare. 
+För att implementera kommentarer användes biblioteket Ancestry som kan ordna godtycklig data i trädstrukturer. I databasen skapades tabellen Comments, som innehåller attribut för texten, typen på modellen den tillhör, den ovanstående kommentarens id, ett Ancestry-attribut, och så vidare. 
 
 För att lägga till funktionaliteten till modeller, så kan man lägga till en ‘comment\_id’ till deras tabell, som sedan används som rot för kommentar-trädet. Vi valde att ta en NULL-value approach, och sätta attributet null, tills en kommentar blivit kopplad till den.
 
@@ -202,7 +202,7 @@ Relationer:
 \end{itemize}
     
 \subsubsection{StudentRegisteredForCourse}
-Reprsenterar kopplingen mellan en Student och en GivenCourse. Studenten kan nu gå med i och skapa  laborationsgrupper inom kursen.
+Representerar kopplingen mellan en Student och en GivenCourse. Studenten kan nu gå med i och skapa laborationsgrupper inom kursen.
 
 Relationer: 
 \begin{itemize}
@@ -221,7 +221,7 @@ Relationer:
 \end{itemize}
 
 \subsubsection{AssistantRegisteredForCourseHasLabGroup}
-Modellerar kopplingen mellan en assistent och en grupp som har påbörjat en laboration på en GivenCourse, assistenten kan nu betygsätta inlämingar gjorda av den gruppen. 
+Modellerar kopplingen mellan en assistent och en grupp som har påbörjat en laboration på en GivenCourse. Assistenten kan nu betygsätta inlämningar gjorda av den gruppen. 
 
 Relationer: 
 \begin{itemize}
