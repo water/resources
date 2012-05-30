@@ -19,11 +19,11 @@ Flera möjliga sätt finns för att enforcera invarianten, gemensamt för implem
 Eftersom grupperna är immuterbara finns inte operationerna elevavhopp eller gruppsplittring. Invarianten syftar på antalet aktiva grupper vilket skulle betyda att operationerna: ta bort, inaktivera samt frysa en \emph{LHG} är alla ekvivalenta vad berör denna invariant.  Att starta en laboration behöver inte finnas som operation. Exempelvis är det möjligt att definiera att en gruppstart, per automatik, skapar samtliga \emph{LHG}:s. Ovanstående är alltså en minimal grund för att kunna beskriva implementationer av invarianterna.
 
 \subsubsection{Förslag på implementering}
-En operationsuppsättning kan vara att en grupp alltid skapas tom utan \emph{LHG}s, att en student bara kan gå med i grupper utan \emph{LHG}s samt att operationen “starta laboration” bara är utförbar då samtliga elever i gruppen saknar \emph{LHG}s för den laborationen. En student kan ta bort sin \emph{LHG}. Notera att denna operation måste finnas för att samma student någonsin ska kunna starta en ny \emph{LHG} till samma laboration. Denna operationsuppsättning utgör en implementering och ansågs av vår grupp till att vara den enklast genomförbara.
+En operationsuppsättning kan vara att en grupp alltid skapas tom utan \emph{LHG}:s, att en student bara kan gå med i grupper utan \emph{LHG}:s samt att operationen “starta laboration” bara är utförbar då samtliga elever i gruppen saknar \emph{LHG}:s för den laborationen. En student kan ta bort sin \emph{LHG}. Notera att denna operation måste finnas för att samma student någonsin ska kunna starta en ny \emph{LHG} till samma laboration. Denna operationsuppsättning utgör en implementering och ansågs av vår grupp till att vara den enklast genomförbara.
 
 
 \begin{proof}[Bevis av korrekthet]
-  Vi har medvetet försökt minimera antalet operationer som påverkar antalet kopplingarern student har till en given laboration. Att skapa en grupp påverkar ej \emph{LHG}-antalet. Att gå med i en grupp har begränsats till att bara fungera för grupper utan påbörjade laborationer, därav påverkas ej invarianten av påhopp heller. Att ta bort en \emph{LHG} innebär en minskning vilket aldrig kan bryta mot en “mindre-än”-olikhet. Den enda operationen som ökar antalet \emph{LHG}s är att “påbörja laborationen”, men den har definierats att bara vara utförbar då invarianten inte bryts. \qedhere
+  Vi har medvetet försökt minimera antalet operationer som påverkar antalet kopplingarern student har till en given laboration. Att skapa en grupp påverkar ej \emph{LHG}-antalet. Att gå med i en grupp har begränsats till att bara fungera för grupper utan påbörjade laborationer, därav påverkas ej invarianten av påhopp heller. Att ta bort en \emph{LHG} innebär en minskning vilket aldrig kan bryta mot en “mindre-än”-olikhet. Den enda operationen som ökar antalet \emph{LHG}:s är att “påbörja laborationen”, men den har definierats att bara vara utförbar då invarianten inte bryts. \qedhere
 \end{proof}
 
 \subsubsection{Användarperspektiv}
@@ -41,7 +41,7 @@ Operationerna som krävs för att byta \emph{LHG} från en grupp till en annan �
   bilda en ny laborationsgrupp tillsammans (den som blev $G2$) där de ska skapa
   en \emph{LHG}. Notera hur student $S2$ måste ta bort sin förra \emph{LHG} innan någon elev
   kan lägga till en \emph{LHG} i den nya gruppen. Mellan varje figur krävs att någon
-  användare gör en åtgärd i waters system.}
+  användare gör en åtgärd i Waters system.}
   \label{fig:slack_series}
   
 \end{figure}
@@ -78,9 +78,9 @@ I detta förslag behandlas operationerna “skapa en grupp” och “lägg till 
 
 \end{enumerate}
 
-Notera att ovanstånde deloperationer sker atomärt, alltså ingenting sker mellan stegen, detta eftersom invarianten blir bruten mellan deloperationerna.
+Notera att ovanstånde deloperationer sker atomärt. Deloperationerna utförs om en enhet och ingenting sker mellan stegen. Detta eftersom invarianten blir bruten mellan deloperationerna.
 
-Då en student läggs till en kurs skapas en \emph{LHG} för varje laboration som placeras i studentens grupp. Då en ny laboration skapas för en kurs så kommer varje student få en \emph{LHG} för den laborationen insatt i sin egna grupp.
+Då en student läggs till en kurs skapas en \emph{LHG} för varje laboration som placeras i studentens grupp. Då en ny laboration skapas för en kurs så kommer varje student få en \emph{LHG} för den laborationen insatt i sin egen grupp.
 
 \begin{proof}[Bevis av korrekthet]
 I initialtillståndet är invarianten uppenbarligen uppfylld, samt även efter tillägg av student eller laboration. Den enda kvarstående operationen är skapande av en \emph{LHG} vars beskrivning delats upp i 3 deloperationer. 
