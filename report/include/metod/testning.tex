@@ -7,7 +7,7 @@ Tester kan skrivas på lite olika sätt och enligt lite olika konventioner. Någ
 Ett utav de vanligare sättet att skriva tester på, enligt tidigare erfarenhet från gruppen, är TAF. Principen är att testerna skrivs efter de att koden har implementerats.
 
 \subsection{Testramverk}
-Språket Ruby har ett flertal testramverk som är under aktiv utveckling, tre utav de större är MiniTest, RSpec och TestUnit. Valet av ramverk är viktigt, främst då ramverket är svårt, om inte nära inpå omöjligt att byta efter att utvecklingen har påbörjats.
+För språket Ruby finns ett flertal testramverk som är under aktiv utveckling, tre utav de större är MiniTest, RSpec och TestUnit. Valet av ramverk är viktigt, främst då ramverket är svårt, om inte nära inpå omöjligt att byta efter att utvecklingen har påbörjats.
 
 Några utav de faktorer som spelade in vid valet är
 \begin{itemize}
@@ -19,7 +19,7 @@ Några utav de faktorer som spelade in vid valet är
 \end{itemize}
 
 Rubys TestUnit, som till sitt DSL är mest likt Javas JUnit, är flera gånger snabbare än RSpec, men är inte praktiskt att använda då DSL:et är förhållandevis oläsbart. Rubys möjlighet till metaprogrammering gör det möjligt att designa lättlästa DSL:er. Vi kan därför förvänta oss ett bättre designat API, vilket gör att TestUnit fallet bort.
-MiniTest, som förövrigt är standardtestramverket i Rails sedan 2008 (Rails Webblog, “MiniTest”, 2008), är likvärdigt med RSpec både när det gäller läsbarhet, DSL-uppbyggnad och körningstid.
+MiniTest, som förövrigt är standardtestramverket i Rails sedan 2008 (Rails Weblog, 2008), är likvärdigt med RSpec både när det gäller läsbarhet, DSL-uppbyggnad och körningstid.
 
 Nedan följer ett exempel på hur RSpec skulle kunna tänkas användas för att testa en bil-klass.
 
