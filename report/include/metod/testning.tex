@@ -45,13 +45,13 @@ end
 \subsection{Vad testas?}
 Det vore optimalt med 100\% test-täckning, i praktiken har inte detta varit möjligt.
 
-Vi påbörjade utvecklingen av Water genom att strukturera upp och implementera en databas, var vid modellagret i MVC-modellen applicerades. Under utveckingen av modellerna så användes BDD-metoden för att bygga och strukturera upp testerna. 
+Vi påbörjade utvecklingen av Water genom att strukturera upp och implementera en databas, var vid modellagret i MVC-modellen applicerades. Under utvecklingen av modellerna så användes BDD-metoden för att bygga och strukturera upp testerna. 
 
-Ett problem vid modelltesting är popularisering av objekten som ska testas. En lösning är att skapa s.k fixtures. Fixtures är färdigpopulariserade och validerade objekt som används vid testing.
+Ett problem vid modelltestning är popularisering av objekten som ska testas. En lösning är att skapa såkallade fixtures. Fixtures är färdigpopulariserade och validerade objekt som används vid testing.
 
-User-modellen innehåller ett namn, lösenord och en epost-adress. Problem uppstår när utvecklaren ska testa specifika attribut, till exempel existensen av namn. De vi vill göra är att modifiera specifika attribut, men behålla resterande fält för att se vilken effekt våra ändringar har.
+User-modellen innehåller ett namn, lösenord och en e-postadress. Problem uppstår när utvecklaren ska testa specifika attribut, till exempel existensen av namn. Det är önskvärt att kunna modifiera specifika attribut, men behålla resterande fält för att se vilken effekt ändringarna har.
 
-Rubygemen FactoryGirl inkapslar factory-konceptet och gör det möjligt att göra just detta. Exemplet nedan illustrerar en user-modell som är färdigpopulariserad och redo att använda.
+Biblioteket FactoryGirl inkapslar factory-konceptet och gör det möjligt att göra just detta. Exemplet nedan illustrerar en user-modell som är färdigpopulariserad och redo att användas.
 
 \begin{lstlisting}[language=Ruby]
 FactoryGirl.define do
@@ -63,14 +63,14 @@ FactoryGirl.define do
 end
 \end{lstlisting}
 
-När factoryn sedan ska användas i testerna så kan vi enkelt välja att plocka bort och ändra attribut utan att behöva modifiera eller ens lägga till övriga attribut. I exemplet nedan är det inte tillåtet för en user att heta Gustav, men andra namn är tillåtna. Om implementationen är rätt så kommer båda testerna passera.
+När en factory sedan ska användas i testerna så kan vi enkelt välja att plocka bort och ändra attribut utan att behöva modifiera eller ens lägga till övriga attribut. I exemplet nedan är det inte tillåtet för en user att heta Gustav, men andra namn är tillåtna. Om implementationen är rätt så kommer båda testerna passera.
 
 \begin{lstlisting}[language=Ruby]
 build(:user, name: "Gustav").should_not be_valid
 build(:user, name: "Lasse").should be_valid
 \end{lstlisting}
 
-Efter modellen föjer implementeringen av vyn och kontrollern (VC i MVC). VC är svårare att testa, jämfört med M, då VC innehåller två lager. Vyn är som bekant beroende av data från modellen som i sin tur levereras av kontrollern. Ett sätt att testa alla lager är med hjälp av så kallad fullstack-testing. Iden är att simulera flödet från en riktig användare som navigerar sig runt i vyn. En gem som hjälper oss med detta är Capybara.
+Efter modellen följer implementeringen av vyn och kontrollern (VC i MVC). VC är svårare att testa, jämfört med M, då VC innehåller två lager. Vyn är som bekant beroende av data från modellen som i sin tur levereras av kontrollern. Ett sätt att testa alla lager är med hjälp av så kallad fullstack-testning. Idén är att simulera flödet från en riktig användare som navigerar sig runt i vyn. Ett bibliotek som hanterar detta är Capybara.
 
 Exemplet nedan visar ett fullstack-test som med hjälp av Capybara testar ett formulär.
 
