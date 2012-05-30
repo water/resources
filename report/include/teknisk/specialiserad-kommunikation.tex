@@ -49,7 +49,7 @@ Socket.IO och Faye är två möjliga lösningar. Båda består av en serverdel o
 Båda använder WebSockets, Adobe Flash Sockets och olika metoder av \emph{polling} och \emph{long polling} för att erbjuda stöd för gamla webbläsare samtidigt som moderna webbläsare kan utnyttja de senaste teknikerna.
 
 \subsection{Säkerhet}
-Ett problem som uppstår, oavsett valet av mjukvara, är sändningsrättigheter mellan server och klient. Idén med socket-protokollet, som tidigare nämns är att möjliggöra tvåvägskommunikation mellan klient och server. Servern och klienten kan i princip när som helst sända vilka paket som helst till vilken nod som helst. Det enda klienten och servern behöver veta om är vilken kanal som informationen ska skickas på och vilken socket-server som ska agera nav. Risken finns att en obehörig person väljer att skicka ett meddelande till alla uppkopplade klienter i nätverket.
+Ett problem som uppstår, oavsett valet av mjukvara, är sändningsrättigheter mellan server och klient. Idén med WebSocket-protokollet, som tidigare nämns är att möjliggöra tvåvägskommunikation mellan klient och server. Servern och klienten kan i princip när som helst sända vilka paket som helst till vilken nod som helst. Det enda klienten och servern behöver veta om är vilken kanal som informationen ska skickas på och vilken socket-server som ska agera nav. Risken finns att en obehörig person väljer att skicka ett meddelande till alla uppkopplade klienter i nätverket.
 
 Varken System.IO eller Faye innehåller någon inbyggd säkerhetsfunktionalitet. Vi måste hitta ett bibliotek eller implementera säkerhetsfunktionerna själva.
 
