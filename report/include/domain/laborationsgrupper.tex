@@ -17,23 +17,35 @@ vilka laborationer gruppen har klarat raderas.
 För att avhopp ska kunna ske, måste följande krav uppfyllas:
 \begin{itemize}
   \item En student som avregistrerat sig från en grupp skall ej få godkänt på laborationer som kvarvarande i gruppen lämnar in.
-  \item Ingen data skall tas bort vid avhopp, speciellt inte avklarade laborationer.
-  \begin{itemize}
-    \item Studenternas material måste finnas kvar och vara tillgängligt för dem.
-  \end{itemize}
-  \item Som en studentanvändare av Water vill man känna sig trygg med att splittringsoperationen inte tar bort något. Till exempel måste inskickade laborationer förbli inskickade och rättas för alla deltagare i den splittrade gruppen. Den splittrade gruppen bör kunna fortsätta arbeta tillsammans vid retur, även om de börjat arbeta i nya grupper. En student skall alltså kunna förstå med hjälp av gränssnittet att ovanstående situation gäller när de splittrar gruppen.
+  \item Ingen data skall tas bort vid avhopp, speciellt inte avklarade laborationer. Studenternas material måste finnas kvar och vara tillgängligt för dem.
+  \item Som en studentanvändare av Water vill man känna sig trygg med att
+    splittringsoperationen inte tar bort något. Till exempel måste inskickade
+    laborationer förbli inskickade och rättas för alla deltagare i den
+    splittrade gruppen. Den splittrade gruppen bör kunna fortsätta arbeta
+    tillsammans vid retur, även om de börjat arbeta i nya grupper. En student
+    skall alltså kunna förstå av gränssnittet att inget
+    försvinner när de splittrar gruppen.
 \end{itemize}
 
 
 Vi presenterar nedan två lösningsideer som gruppen övervägde mellan. I lösningarna tar vi upp perspektiv både på användargränssnitt och databasmodell.
 
 \subsection{Faktisk splittring av grupper}
-Ett naturligt sätt att utföra splittringen på är att försöka efterlikna det konceptuella att en eller flera studenter faktiskt hamnar i en ny grupp medan resterande är kvar. För att de nya studenterna ska kunna ha kvar sitt material från sin splittrade grupp krävs det att de avklarade laborationerna kopieras över till deras nyskapade grupp. Att kopiera data i en databas anses som allmänt fel då en \emph{normaliserad} databas, vilket beskrivs djupare i kapitel \ref{sec:databasen}, ska ha minimalt med redundans. Man kan också låta laborationer “ägas” av själva studenterna och inte gruppen. I detta fall kommer en splittrad grupp inte påverka studenternas datatillgång eftersom den inte baseras på grupper.
+Ett naturligt sätt att utföra splittringen på är att försöka efterlikna det
+konceptuella att en eller flera studenter faktiskt hamnar i en ny grupp medan
+resterande är kvar. För att de nya studenterna ska kunna ha kvar sitt material
+från sin splittrade grupp krävs det att de avklarade laborationerna kopieras
+över till deras nyskapade grupp. Att kopiera data i en databas
+är fel i en \emph{normaliserad} databas, vilket beskrivs djupare i
+kapitel \ref{sec:databasen}, ska ha minimalt med redundans. Man kan också låta
+laborationer “ägas” av själva studenterna och inte gruppen. I detta fall kommer
+en splittrad grupp inte påverka studenternas datatillgång eftersom den inte
+baseras på grupper.
 
 \subsection{Immuterbara grupper}
 En annan lösning är att låsa medlemmarna i en laborationsgrupp, vilket innebär att man inte kan splittra en grupp. Paradigmen blir då att gruppen motsvarar en fixt grupp av studenter. Att på detta sätt ha oföränderliga grupper löser direkt problemet med hur man kopierar över material till nya grupper, eftersom grupper aldrig splittras. Operationen av en konceptuell splittring för en grupp på två studenter kommer utföras genom att båda studenter skapar var sin ny grupp, alternativt går med i redan existerande grupper. Ett till problem som löses med detta är att studenter inte heller kan gå med i en låst grupp, alltså en student som inte utfört en laboration kan inte bara gå med och få godkänt på tidigare laborationer avklarade av den gruppen.
 
-Också denna lösning introducerar problem, nämligen att definiera hur en grupp bildas och populeras med studenter. Om alla grupper börjar frysta skulle en nyskapad grupp förbli tom.
+Även denna lösning introducerar problem, nämligen att definiera hur en grupp bildas och populeras med studenter. Om alla grupper börjar frysta skulle en nyskapad grupp förbli tom.
 
 Det är inte självklart att immuterbara grupper är begripligt för en studentanvändare.  Vi vet inte om en grupp elever som vill splittras naturligt tänker sig att de “splittrar” sin grupp eller om de direkt förenklar det till att de skapar varsin ny grupp.
 

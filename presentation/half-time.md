@@ -51,7 +51,7 @@
     - Databasen normaliserad enligt 4NF
 - Egna erfarenheter
   - Tester is the shit
-  - Versionhantering / Github
+  - Versionshantering / Github
     - Ex. Gash / OS-andan
 - Sista sliden
   - whyisgitbetterthanx.org

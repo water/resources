@@ -1,5 +1,6 @@
 graph G {
   /* Startgroups and it's repos */
+  LHG1  -- SG1
   SG1 -- S1
   LHG2  -- SG2
   SG2 -- S2
