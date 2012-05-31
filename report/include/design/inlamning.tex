@@ -42,7 +42,7 @@ Uppladdningsprocessen består av ett antal faser. Först laddas filerna upp. Dä
 \subsubsection{Filerna laddas upp}
 
 Javascriptbiblioteket JQuery-File-Upload används för att stöda uppladdning av flera filer genom ett enda anrop. 
-Callbacks i JQuery-File-Upload används för att skicka med unika identifieringskoder för varje fil som laddas upp. Identifieringskoderna skapas med en enkel \emph{hashfunktion} som bygger på hashCode()-metoden för en sträng i Java.
+Callbacks i JQuery-File-Upload används för att skicka med unika identifieringskoder för varje fil som laddas upp. Identifieringskoderna skapas med en enkel \emph{hashfunktion} som bygger på hashCode()-metoden för en sträng i Javascript.
 
 Identifieringskoderna och filernas originalfilnamn lagras i en \emph{CommitRequest}-modell i klienten när filerna skickas. Servern svarar med en array där varje fil representeras av sin identifieringskod. På detta sätt får \emph{CommitRequest}-modellen ett kvitto på att uppladdningsprocessen är färdig. \emph{CommitRequest}-modellen delar upp kvitterade filer i lyckade och misslyckade uppladdningar. 
 
