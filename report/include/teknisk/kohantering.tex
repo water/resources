@@ -14,7 +14,7 @@ En lösning på problemet är att göra ett HTTP-anrop som initierar ett asynkro
 
 Läsningar och skrivningar till disk, så kallade I/O-operationer, är blockerande. En blockerande operation kan låsa OS-trådar och ta resurser från mer högprioriterade processer såsom webbserveranrop.
 Vid få I/O-operationer är deras inverkan på systemet relativt liten, men dessa kan vid ökad mängd ha stor, negativ inverkan.
-Lösningen är att låta systemet jobba av en mängd operationer under en begränsad tid. På så vis kan vi försäkra om oss att de tyngre, blockerande operationer inte går överstyr och på så vis gör systemet otillgängligt.
+Lösningen är att låta systemet bearbeta en bestämd mängd operationer i serie under en begränsad tid. På så vis kan vi försäkra om oss att de tyngre, blockerande operationer inte går överstyr och på så vis gör systemet otillgängligt.
 
 \subsection{Val av köhanterare}
 
