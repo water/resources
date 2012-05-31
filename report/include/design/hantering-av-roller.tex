@@ -1,6 +1,6 @@
 \section{Hantering av roller}
 
-För att användare ska ha tillgång till olika funktionalitet, beroende på vilken typ av användare de är har roller implementerats. Dessa roller är student, assistant, examiner och administrator.
+För att användare ska ha tillgång till olika funktionalitet, beroende på vilken typ av användare de är har roller implementerats. Dessa roller är student, assistant, examiner och administrator. Funktionalitet för de olika rollerna befinner sig i en \emph{scope}, och en användare har bara tillgång till den funktionalitet som dess roll tillhandager. Om en användare är en adminstratör kan den skapa nya kurser, men en användare som är en student tillåts inte göra det.
 
 \subsection{Rollernas påverkan på routes}
 Användarfunktionaliteten befinner sig inom en \emph{scope} med roller. Detta ger upphov till estetiska, och intuitivt förstådda URL:er. Till exempel kan kurser visas upp för en student genom: |/student/courses|. Om studenten också är en Assistant, används en annan route för att visa relevant information för det sammahanget.
