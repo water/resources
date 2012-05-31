@@ -4,7 +4,7 @@ En webbapplikation med en avancerad klientdel kan drabbas av problem som beror p
 
 \subsection{Traditionell kommunikation på webben}
 
-För kommunikation mellan en webbserver och webbklient används traditionellt synkrona envägsanrop via HTTP-protokollet. HTTP-protokollet hindrar i sig inte tvåvägskommunikation, men relationen servern och klienten är fast - det är klienten som inleder kommunikationen med anrop och servern svarar. Servern kan inte på eget bevåg kontakta klienten (IETF RFC 2616, sektion 1.4, 1999). Tvåvägskommunikation är alltså inte möjligt, trots att det är ett vanligt behov i avancerade webbapplikationer.
+För kommunikation mellan en webbserver och webbklient används traditionellt synkrona envägsanrop via HTTP-protokollet. HTTP-protokollet hindrar i sig inte tvåvägskommunikation, men relationen mellan webbservern och webbläsaren är fast - det är klienten som inleder kommunikationen med anrop och servern svarar. Servern kan inte på eget bevåg kontakta klienten (IETF RFC 2616, sektion 1.4, 1999). Tvåvägskommunikation är alltså inte möjligt, trots att det är ett vanligt behov i avancerade webbapplikationer.
 
 \subsection{Problem med långa bearbetningstider}
 
@@ -16,16 +16,18 @@ Om ett anrop till servern tar länge att behandla uppstår två viktiga problem:
 Antalet öppna uppkopplingar är begränsat. Anrop med långa bearbetningstider sänker därför snabbt serverns förmåga att ta hand om alla inkommande anrop. Det är därför viktigt att webbservern kan avsluta arbetet med ett givet anrop så fort som möjligt. 
 Vid vanliga synkrona anrop låses webbläsaren och därmed användargränssnittet tills servern svarar. Även om anropet i fråga egentligen skulle kunna påverka endast en avgränsad del av webbappliktionen så  förlorar användaren hela sin möjlighet att interagera med den i väntan på svaret. Dröjer svaret tillräckligt länge kommer webbläsaren att ge upp och tolka händelsen som att webbservern har slutat fungera.
 
-För att avlasta webbservern bör alltså tyngre bearbetning flyttas till externa processer. Dessa externa processer behandlas i större detalj i avsnittet om köhanterare.
+För att avlasta webbservern bör alltså tyngre bearbetning flyttas till externa processer. Dessa externa processer behandlas i större detalj i avsnitt \ref{section:kohanterare}.
 Anropet kan i detta fall behandlas snabbt eftersom webbservers enda uppgift är att vidarebefordra arbetet. Problem uppstår dock i webbklienten om systemet använder synkrona anrop och avlastar bearbetningen till externa processer, eftersom webbservern besvarar anropet direkt efter att delegeringen har skett – alltså innan det önskade arbetet har slutförts.
 Om klienten däremot kunde göra ett första anrop till servern för att inleda bearbetning, och sedan kunde ta emot anrop från servern när bearbetningen är klar, så skulle både klientens och serverns behov tillgodoses. Kommunikationen blir asynkron. Denna form av kommunikation är dock inte möjlig på grund av webbserverns rigida relation till klienten.
 
 
 \subsection{Möjliga lösningar}
 
-\subsubsection{Polling} är en den mest naiva lösningen och går ut på att klienten gör anrop med jämna mellanrum till servern för att ta reda på om arbetet är utfört. \emph{Polling} är lätt att implementera med grundläggande teknologier som HTTP, HTML och Javascript. Nackdelen är att servern riskerar att överbelastas av en stor mängd onödiga anrop. För att minska belastningen kan intervallet mellan varje anrop förlängas. Detta leder dock till att användaren upplever att systemet är långsammare, eftersom arbetet kan ha slutförst alldeles i början på ett vänteintervall.
+\subsubsection{Polling} 
+Polling är en den mest naiva lösningen och går ut på att klienten gör anrop med jämna mellanrum till servern för att ta reda på om arbetet är utfört. \emph{Polling} är lätt att implementera med grundläggande teknologier som HTTP, HTML och Javascript. Nackdelen är att servern riskerar att överbelastas av en stor mängd onödiga anrop. För att minska belastningen kan intervallet mellan varje anrop förlängas. Detta leder dock till att användaren upplever att systemet är långsammare, eftersom arbetet kan ha slutförts alldeles i början på ett vänteintervall.
 
-\subsubsection{Long polling} är en vidareutveckling av \emph{polling}. Servern tar emot klientens anrop och kontrollerar om arbetet är klart. Om inte så lagrar servern anropet under ett kortare tidsintervall. Om arbetet slutförs under detta intervall så svarar servern direkt till klienten. Om arbetet inte slutförs under intervallet svarar servern med en instruktion till klienten att skicka ett nytt anrop. Detta enligt beskrivning av Mesbah och van Deursen (2008). 
+\subsubsection{Long polling} 
+Denna teknik är en vidareutveckling av \emph{polling}. Servern tar emot klientens anrop och kontrollerar om arbetet är klart. Om inte så lagrar servern anropet under ett kortare tidsintervall. Om arbetet slutförs under detta intervall så svarar servern direkt till klienten. Om arbetet inte slutförs under intervallet svarar servern med en instruktion till klienten att skicka ett nytt anrop. Detta enligt beskrivning av Mesbah och van Deursen (2008). 
 
 Jämfört med \emph{polling} undviker klienten risken att behöva vänta ett helt uppdateringsintervall innan den får meddelande om slutfört arbete. Servern behöver i sin tur ta emot färre anrop. Servern blockeras dock under \emph{long polling}-intervallet.
 
@@ -47,7 +49,7 @@ Socket.IO och Faye är två möjliga lösningar. Båda består av en serverdel o
 Båda använder WebSockets, Adobe Flash Sockets och olika metoder av \emph{polling} och \emph{long polling} för att erbjuda stöd för gamla webbläsare samtidigt som moderna webbläsare kan utnyttja de senaste teknikerna.
 
 \subsection{Säkerhet}
-Ett problem som uppstår, oavsett valet av mjukvara, är sändningsrättigheter mellan server och klient. Idén med socket-protokollet, som tidigare nämns är att möjliggöra tvåvägskommunikation mellan klient och server. Servern och klienten kan i princip när som helst sända vilka paket som helst till vilken nod som helst. Det enda klienten och servern behöver veta om är vilken kanal som informationen ska skickas på och vilken socket-server som ska agera nav. Risken finns att en obehörig person väljer att skicka ett meddelande till alla uppkopplade klienter i nätverket.
+Ett problem som uppstår, oavsett valet av mjukvara, är sändningsrättigheter mellan server och klient. Idén med WebSocket-protokollet, som tidigare nämns är att möjliggöra tvåvägskommunikation mellan klient och server. Servern och klienten kan i princip när som helst sända vilka paket som helst till vilken nod som helst. Det enda klienten och servern behöver veta om är vilken kanal som informationen ska skickas på och vilken socket-server som ska agera nav. Risken finns att en obehörig person väljer att skicka ett meddelande till alla uppkopplade klienter i nätverket.
 
 Varken System.IO eller Faye innehåller någon inbyggd säkerhetsfunktionalitet. Vi måste hitta ett bibliotek eller implementera säkerhetsfunktionerna själva.
 

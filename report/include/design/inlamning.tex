@@ -1,7 +1,7 @@
 \section{Inlämning}
 \subsection{Inlämning via Git}
 
-Water tar emot inlämningar via Git. Det sker genom att studenten skriver ett commit-meddelande som innehåller strängen |\#submit| och därefter skickar data till Water med hjälp av Git kommandot git-push. Det går även att skicka data till Water utan att göra en inlämning.
+Water tar emot inlämningar via Git. Det sker genom att studenten skriver ett commit-meddelande som innehåller strängen |#submit| och därefter skickar data till Water med hjälp av Git kommandot git-push. Det går även att skicka data till Water utan att göra en inlämning.
 
 Som en del av git-push-processen kommer Water att autentisera användaren. 
 
@@ -14,7 +14,7 @@ Git-sökvägar i Water har följande form:
 
 Kursen identifieras alltså av sitt databas-id, medan vi använder relativa nummer för de andra två. En student kan exempelvis ladda upp sitt arbete till Water för första gången genom att köra dessa kommandon:
 
-\begin{verbatim}
+\begin{BVerbatim}
   git init my-repo
   cd my-repo
   git remote add origin https://water.se/courses/1/lab_groups/1/labs/1 % fiktiv host
@@ -24,7 +24,7 @@ Kursen identifieras alltså av sitt databas-id, medan vi använder relativa numm
   git push origin master
   Username: my_cid
   Password: my_password  
-\end{verbatim}
+\end{BVerbatim}
 
 För att underlätta för en användare står ovanstånde kommandon uppradade i webbgränssnittet. När en handledare eller laborationskamrater skall granska laborationen kan de också använda Git-gränssnittet för att hämta det senaste arbetet.
 
@@ -37,7 +37,7 @@ För att underlätta för en användare står ovanstånde kommandon uppradade i 
 
 \subsection{Uppladdning och inlämning via webbgränssnittet}
 
-Uppladdningsprocessen består av ett antal faser. Först laddas filerna upp. Därefter skickar klienten ett anrop som begär att filerna ska läggas till i ett repositorium. Servern svarar att processen har inletts och vidarebefordrar anropet till köhanteraren. När processen är klart får klienten ett asynkront meddelande om detta via WebSocket-servern. Se figur \ref{fig:uppladdning}
+Uppladdningsprocessen består av ett antal faser. Först laddas filerna upp. Därefter skickar klienten ett anrop som begär att filerna ska läggas till i ett repositorium. Servern svarar att processen har inletts och vidarebefordrar anropet till köhanteraren. När processen är klart får klienten ett asynkront meddelande om detta via WebSocket-servern. Se figur \ref{fig:uppladdning}.
 
 \subsubsection{Filerna laddas upp}
 
@@ -75,7 +75,7 @@ Tillstånden beskrivs som följer, se även illustration \ref{fig:cyk}:
 
 \subsubsection{Initialized}
 
-När en LabHasGroup skapas sätts objetet i tillståndet initialized. I detta tillstånd finns inga Submissions kopplade till entiteten och inlämning kan skapas fram tills dess att deadline har passerat.
+När en LabHasGroup skapas sätts objektet i tillståndet initialized. I detta tillstånd finns inga Submissions kopplade till entiteten och inlämning kan skapas fram tills dess att deadline har passerat.
 
 \subsubsection{Pending}
 
@@ -84,7 +84,7 @@ Om en LabHasGroup befinner sig i pending kan dess senaste Submission uppdateras,
 
 \subsubsection{Reviewing}
 
-Så snart en handledare har påbörjat granskningen en laboration övergår LabHasGroup-entiteten till tillståndet reviewing. I detta tillstånd är det inte möjligt att göra fler inlämningar
+Så snart en handledare har påbörjat granskningen en laboration övergår LabHasGroup-entiteten till tillståndet reviewing. I detta tillstånd är det inte möjligt att göra fler inlämningar.
 
 \subsubsection{Rejected och Accepted}
 
