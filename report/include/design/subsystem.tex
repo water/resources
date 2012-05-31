@@ -28,23 +28,23 @@ Beanstalkd använder lågnivåprotokollet telnet för all inkommande kommunikati
 \begin{lstlisting}[language=Ruby, showstringspaces=false]
 
 class CommitRequest
- include ActiveMessaging::MessageSender
- publishes_to :commit
-
- def publish!
-   publish(:commit, "My data")
- end
+  include ActiveMessaging::MessageSender
+  publishes_to :commit
+ 
+  def publish!
+    publish(:commit, "My data")
+  end
 end
 
 class RepositoryArchivingProcessor < ActiveMessaging::Processor
- subscribes_to :commit
-
- #
- # @message String
- #
- def on_message(message)
-   # Process message
- end
+  subscribes_to :commit
+ 
+  #
+  # @message String
+  #
+  def on_message(message)
+    # Process message
+  end
 end
 \end{lstlisting}
 
