@@ -1,11 +1,11 @@
 \section{Invarianter för studenters laborationsantal}
 
-Det finns möjlighet att ha en invariant mellan hur många simultana “laboration-till-grupp”-kopplingar det finns per laboration för varje enskild student. Det rör sig mellan alternativen att forcera maximalt en koppling per laboration, att forcera till exakt en koppling per laboration samt att strunta i att ha invarianten. Det leder till mer arbete att uppehålla en striktare invariant, men det har fler fördelar.
+Det finns möjlighet att ha en invariant mellan hur många simultana “laboration-till-grupp”-kopplingar det finns per laboration för varje enskild student. Det rör sig mellan alternativen att forcera maximalt en koppling per laboration, att forcera till exakt en koppling per laboration samt att strunta i att ha invarianten. Det är mer arbete att uppehålla en striktare invariant, men det visar sig ha fler fördelar.
 
 För att göra detta avsnitt läsbart inför vi termen LabHasGroup, förkortad \emph{LHG}. \emph{LHG} är den entitet i modellen som representerar kopplingen mellan en grupp och en laboration, vilket beskrivs i sektion \ref{sec:modell-labhasgroup}. 
 
 \subsection{Max en \emph{LHG} per laboration ($\leq 1$)}
-Som en direkt konsekvens av denna invariant kan inte en student lämna in samma laboration genom flera laboration till grupp kopplingar eftersom invarianten direkt stryper kopplingsantalet till maximalt en per laboration. I praktiken jobbar aldrig en student på samma laboration via flera kopplingar samtidigt. Det är troligt att studentanvändare blir förvirrade av att de ser att de jobbar på samma laboration via olika kopplingar. Det bör alltså noteras att fördelarna är främst  ytliga, alltså att produktens webbgränssnitt blir tydligt för studentanvändarna. Vidare ska en handledare inte av misstag behöva rätta två inlämnade laborationer kopplade till samma student.
+Som en direkt konsekvens av denna invariant kan inte en student lämna in samma laboration genom flera \emph{LHG}:s eftersom invarianten direkt stryper kopplingsantalet till maximalt en per laboration. I praktiken jobbar aldrig en student på samma laboration via flera kopplingar samtidigt. Det är troligt att studentanvändare blir förvirrade av att de ser att de jobbar på samma laboration via olika kopplingar. Det bör alltså noteras att fördelarna är främst  ytliga, alltså att produktens webbgränssnitt blir tydligt för studentanvändarna. Vidare ska en handledare inte av misstag behöva rätta två inlämnade laborationer kopplade till samma student.
 
 Flera möjliga sätt finns för att enforcera invarianten, gemensamt för implementeringssätten är att de måste definera nödvändiga gruppoperationer och visa att de är riskfria, det vill säga att invarianten aldrig bryts efter operationerna har utförts. Några operationer kan tänkas vara följande:
 
@@ -23,7 +23,7 @@ En operationsuppsättning kan vara att en grupp alltid skapas tom utan \emph{LHG
 
 
 \begin{proof}[Bevis av korrekthet]
-  Vi har medvetet försökt minimera antalet operationer som påverkar antalet kopplingarern student har till en given laboration. Att skapa en grupp påverkar ej \emph{LHG}-antalet. Att gå med i en grupp har begränsats till att bara fungera för grupper utan påbörjade laborationer, därav påverkas ej invarianten av påhopp heller. Att ta bort en \emph{LHG} innebär en minskning vilket aldrig kan bryta mot en “mindre-än”-olikhet. Den enda operationen som ökar antalet \emph{LHG}:s är att “påbörja laborationen”, men den har definierats att bara vara utförbar då invarianten inte bryts. \qedhere
+  Vi har medvetet försökt minimera antalet operationer som påverkar antalet \emph{LHG} en student har till en given laboration. Att skapa en grupp påverkar ej \emph{LHG}-antalet. Att gå med i en grupp har begränsats till att bara fungera för grupper utan påbörjade laborationer, därav påverkas ej invarianten av påhopp heller. Att ta bort en \emph{LHG} innebär en minskning vilket aldrig kan bryta mot en “mindre-än”-olikhet. Den enda operationen som ökar antalet \emph{LHG}:s är att “påbörja laborationen”, men den har definierats att bara vara utförbar då invarianten inte bryts. \qedhere
 \end{proof}
 
 \subsubsection{Användarperspektiv}
@@ -49,7 +49,7 @@ Operationerna som krävs för att byta \emph{LHG} från en grupp till en annan �
 \subsection{Alltid exakt en \emph{LHG} per laboration ($= 1$)}
 Den mindre strikta ($\leq 1$) invarianten ger Water möjligheten att ha ett intuitivt användargränssnitt eftersom ingen student vill se att de gör samma laboration via två olika grupper samtidigt. En striktare variant är dock önskvärd av tekniska skäl. Med en striktare variant behövs till exempel inte hantering av fall då en \emph{LHG} inte finns, eftersom att den alltid finns. Detta öppnar även upp för att förenkla våra databasförfrågningar, vi kan till exempel få reda på alla laborationer för en student i en kurs genom att “gå” via kopplingarna, eftersom vi har en 1-till-1–relation mellan “laboration-till-grupp”-koppling och laboration per student.
 
-En operationsuppsättning för denna invariant måste även definiera initialtillståndet eftersom det går inte längre att ha studenter utan \emph{LHG}:s vid kursstart. Operationerna som måste beaktas för denna invariant är fler eftersom tillägg av student eller laboration både är icketriviala. Ifall en student läggs till i en kurs så måste den “direkt” få sina \emph{LHG}:s. Laborationstillägg måste även se till att varje student får en \emph{LHG} för den nyligen skapade laborationen. En operation som inte längre kan finnas är att manuellt ta bort en \emph{LHG} för då skulle invarianten brytas direkt.
+En operationsuppsättning för denna invariant måste även definiera initialtillståndet eftersom det går inte längre att ha studenter utan \emph{LHG}:s vid kursstart. Operationerna som måste beaktas för denna invariant är fler eftersom tillägg av student eller laboration båda är icketriviala. Ifall en student läggs till i en kurs så måste den “direkt” få sina \emph{LHG}:s. Laborationstillägg måste även se till att varje student får en \emph{LHG} för den nyligen skapade laborationen. En operation som inte längre kan finnas är att manuellt ta bort en \emph{LHG} för då skulle invarianten brytas direkt.
 
 \subsubsection{Förslag på implementering}
 Invarianten kan  framtvingas genom följande initialtillstånd och operationsuppsättning.
@@ -64,7 +64,7 @@ I början är alla studenter inplacerade i en för varje student unik grupp som 
 \end{figure}
 
 \paragraph{Operationer}
-I detta förslag behandlas operationerna “skapa en grupp” och “lägg till en student i gruppen” på samma sätt som i förslaget för den mindre strika invarianten. Att skapa en ny \emph{LHG} kommer inte ha kräva några förhandsvillkor, studenten behöver alltså inte längre manuellt se till så att \emph{LHG}:en sätts in genom att ta bort sina egna kopplingar i sina tidigare grupper, istället tar Water bort alla kopplingar som “är i vägen”. Operationen sker mer specifikt på följande sätt:
+I detta förslag behandlas operationerna “skapa en grupp” och “lägg till en student i gruppen” på samma sätt som i förslaget för den mindre strika invarianten. Att skapa en ny \emph{LHG} kommer inte kräva några förhandsvillkor, studenten behöver alltså inte längre manuellt se till så att \emph{LHG}:en sätts in genom att ta bort sina egna kopplingar i sina tidigare grupper, istället tar Water bort alla kopplingar som “är i vägen”. Operationen sker mer specifikt på följande sätt:
 \begin{enumerate}
   \item För alla medlemmar i gruppen där \emph{LHG}:en ska läggas till ska
     deras \emph{LHG} för den laborationen tas bort, notera att de alltid har
@@ -112,7 +112,7 @@ I början antags invarianten vara uppfylld, efter steg 1 så har studenterna i A
 \end{figure}
 
 \subsubsection{Användarperspektiv}
-Det ovanstående sättet att skapa en ny \emph{LHG} innebär att även laborationskamraternas laborationskamrater påverkas av den aktiva studentens operation (se figur \ref{fig:strict-proof-continue}). Detta är givetvis inte bra för de utsatta studenterna. Att samtliga studenter har en egen laborationsgrupp kan vara förvirrande för användare som ser att de redan är medlemmar i en laborationsgrupp som är låst och redan har påbörjat sina laborationer. I gengäld kräver operationen färre steg för en student att påbörja en laboration med en annan laborationsgrupp.
+Det ovanstående sättet att skapa en ny \emph{LHG} innebär att även laborationskamraternas laborationskamrater påverkas av den aktiva studentens operation (se figur \ref{fig:strict-proof-continue} där $S2$ tar bort $S4$s laboration). Detta är givetvis inte bra för de utsatta studenterna. Att samtliga studenter har en egen laborationsgrupp kan vara förvirrande för användare som ser att de redan är medlemmar i en laborationsgrupp som är låst och redan har påbörjat sina laborationer. I gengäld kräver operationen färre steg för en student att påbörja en laboration med en annan laborationsgrupp.
 
 \subsection{Ingen invariant}
 Naturligtvis går det att strunta i att forcera någon invariant. Det blir minimalt med jobb och ingenting behöver bevisas. Nackdelen är att det lätt blir förvirrande för användaren att ha flera aktiva laborationer samtidigt. Vidare krävs fler användaroperationer för att lokalisera sin \emph{LHG} då användaren inte bara behöver specifiera laboration utan även laborationsgrupp.

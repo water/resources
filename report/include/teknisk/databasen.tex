@@ -23,7 +23,7 @@ En \emph{normaliserad databas} kan inte garantera att ingen felaktig data sparas
 
 \subsection{Datavalidering}
 För att behålla dataintegriteten i databasen behöver data valideras innan det sparas, denna validering kan ske antingen i \emph{databas-} eller \emph{modell-lagret}.
-Det är inte bättre att implementera det på det en stället än de andra men vanligast är ändå att lägga de enklaste valideringarna i databasen och resten i modell-lagret. För att implementera valideringar i databasen används \emph{constraints}, \emph{triggers} och till viss mån \emph{foreign keys}. Här kommer valet av \emph{DBMS} (\emph{Database Management System})in i bilden då alla inte har fullt stöd för \emph{constraints}.
+Det är inte bättre att implementera det på det ena stället än de andra men vanligast är ändå att lägga de enklaste valideringarna i databasen och resten i modell-lagret. För att implementera valideringar i databasen används \emph{constraints}, \emph{triggers} och till viss mån \emph{foreign keys}. Här kommer valet av \emph{DBMS} (\emph{Database Management System})in i bilden då alla inte har fullt stöd för \emph{constraints}.
 Det är svårare att underhålla logik i \emph{databas-lagret} då en ändring på en tabell kan påverka flera \emph{triggers}, detta kan leda till en problematisk felsökning.
 När målet är en fullständigt \emph{databas-agnostisk} applikation måste då alla valideringar ligga i modell-lagret.
 

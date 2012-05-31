@@ -120,7 +120,8 @@ I många kurser finns färdigt material för varje laboration. InitialLabCommit-
 
 Relationer: 
 \begin{itemize}
-  \item Repository {\bf n-1} InitialLabCommit 
+  \item Repository {\bf 1-n} InitialLabCommit 
+  \item InitialLabCommit {\bf 1-1} Lab
 \end{itemize}
 
 \subsubsection{Submission}
@@ -129,7 +130,7 @@ Så snart en användare lämnat in en inlämning, oavsett om detta görs med hj�
 Relationer: 
 \begin{itemize}
   \item Submission {\bf n-1} LabHasGroup 
-  \item Submission {\bf n-1} Comment
+  \item Submission {\bf 1-n} Comment
 \end{itemize}
 
 \subsubsection{DefaultDeadline}
@@ -169,7 +170,7 @@ Relationer:
 \end{itemize}
 
 \subsubsection{LabHasGroup}\label{sec:modell-labhasgroup}
-Representerar kopplingen mellan en Lab och en LabGroup. När en LabHasGroup skapas så skapas även ett Git-repositorium där inlämningarna lagras. Gruppen har nu tillgång till versionhanteringsfunktionalitet och kan göra inlämningar via webbgränssnittet och Git.
+Representerar kopplingen mellan en Lab och en LabGroup. När en LabHasGroup skapas så skapas även ett Git-repositorium där inlämningarna lagras. Gruppen har nu tillgång till versionshanteringsfunktionalitet och kan göra inlämningar via webbgränssnittet och Git.
 
 Relationer: 
 \begin{itemize}
@@ -188,6 +189,7 @@ En central del av Water är möjligheten att interagera och spara undan informat
 Relationer: 
 \begin{itemize}
   \item Repository {\bf 1-1} LabHasGroup 
+  \item Repository {\bf 1-n} InitialLabCommit 
 \end{itemize}
 
 \subsubsection{Comments}
@@ -200,6 +202,7 @@ För att lägga till funktionaliteten till modeller, så kan man lägga till en 
 Relationer: 
 \begin{itemize}
   \item Comment {\bf n-1} User 
+  \item Comment {\bf n-1} Submission 
 \end{itemize}
     
 \subsubsection{StudentRegisteredForCourse}
