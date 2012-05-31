@@ -1,8 +1,29 @@
 \section{Hantering av roller}
 
-För att användare ska ha tillgång till olika funktionalitet, beroende på vilken typ av användare de är har roller implementerats. Dessa roller är student, assistant, examiner och administrator. Funktionalitet för de olika rollerna befinner sig i en \emph{scope}, och en användare har bara tillgång till den funktionalitet som dess roll tillhandager. Om en användare är en adminstratör kan den skapa nya kurser, men en användare som är en student tillåts inte göra det.
+Syftet med rollhanteringen i Water är att simulera verkligheten vid ett universitet. Användare interagerar med systemet i egenskap av studenter, handledare, examinatorer och administratörer. Ofta kan en användare ha flera roller på samma gång. Till exempel är det vanligt att en person är handledare i en kurs, men student i en annan. 
+
+Syftet med rollhanteringen på ett tekniskt plan är att undvika att User-entiteten i databasen tyngs ner av information som egentligen bara hör till användaren när hon eller han agerar i en specifik roll. Därför har rollerna implementerats som svaga entiteter till User-entiteten. Systemet skapar alltså till exempel en separat Student-entitet för den User som behöver agera student i en kurs. Samma Student-entitet används för att koppla användaren till flera kurser.
+
+User-entiteten kan relatera till andra databasentiteter genom sina roll-entiteter. 
+Faktum är att majoriteten av User-entitetens relationer går via roll-entiteterna. Detta beror på att nästan allt som en användare gör i Water bara är relevant i ett sammanhang där användaren har en bestämd roll.
 
 \subsection{Rollernas påverkan på routes}
-Användarfunktionaliteten befinner sig inom en \emph{scope} med roller. Detta ger upphov till estetiska, och intuitivt förstådda URL:er. Till exempel kan kurser visas upp för en student genom: |/student/courses|. Om studenten också är en Assistant, används en annan route för att visa relevant information för det sammahanget.
+För att implementera \emph{REST}-mönstret och göra Water så tillståndslöst som möjligt har rollhanteringen byggts in i systemets sökvägar.
 
-Sidor som till exempel visar en mall för redigering av User-information ska inte vara \emph{scopade}, eftersom de inte tillhör någon specifik roll-kontext.
+Sökvägar till resurser som är beroende av att den aktiva rollen kan bestämmas har ordnas under en namnrymd – ett \emph{scope}.
+Till exempel kan en student hämta en lista med sina registrerade kurser med hjälp av följande sökväg:
+
+\begin{BVerbatim}
+  /student/courses
+\end{BVerbatim}
+
+På liknande sätt kan en användare se de kurser där han eller hon är handledare med följande sökväg:
+
+\begin{BVerbatim}
+  /assistant/courses
+\end{BVerbatim}
+
+En önskvärd effekt av detta är att användaren kan använda bokmärken för att hämta viktiga resurser utan att systemet störs av att den aktiva rollen inte har definierats i en cookie.
+
+För att ge användaren tillgång till sina olika roller har Water en startsida som ligger utanför rollnamnrymderna. Där presenteras relevant information för användarens samtliga roller i separata informationspaneler. 
+Informationspanelen för respektive roll innehåller länkar som är inordnade under den aktuella rollens namnrymd. Användaren väljer alltså roll genom att klicka på länkarna. Byte mellan aktiva roller sker genom att användaren navigerar tillbaka till den icke-\emph{scopade} startsidan eller skriver in en sökväg med en annan namnrymd för hand.
