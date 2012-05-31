@@ -70,7 +70,7 @@ build(:user, name: "Gustav").should_not be_valid
 build(:user, name: "Lasse").should be_valid
 \end{lstlisting}
 
-Efter modellen följer implementeringen av vyn och kontrollern (VC i MVC). VC är svårare att testa, jämfört med M, då VC innehåller två lager. Vyn är som bekant beroende av data från modellen som i sin tur levereras av kontrollern. Ett sätt att testa alla lager är med hjälp av så kallad fullstack-testning. Idén är att simulera flödet från en riktig användare som navigerar sig runt i vyn. Ett bibliotek som hanterar detta är Capybara.
+Efter modellen följer testningen av vyn och kontrollern (VC i MVC). VC är svårare att testa, jämfört med M, då VC innehåller två lager. Vyn är som bekant beroende av data från modellen som i sin tur levereras av kontrollern. Ett sätt att testa alla lager är med hjälp av så kallad fullstack-testning. Idén är att simulera flödet från en riktig användare som navigerar sig runt i vyn. Ett bibliotek som hanterar detta är Capybara.
 
 Exemplet nedan visar ett fullstack-test som med hjälp av Capybara testar ett formulär.
 
