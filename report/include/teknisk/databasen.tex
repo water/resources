@@ -14,11 +14,25 @@ och restriktionerna minskar risken för att  felaktig data sparas.
 
 En \emph{normaliserad databas} kan inte garantera att ingen felaktig data sparas. Modell-lagret måste fortfarande implementeras korrekt. Att implementera ett \emph{modell-lager} för en \emph{normaliserad databas} kan leda till mer avancerade SQL-operationer. En implementation för en icke-normaliserad databas kommer ha mindre komplexa operationer men den kommer behöva göra fler operationer för att uppdatera alla referenser.
 
+\begin{flushright}
+  
+  \textbf{Beslut}
+  
+  Vi valde att använda PostgreSQL och att normalisera databasen till den fjärde nivån.
+\end{flushright}
+
 \subsection{Datavalidering}
 För att behålla dataintegriteten i databasen behöver data valideras innan det sparas, denna validering kan ske antingen i \emph{databas-} eller \emph{modell-lagret}.
 Det är inte bättre att implementera det på det en stället än de andra men vanligast är ändå att lägga de enklaste valideringarna i databasen och resten i modell-lagret. För att implementera valideringar i databasen används \emph{constraints}, \emph{triggers} och till viss mån \emph{foreign keys}. Här kommer valet av \emph{DBMS} (\emph{Database Management System})in i bilden då alla inte har fullt stöd för \emph{constraints}.
 Det är svårare att underhålla logik i \emph{databas-lagret} då en ändring på en tabell kan påverka flera \emph{triggers}, detta kan leda till en problematisk felsökning.
-När målet är en fullständigt \emph{databas-agnostisk} applikation måste då alla valideringar ligga i modell-lagret. 
+När målet är en fullständigt \emph{databas-agnostisk} applikation måste då alla valideringar ligga i modell-lagret.
+
+\begin{flushright}
+  
+  \textbf{Beslut}
+  
+  Vi valde att implementera datavalideringarna i modell-lagret.
+\end{flushright}
 
 \subsection{Rekursiv borttagning av poster i databasen}
 
