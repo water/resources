@@ -47,7 +47,7 @@ Det vore optimalt med 100\% test-täckning, i praktiken har inte detta varit mö
 
 Vi påbörjade utvecklingen av Water genom att strukturera upp och implementera en databas, var vid modellagret i MVC-modellen applicerades. Under utvecklingen av modellerna så användes BDD-metoden för att bygga och strukturera upp testerna. 
 
-Ett problem vid modelltestning är popularisering av objekten som ska testas. En lösning är att skapa såkallade fixtures. Fixtures är färdigpopulariserade och validerade objekt som används vid testing.
+Ett problem vid modelltestning är popularisering av objekten som ska testas. En lösning är att skapa såkallade factories. Factories är färdigpopulariserade objekt som kan användas i testprocessen.
 
 User-modellen innehåller ett namn, lösenord och en e-postadress. Problem uppstår när utvecklaren ska testa specifika attribut, till exempel existensen av namn. Det är önskvärt att kunna modifiera specifika attribut, men behålla resterande fält för att se vilken effekt ändringarna har.
 
